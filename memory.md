@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phase 0 is complete. Phase 1 has produced a runnable, conservative branch-data foundation: versioned snapshot, manifest, schema, validation, tests, and inspection command. No map, backend, recommendation, competitor, or AI implementation exists.
+Phases 0–2 are complete. The project has a validated 24-branch data foundation and a local React/MapLibre network-exploration workspace. No backend, catchment/overlap, competitor, recommendation, or AI implementation exists.
 
 ## Modular Build Briefing Protocol
 
@@ -20,6 +20,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 0 research, traceability, architecture, source strategy, methodology, UX plan, ADRs, and roadmap completed under `docs/`.
 - Root `.gitignore` restored and expanded. `.env` is now ignored; it was untracked when inspected. No secrets were read or exposed.
 - Phase 1 branch-data foundation added: `data/processed/branches_snapshot_v0.json`, manifest, `schemas/branch_record_v1.json`, standard-library validator, inspection command, tests, and `docs/PHASE_1_DATA_FOUNDATION.md`.
+- Phase 2 network-exploration workspace added: React/TypeScript/Vite, MapLibre branch points, roster/text filters, linked selection, and evidence/source detail. See `docs/PHASE_2_NETWORK_EXPLORATION.md`.
 
 ## Tried and Validated
 
@@ -29,6 +30,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - User-supplied 2GIS branch evidence lists 24 beauty lounges plus a separate head office, reconciling exactly to Bedashing's official 24-lounge claim. This is now the current `branches_snapshot_v1` roster; v0 is retained as evidence history.
 - User supplied and geographically validated coordinates for all 24 2GIS roster records. Every current record is now `secondary_map_coordinate`; no location coordinate was inferred or fabricated.
 - `py -3 scripts/validate_branches.py`, `py -3 scripts/inspect_branches.py`, and `py -3 -m unittest discover -s tests -v` pass on the Phase 1 snapshot.
+- `npm run build` passes for the Phase 2 workspace; it imports the committed JSON snapshot and needs no key or backend. The optional OSM raster basemap is visibly attributed and must remain ordinary interactive use only under the OSM tile policy.
 - OpenStreetMap Nominatim returned one attributable Abu Dhabi Bedashing POI (node 13335655901; 24.458976, 54.3536914); it remains a candidate until matched to official roster evidence.
 
 ## Tried and Rejected
@@ -50,13 +52,14 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## UI / UX Decisions
 
-- UI remains unimplemented. Planned operator geospatial workspace is documented in `docs/research/08_product_ux_plan.md`.
+- Phase 2 implements the initial operator geospatial workspace; it intentionally limits the UI to roster exploration and branch-level evidence rather than implying catchments or recommendations.
 - Current Impeccable upstream sequence researched: install/approve before UI work, then init/product truth; user approval/installation remains a later decision.
 
 ## Known Issues / Technical Debt
 
 - Count and coordinate reconciliation are complete: 24 2GIS lounge entries (excluding one head office) match Bedashing's official claim, with a user-validated 2GIS-attributed coordinate for each. Canonical branch-name cleanup and a functioning official per-branch locator feed remain open. Official locator server-rendering showed zero shops and Zenoti booking retrieval returned an error on 2026-09-08.
 - Public UAE demand and compliant ratings sources remain to be validated.
+- Browser smoke testing through the available in-app browser was blocked by its local-host policy (`ERR_BLOCKED_BY_CLIENT`); production build and type checks passed. Verify visual interaction with `npm run dev` in a normal local browser before final submission.
 
 ## Open Questions
 
@@ -66,8 +69,8 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 1's roster/data foundation is ready for review and commit. The next proposed module is Phase 2 map/network exploration, using the evidence-backed 24-location snapshot while continuing ordinary canonical-name cleanup.
+Phase 2 network exploration is ready for review and commit. The next proposed module is Phase 3: deterministic service radii, nearest-own-branch distances, pairwise overlap, and tests—without calling radii drive times.
 
 ## Last Updated
 
-2026-09-08 — Phase 1 roster updated to 24 user-validated, 2GIS-attributed coordinates; count and coordinate reconciliation are complete, with canonical-label cleanup remaining.
+2026-09-08 — Phase 2 added and production-built: local MapLibre network workspace with source/evidence detail, using the validated 24-location snapshot.
