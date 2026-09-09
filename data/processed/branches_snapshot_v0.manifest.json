@@ -1,0 +1,13 @@
+{
+  "snapshot_id": "bedashing-branches-v0-2026-09-08",
+  "schema_version": "branch-record-v1",
+  "source_registry": "docs/research/source_registry.csv",
+  "official_claimed_uae_lounges": 24,
+  "candidate_records": 14,
+  "currently_listed_records": 1,
+  "records_with_coordinates": 1,
+  "reconciliation_status": "INCOMPLETE — official live locator/booking roster was unavailable to retrieval on 2026-09-08; no completeness claim is made.",
+  "license_note": "This small derived snapshot preserves facts and URLs, not copied third-party datasets. OSM-derived coordinate requires OpenStreetMap attribution and ODbL review in future presentation.",
+  "generated_by": "manual research seed; reproducible normalization not yet implemented",
+  "limitations": ["Not a complete official roster", "Most coordinates remain intentionally null", "Candidate operating status requires official confirmation"]
+}

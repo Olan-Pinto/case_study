@@ -1,0 +1,13 @@
+{
+  "snapshot_id":"bedashing-branches-v1-2026-09-08",
+  "schema_version":"branch-record-v1",
+  "source_registry":"docs/research/source_registry.csv",
+  "official_claimed_uae_lounges":24,
+  "candidate_records":0,
+  "currently_listed_records":24,
+  "records_with_coordinates":24,
+  "reconciliation_status":"COMPLETE FOR COUNT AND COORDINATES — 24 2GIS beauty-lounge entries, excluding one separate head-office entry, match Bedashing's official 24-lounge claim. Canonical-name cleanup and official per-branch verification remain pending.",
+  "license_note":"Snapshot retains manually supplied 2GIS URLs and normalized location text; it is not a copied map dataset.",
+  "generated_by":"manual normalization of user-supplied 2GIS roster",
+  "limitations":["2GIS is a secondary mapping source, not Bedashing's official live branch feed","coordinates are 2GIS-attributed rather than official Bedashing coordinates","some canonical branch labels need further reconciliation"]
+}
