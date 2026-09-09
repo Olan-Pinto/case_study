@@ -1,0 +1,13 @@
+{
+  "model_id": "bedashing-network-geometry-v1",
+  "distance_method": "haversine",
+  "overlap_method": "analytic_equal_radius_circle_intersection",
+  "radius_bands_km": [1, 3, 5],
+  "primary_radius_km": 3,
+  "earth_radius_km": 6371.0088,
+  "interpretation": "Service radii are geometric distance bands for sensitivity analysis. They are not drive-time isochrones, actual customer catchments, or evidence of cannibalization by themselves.",
+  "assumptions": [
+    "At 1–5 km bands, planar circle-intersection area is a transparent approximation after great-circle distance is calculated.",
+    "Overlap is a screening signal only; branch archetype, demand, customer-origin data, and operational performance are not yet included."
+  ]
+}

@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
-import { branches, snapshot } from './data'
+import { branches, networkMetrics, snapshot } from './data'
 import { NetworkMap } from './NetworkMap'
-import type { Branch } from './types'
+import type { Branch, BranchNetworkMetric } from './types'
 
 const emirates = ['All', ...Array.from(new Set(branches.map((branch) => branch.emirate))).sort()]
 
@@ -24,6 +24,7 @@ export function App() {
   }, [emirate, query])
 
   const selectedBranch = branches.find((branch) => branch.branch_id === selectedBranchId) ?? null
+  const selectedMetric = networkMetrics.branch_metrics.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectBranch = useCallback((branchId: string) => setSelectedBranchId(branchId), [])
 
   return (
@@ -79,18 +80,20 @@ export function App() {
 
         <section className="map-panel">
           <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} onSelect={selectBranch} />
-          <div className="map-caption">Point locations are secondary-map coordinates. This phase does not infer drive times, catchments, or branch performance.</div>
+          <div className="map-caption">Point locations are secondary-map coordinates. Service-radius metrics in the evidence panel are geometric distance bands—not drive-time catchments or performance.</div>
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedBranch ? <BranchDetail branch={selectedBranch} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} /> : <p className="empty">Select a location to inspect its evidence.</p>}
         </aside>
       </div>
     </main>
   )
 }
 
-function BranchDetail({ branch }: { branch: Branch }) {
+function BranchDetail({ branch, metric }: { branch: Branch, metric: BranchNetworkMetric | null }) {
+  const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)
+  const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
   return (
     <>
       <p className="eyebrow">Location evidence</p>
@@ -110,6 +113,12 @@ function BranchDetail({ branch }: { branch: Branch }) {
           {branch.source_urls.map((url) => <li key={url}><a href={url} target="_blank" rel="noreferrer">Open evidence source <span aria-hidden="true">↗</span></a></li>)}
         </ul>
       </section>
+      {metric && primaryRadiusMetric && <section className="geometry">
+        <h3>Network geometry · {networkMetrics.primary_radius_km} km</h3>
+        <p>Nearest own location: <strong>{nearestBranch?.name.replace('Bedashing Beauty Lounge — ', '')}</strong> · {metric.nearest_own_branch_distance_km.toFixed(2)} km</p>
+        <p>Overlapping service radii: <strong>{primaryRadiusMetric.overlapping_branch_count}</strong> · largest pairwise overlap: <strong>{(primaryRadiusMetric.maximum_pairwise_overlap_coefficient * 100).toFixed(0)}%</strong></p>
+        <p className="geometry-note">Geometry is a screening input only. It does not measure customer behavior, performance, or drive time.</p>
+      </section>}
       {branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>
   )

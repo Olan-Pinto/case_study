@@ -1,0 +1,848 @@
+{
+  "model_id": "bedashing-network-geometry-v1",
+  "input_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "source_ids": [
+    "2gis_branch_roster"
+  ],
+  "primary_radius_km": 3,
+  "radius_bands_km": [
+    1,
+    3,
+    5
+  ],
+  "distance_method": "haversine",
+  "overlap_method": "analytic_equal_radius_circle_intersection",
+  "interpretation": "Service radii are geometric distance bands for sensitivity analysis. They are not drive-time isochrones, actual customer catchments, or evidence of cannibalization by themselves.",
+  "assumptions": [
+    "At 1\u20135 km bands, planar circle-intersection area is a transparent approximation after great-circle distance is calculated.",
+    "Overlap is a screening signal only; branch archetype, demand, customer-origin data, and operational performance are not yet included."
+  ],
+  "branch_metrics": [
+    {
+      "branch_id": "pinnacle_building",
+      "nearest_own_branch_id": "golden_mile_galleria",
+      "nearest_own_branch_distance_km": 4.211387,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 5.270253,
+          "maximum_pairwise_overlap_coefficient": 0.186397
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 58.170839,
+          "maximum_pairwise_overlap_coefficient": 0.480091
+        }
+      ]
+    },
+    {
+      "branch_id": "golden_mile_galleria",
+      "nearest_own_branch_id": "pinnacle_building",
+      "nearest_own_branch_distance_km": 4.211387,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 5.270253,
+          "maximum_pairwise_overlap_coefficient": 0.186397
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 38.367445,
+          "maximum_pairwise_overlap_coefficient": 0.480091
+        }
+      ]
+    },
+    {
+      "branch_id": "indigo_central_5",
+      "nearest_own_branch_id": "pinnacle_building",
+      "nearest_own_branch_distance_km": 6.240284,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 3,
+          "sum_pairwise_intersection_area_km2": 38.608008,
+          "maximum_pairwise_overlap_coefficient": 0.260563
+        }
+      ]
+    },
+    {
+      "branch_id": "city_walk_building_18a",
+      "nearest_own_branch_id": "indigo_central_5",
+      "nearest_own_branch_distance_km": 6.629991,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 17.482198,
+          "maximum_pairwise_overlap_coefficient": 0.22259
+        }
+      ]
+    },
+    {
+      "branch_id": "nad_al_sheba_mall",
+      "nearest_own_branch_id": "mirdif_35",
+      "nearest_own_branch_distance_km": 10.288789,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        }
+      ]
+    },
+    {
+      "branch_id": "mirdif_35",
+      "nearest_own_branch_id": "nad_al_sheba_mall",
+      "nearest_own_branch_distance_km": 10.288789,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        }
+      ]
+    },
+    {
+      "branch_id": "al_husna_street",
+      "nearest_own_branch_id": "zayed_international_airport",
+      "nearest_own_branch_distance_km": 10.132774,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        }
+      ]
+    },
+    {
+      "branch_id": "zawaya_walk",
+      "nearest_own_branch_id": "misk_2",
+      "nearest_own_branch_distance_km": 5.206988,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 1.598144,
+          "maximum_pairwise_overlap_coefficient": 0.056523
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 28.929271,
+          "maximum_pairwise_overlap_coefficient": 0.368339
+        }
+      ]
+    },
+    {
+      "branch_id": "misk_2",
+      "nearest_own_branch_id": "zawaya_walk",
+      "nearest_own_branch_distance_km": 5.206988,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 1.598144,
+          "maximum_pairwise_overlap_coefficient": 0.056523
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 28.929271,
+          "maximum_pairwise_overlap_coefficient": 0.368339
+        }
+      ]
+    },
+    {
+      "branch_id": "deerfields_mall",
+      "nearest_own_branch_id": "noya_plaza_mall",
+      "nearest_own_branch_distance_km": 5.487871,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 0.835465,
+          "maximum_pairwise_overlap_coefficient": 0.029549
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 3,
+          "sum_pairwise_intersection_area_km2": 33.290337,
+          "maximum_pairwise_overlap_coefficient": 0.33812
+        }
+      ]
+    },
+    {
+      "branch_id": "noya_plaza_mall",
+      "nearest_own_branch_id": "west_yas_plaza",
+      "nearest_own_branch_distance_km": 3.864564,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 3,
+          "sum_pairwise_intersection_area_km2": 8.445369,
+          "maximum_pairwise_overlap_coefficient": 0.240808
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 4,
+          "sum_pairwise_intersection_area_km2": 107.698038,
+          "maximum_pairwise_overlap_coefficient": 0.520487
+        }
+      ]
+    },
+    {
+      "branch_id": "west_yas_plaza",
+      "nearest_own_branch_id": "noya_plaza_mall",
+      "nearest_own_branch_distance_km": 3.864564,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 6.808694,
+          "maximum_pairwise_overlap_coefficient": 0.240808
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 4,
+          "sum_pairwise_intersection_area_km2": 79.101109,
+          "maximum_pairwise_overlap_coefficient": 0.520487
+        }
+      ]
+    },
+    {
+      "branch_id": "khalifa_city_al_mireef",
+      "nearest_own_branch_id": "zayed_international_airport",
+      "nearest_own_branch_distance_km": 4.390352,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 4.52165,
+          "maximum_pairwise_overlap_coefficient": 0.159921
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 3,
+          "sum_pairwise_intersection_area_km2": 71.743243,
+          "maximum_pairwise_overlap_coefficient": 0.45952
+        }
+      ]
+    },
+    {
+      "branch_id": "zayed_international_airport",
+      "nearest_own_branch_id": "khalifa_city_al_mireef",
+      "nearest_own_branch_distance_km": 4.390352,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 5.32286,
+          "maximum_pairwise_overlap_coefficient": 0.159921
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 4,
+          "sum_pairwise_intersection_area_km2": 81.596291,
+          "maximum_pairwise_overlap_coefficient": 0.45952
+        }
+      ]
+    },
+    {
+      "branch_id": "ict_c29_khalifa_park",
+      "nearest_own_branch_id": "hamad_mohamed_thani_al_rumaithi",
+      "nearest_own_branch_distance_km": 3.557727,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 8.254889,
+          "maximum_pairwise_overlap_coefficient": 0.291957
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 46.595788,
+          "maximum_pairwise_overlap_coefficient": 0.556762
+        }
+      ]
+    },
+    {
+      "branch_id": "abu_dhabi_unresolved",
+      "nearest_own_branch_id": "al_rakb_street",
+      "nearest_own_branch_distance_km": 6.040758,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 26.423348,
+          "maximum_pairwise_overlap_coefficient": 0.280613
+        }
+      ]
+    },
+    {
+      "branch_id": "nassib_bin_ahmed_al_humairi",
+      "nearest_own_branch_id": "hamad_mohamed_thani_al_rumaithi",
+      "nearest_own_branch_distance_km": 7.04938,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 18.807529,
+          "maximum_pairwise_overlap_coefficient": 0.183646
+        }
+      ]
+    },
+    {
+      "branch_id": "al_dhait_north",
+      "nearest_own_branch_id": "misk_2",
+      "nearest_own_branch_distance_km": 64.965362,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        }
+      ]
+    },
+    {
+      "branch_id": "al_taif_mall",
+      "nearest_own_branch_id": "al_dhait_north",
+      "nearest_own_branch_distance_km": 82.019284,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        }
+      ]
+    },
+    {
+      "branch_id": "hamad_mohamed_thani_al_rumaithi",
+      "nearest_own_branch_id": "ict_c29_khalifa_park",
+      "nearest_own_branch_distance_km": 3.557727,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 8.254889,
+          "maximum_pairwise_overlap_coefficient": 0.291957
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 58.15151,
+          "maximum_pairwise_overlap_coefficient": 0.556762
+        }
+      ]
+    },
+    {
+      "branch_id": "al_rakb_street",
+      "nearest_own_branch_id": "abu_dhabi_unresolved",
+      "nearest_own_branch_distance_km": 6.040758,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 22.039321,
+          "maximum_pairwise_overlap_coefficient": 0.280613
+        }
+      ]
+    },
+    {
+      "branch_id": "saeed_bin_saif_al_falahi",
+      "nearest_own_branch_id": "al_khaleej_al_arabi",
+      "nearest_own_branch_distance_km": 3.290069,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 9.573446,
+          "maximum_pairwise_overlap_coefficient": 0.338591
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 2,
+          "sum_pairwise_intersection_area_km2": 49.1105,
+          "maximum_pairwise_overlap_coefficient": 0.588781
+        }
+      ]
+    },
+    {
+      "branch_id": "al_khaleej_al_arabi",
+      "nearest_own_branch_id": "saeed_bin_saif_al_falahi",
+      "nearest_own_branch_distance_km": 3.290069,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 9.573446,
+          "maximum_pairwise_overlap_coefficient": 0.338591
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 1,
+          "sum_pairwise_intersection_area_km2": 46.24272,
+          "maximum_pairwise_overlap_coefficient": 0.588781
+        }
+      ]
+    },
+    {
+      "branch_id": "madinat_zayed_block_10",
+      "nearest_own_branch_id": "al_khaleej_al_arabi",
+      "nearest_own_branch_distance_km": 112.991895,
+      "service_radius_metrics": [
+        {
+          "radius_km": 1,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 3,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        },
+        {
+          "radius_km": 5,
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
+        }
+      ]
+    }
+  ],
+  "pairwise_overlaps": [
+    {
+      "branch_a_id": "golden_mile_galleria",
+      "branch_b_id": "pinnacle_building",
+      "radius_km": 3,
+      "distance_km": 4.211387,
+      "intersection_area_km2": 5.270253,
+      "overlap_coefficient": 0.186397
+    },
+    {
+      "branch_a_id": "golden_mile_galleria",
+      "branch_b_id": "pinnacle_building",
+      "radius_km": 5,
+      "distance_km": 4.211387,
+      "intersection_area_km2": 37.706237,
+      "overlap_coefficient": 0.480091
+    },
+    {
+      "branch_a_id": "indigo_central_5",
+      "branch_b_id": "pinnacle_building",
+      "radius_km": 5,
+      "distance_km": 6.240284,
+      "intersection_area_km2": 20.464602,
+      "overlap_coefficient": 0.260563
+    },
+    {
+      "branch_a_id": "golden_mile_galleria",
+      "branch_b_id": "indigo_central_5",
+      "radius_km": 5,
+      "distance_km": 9.632252,
+      "intersection_area_km2": 0.661208,
+      "overlap_coefficient": 0.008419
+    },
+    {
+      "branch_a_id": "city_walk_building_18a",
+      "branch_b_id": "indigo_central_5",
+      "radius_km": 5,
+      "distance_km": 6.629991,
+      "intersection_area_km2": 17.482198,
+      "overlap_coefficient": 0.22259
+    },
+    {
+      "branch_a_id": "misk_2",
+      "branch_b_id": "zawaya_walk",
+      "radius_km": 3,
+      "distance_km": 5.206988,
+      "intersection_area_km2": 1.598144,
+      "overlap_coefficient": 0.056523
+    },
+    {
+      "branch_a_id": "misk_2",
+      "branch_b_id": "zawaya_walk",
+      "radius_km": 5,
+      "distance_km": 5.206988,
+      "intersection_area_km2": 28.929271,
+      "overlap_coefficient": 0.368339
+    },
+    {
+      "branch_a_id": "deerfields_mall",
+      "branch_b_id": "noya_plaza_mall",
+      "radius_km": 3,
+      "distance_km": 5.487871,
+      "intersection_area_km2": 0.835465,
+      "overlap_coefficient": 0.029549
+    },
+    {
+      "branch_a_id": "deerfields_mall",
+      "branch_b_id": "noya_plaza_mall",
+      "radius_km": 5,
+      "distance_km": 5.487871,
+      "intersection_area_km2": 26.55592,
+      "overlap_coefficient": 0.33812
+    },
+    {
+      "branch_a_id": "deerfields_mall",
+      "branch_b_id": "west_yas_plaza",
+      "radius_km": 5,
+      "distance_km": 9.219717,
+      "intersection_area_km2": 2.030732,
+      "overlap_coefficient": 0.025856
+    },
+    {
+      "branch_a_id": "deerfields_mall",
+      "branch_b_id": "zayed_international_airport",
+      "radius_km": 5,
+      "distance_km": 8.625585,
+      "intersection_area_km2": 4.703685,
+      "overlap_coefficient": 0.059889
+    },
+    {
+      "branch_a_id": "noya_plaza_mall",
+      "branch_b_id": "west_yas_plaza",
+      "radius_km": 3,
+      "distance_km": 3.864564,
+      "intersection_area_km2": 6.808694,
+      "overlap_coefficient": 0.240808
+    },
+    {
+      "branch_a_id": "noya_plaza_mall",
+      "branch_b_id": "west_yas_plaza",
+      "radius_km": 5,
+      "distance_km": 3.864564,
+      "intersection_area_km2": 40.878915,
+      "overlap_coefficient": 0.520487
+    },
+    {
+      "branch_a_id": "khalifa_city_al_mireef",
+      "branch_b_id": "noya_plaza_mall",
+      "radius_km": 5,
+      "distance_km": 7.134119,
+      "intersection_area_km2": 13.826066,
+      "overlap_coefficient": 0.176039
+    },
+    {
+      "branch_a_id": "noya_plaza_mall",
+      "branch_b_id": "zayed_international_airport",
+      "radius_km": 3,
+      "distance_km": 5.502088,
+      "intersection_area_km2": 0.80121,
+      "overlap_coefficient": 0.028337
+    },
+    {
+      "branch_a_id": "noya_plaza_mall",
+      "branch_b_id": "zayed_international_airport",
+      "radius_km": 5,
+      "distance_km": 5.502088,
+      "intersection_area_km2": 26.437137,
+      "overlap_coefficient": 0.336608
+    },
+    {
+      "branch_a_id": "khalifa_city_al_mireef",
+      "branch_b_id": "west_yas_plaza",
+      "radius_km": 5,
+      "distance_km": 6.067487,
+      "intersection_area_km2": 21.826585,
+      "overlap_coefficient": 0.277905
+    },
+    {
+      "branch_a_id": "west_yas_plaza",
+      "branch_b_id": "zayed_international_airport",
+      "radius_km": 5,
+      "distance_km": 7.05765,
+      "intersection_area_km2": 14.364877,
+      "overlap_coefficient": 0.182899
+    },
+    {
+      "branch_a_id": "khalifa_city_al_mireef",
+      "branch_b_id": "zayed_international_airport",
+      "radius_km": 3,
+      "distance_km": 4.390352,
+      "intersection_area_km2": 4.52165,
+      "overlap_coefficient": 0.159921
+    },
+    {
+      "branch_a_id": "khalifa_city_al_mireef",
+      "branch_b_id": "zayed_international_airport",
+      "radius_km": 5,
+      "distance_km": 4.390352,
+      "intersection_area_km2": 36.090592,
+      "overlap_coefficient": 0.45952
+    },
+    {
+      "branch_a_id": "hamad_mohamed_thani_al_rumaithi",
+      "branch_b_id": "ict_c29_khalifa_park",
+      "radius_km": 3,
+      "distance_km": 3.557727,
+      "intersection_area_km2": 8.254889,
+      "overlap_coefficient": 0.291957
+    },
+    {
+      "branch_a_id": "hamad_mohamed_thani_al_rumaithi",
+      "branch_b_id": "ict_c29_khalifa_park",
+      "radius_km": 5,
+      "distance_km": 3.557727,
+      "intersection_area_km2": 43.728008,
+      "overlap_coefficient": 0.556762
+    },
+    {
+      "branch_a_id": "ict_c29_khalifa_park",
+      "branch_b_id": "saeed_bin_saif_al_falahi",
+      "radius_km": 5,
+      "distance_km": 9.015778,
+      "intersection_area_km2": 2.86778,
+      "overlap_coefficient": 0.036514
+    },
+    {
+      "branch_a_id": "abu_dhabi_unresolved",
+      "branch_b_id": "nassib_bin_ahmed_al_humairi",
+      "radius_km": 5,
+      "distance_km": 8.689458,
+      "intersection_area_km2": 4.384027,
+      "overlap_coefficient": 0.055819
+    },
+    {
+      "branch_a_id": "abu_dhabi_unresolved",
+      "branch_b_id": "al_rakb_street",
+      "radius_km": 5,
+      "distance_km": 6.040758,
+      "intersection_area_km2": 22.039321,
+      "overlap_coefficient": 0.280613
+    },
+    {
+      "branch_a_id": "hamad_mohamed_thani_al_rumaithi",
+      "branch_b_id": "nassib_bin_ahmed_al_humairi",
+      "radius_km": 5,
+      "distance_km": 7.04938,
+      "intersection_area_km2": 14.423502,
+      "overlap_coefficient": 0.183646
+    },
+    {
+      "branch_a_id": "al_khaleej_al_arabi",
+      "branch_b_id": "saeed_bin_saif_al_falahi",
+      "radius_km": 3,
+      "distance_km": 3.290069,
+      "intersection_area_km2": 9.573446,
+      "overlap_coefficient": 0.338591
+    },
+    {
+      "branch_a_id": "al_khaleej_al_arabi",
+      "branch_b_id": "saeed_bin_saif_al_falahi",
+      "radius_km": 5,
+      "distance_km": 3.290069,
+      "intersection_area_km2": 46.24272,
+      "overlap_coefficient": 0.588781
+    }
+  ]
+}

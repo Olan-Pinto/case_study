@@ -21,3 +21,7 @@ Study urban UAE footprints, then H3 resolution 8 cells (candidate, **VALIDATION 
 ## Tests
 
 Test known-distance fixtures, symmetrical intersections, metric CRS area units, H3 round trips/neighbours, nearest-neighbour ties, bounds, coordinate precision, and geometry validity. Snapshot test a small fixed UAE fixture so geospatial-library upgrades cannot silently change recommendations.
+
+## Phase 3 implementation note
+
+`network_metrics_v1` implements the first transparent screen: 1/3/5 km geometric service radii, with 3 km primary. Great-circle distances use haversine; equal-radius intersection uses an analytic planar-circle formula at these small bands. It is explicitly not travel time or observed customer behavior. See `docs/PHASE_3_NETWORK_GEOMETRY.md`.

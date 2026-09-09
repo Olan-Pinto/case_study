@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–2 are complete. The project has a validated 24-branch data foundation and a local React/MapLibre network-exploration workspace. No backend, catchment/overlap, competitor, recommendation, or AI implementation exists.
+Phases 0–3 are complete. The project has a validated 24-branch data foundation, a local React/MapLibre network-exploration workspace, and deterministic own-network distance/service-radius overlap metrics. No backend, competitor, recommendation, or AI implementation exists.
 
 ## Modular Build Briefing Protocol
 
@@ -21,6 +21,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Root `.gitignore` restored and expanded. `.env` is now ignored; it was untracked when inspected. No secrets were read or exposed.
 - Phase 1 branch-data foundation added: `data/processed/branches_snapshot_v0.json`, manifest, `schemas/branch_record_v1.json`, standard-library validator, inspection command, tests, and `docs/PHASE_1_DATA_FOUNDATION.md`.
 - Phase 2 network-exploration workspace added: React/TypeScript/Vite, MapLibre branch points, roster/text filters, linked selection, and evidence/source detail. See `docs/PHASE_2_NETWORK_EXPLORATION.md`.
+- Phase 3 network geometry added: committed, versioned 1/3/5 km service-radius metrics; haversine nearest-own-branch distances; analytic circle intersections; validation and unit tests. See `docs/PHASE_3_NETWORK_GEOMETRY.md`.
 
 ## Tried and Validated
 
@@ -31,6 +32,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - User supplied and geographically validated coordinates for all 24 2GIS roster records. Every current record is now `secondary_map_coordinate`; no location coordinate was inferred or fabricated.
 - `py -3 scripts/validate_branches.py`, `py -3 scripts/inspect_branches.py`, and `py -3 -m unittest discover -s tests -v` pass on the Phase 1 snapshot.
 - `npm run build` passes for the Phase 2 workspace; it imports the committed JSON snapshot and needs no key or backend. The optional OSM raster basemap is visibly attributed and must remain ordinary interactive use only under the OSM tile policy.
+- `network_metrics_v1` deterministically produces 24 branch metrics and 28 overlapping pairs across 1/3/5 km sensitivity bands. Its 3 km primary band is exposed in the branch evidence panel; it is labelled as geometric screening, not a catchment, drive time, or recommendation.
 - OpenStreetMap Nominatim returned one attributable Abu Dhabi Bedashing POI (node 13335655901; 24.458976, 54.3536914); it remains a candidate until matched to official roster evidence.
 
 ## Tried and Rejected
@@ -60,6 +62,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Count and coordinate reconciliation are complete: 24 2GIS lounge entries (excluding one head office) match Bedashing's official claim, with a user-validated 2GIS-attributed coordinate for each. Canonical branch-name cleanup and a functioning official per-branch locator feed remain open. Official locator server-rendering showed zero shops and Zenoti booking retrieval returned an error on 2026-09-08.
 - Public UAE demand and compliant ratings sources remain to be validated.
 - Browser smoke testing through the available in-app browser was blocked by its local-host policy (`ERR_BLOCKED_BY_CLIENT`); production build and type checks passed. Verify visual interaction with `npm run dev` in a normal local browser before final submission.
+- Phase 3 overlap uses pairwise analytic circles, so summed pairwise areas may double-count shared area; a later coverage-uniqueness calculation must use union geometry rather than this field.
 
 ## Open Questions
 
@@ -69,8 +72,8 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 2 network exploration is ready for review and commit. The next proposed module is Phase 3: deterministic service radii, nearest-own-branch distances, pairwise overlap, and tests—without calling radii drive times.
+Phase 3 network geometry is ready for review and commit. The next proposed module is Phase 4: a source-backed competitor taxonomy, candidate collection/reconciliation, and pressure layer.
 
 ## Last Updated
 
-2026-09-08 — Phase 2 added and production-built: local MapLibre network workspace with source/evidence detail, using the validated 24-location snapshot.
+2026-09-08 — Phase 3 added: deterministic 1/3/5 km service-radius and nearest-network metrics, with tests and an explicitly limited in-product geometry screen.

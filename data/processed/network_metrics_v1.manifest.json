@@ -1,0 +1,13 @@
+{
+  "model_id": "bedashing-network-geometry-v1",
+  "input_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "input_source_ids": [
+    "2gis_branch_roster"
+  ],
+  "config_path": "config/geospatial_v1.json",
+  "output_path": "data/processed/network_metrics_v1.json",
+  "branch_metric_records": 24,
+  "pairwise_overlap_records": 28,
+  "primary_radius_km": 3,
+  "limitation": "Geometric service-radius overlap is a screening metric, not travel time, observed customer behavior, or a recommendation."
+}
