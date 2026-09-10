@@ -3,9 +3,15 @@
   "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
   "input_competitor_snapshot_id": "bedashing-competitors-v1-2026-09-09",
   "source_ids": [
-    "sisters_locations",
+    "2gis_branch_roster",
+    "city_walk_outlet",
     "nstyle_locations",
-    "2gis_branch_roster"
+    "sisters_locations",
+    "user_branch_location_validation_2026_09_09",
+    "user_geospatial_validation_2026_09_09",
+    "user_validated_google_maps_2026_09_09",
+    "waze_khalifa_city",
+    "waze_mirdif_35"
   ],
   "formula": "verified_competitor_pressure_lower_bound = sum(similarity_weight * exp(-great_circle_distance_km / distance_decay_km))",
   "interpretation": "Candidate review is complete for this snapshot, but the screen is a lower bound limited to the researched brands. A zero does not mean no competition.",
@@ -16,159 +22,55 @@
   "branch_pressure": [
     {
       "branch_id": "pinnacle_building",
-      "verified_competitor_pressure_lower_bound": 1.3065,
+      "verified_competitor_pressure_lower_bound": 1.282812,
       "contributions": [
         {
           "competitor_id": "sisters_mall_of_emirates",
-          "distance_km": 1.724196,
+          "distance_km": 1.846985,
           "similarity_weight": 1.0,
-          "contribution": 0.562856
+          "contribution": 0.540283
         },
         {
           "competitor_id": "nstyle_mall_of_emirates",
-          "distance_km": 2.550675,
+          "distance_km": 2.759215,
           "similarity_weight": 0.7,
-          "contribution": 0.299123
+          "contribution": 0.279036
         },
         {
           "competitor_id": "nstyle_dubai_marina_mall",
-          "distance_km": 5.562447,
+          "distance_km": 5.419264,
           "similarity_weight": 0.7,
-          "contribution": 0.10961
-        },
-        {
-          "competitor_id": "sisters_jbr",
-          "distance_km": 6.70445,
-          "similarity_weight": 1.0,
-          "contribution": 0.107012
+          "contribution": 0.114969
         },
         {
           "competitor_id": "nstyle_meadows_souk",
-          "distance_km": 5.711437,
+          "distance_km": 5.476916,
           "similarity_weight": 0.7,
-          "contribution": 0.1043
+          "contribution": 0.11278
+        },
+        {
+          "competitor_id": "sisters_jbr",
+          "distance_km": 6.550496,
+          "similarity_weight": 1.0,
+          "contribution": 0.112647
         },
         {
           "competitor_id": "nstyle_dubai_hills_mall",
-          "distance_km": 5.80076,
+          "distance_km": 5.775094,
           "similarity_weight": 0.7,
-          "contribution": 0.10124
+          "contribution": 0.10211
         },
         {
           "competitor_id": "sisters_dubai_mall",
-          "distance_km": 13.384685,
+          "distance_km": 13.563858,
           "similarity_weight": 1.0,
-          "contribution": 0.011544
+          "contribution": 0.010875
         },
         {
           "competitor_id": "sisters_city_walk",
-          "distance_km": 13.580345,
+          "distance_km": 13.782089,
           "similarity_weight": 1.0,
-          "contribution": 0.010815
-        }
-      ],
-      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
-    },
-    {
-      "branch_id": "golden_mile_galleria",
-      "verified_competitor_pressure_lower_bound": 0.860085,
-      "contributions": [
-        {
-          "competitor_id": "sisters_jbr",
-          "distance_km": 4.097672,
-          "similarity_weight": 1.0,
-          "contribution": 0.255153
-        },
-        {
-          "competitor_id": "nstyle_dubai_marina_mall",
-          "distance_km": 3.027758,
-          "similarity_weight": 0.7,
-          "contribution": 0.255144
-        },
-        {
-          "competitor_id": "sisters_mall_of_emirates",
-          "distance_km": 5.843679,
-          "similarity_weight": 1.0,
-          "contribution": 0.142574
-        },
-        {
-          "competitor_id": "nstyle_mall_of_emirates",
-          "distance_km": 6.056842,
-          "similarity_weight": 0.7,
-          "contribution": 0.092957
-        },
-        {
-          "competitor_id": "nstyle_meadows_souk",
-          "distance_km": 6.191816,
-          "similarity_weight": 0.7,
-          "contribution": 0.088867
-        },
-        {
-          "competitor_id": "nstyle_dubai_hills_mall",
-          "distance_km": 9.950231,
-          "similarity_weight": 0.7,
-          "contribution": 0.02539
-        }
-      ],
-      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
-    },
-    {
-      "branch_id": "indigo_central_5",
-      "verified_competitor_pressure_lower_bound": 0.775703,
-      "contributions": [
-        {
-          "competitor_id": "sisters_mall_of_emirates",
-          "distance_km": 4.723316,
-          "similarity_weight": 1.0,
-          "contribution": 0.207124
-        },
-        {
-          "competitor_id": "nstyle_mall_of_emirates",
-          "distance_km": 3.731248,
-          "similarity_weight": 0.7,
-          "contribution": 0.201811
-        },
-        {
-          "competitor_id": "nstyle_dubai_hills_mall",
-          "distance_km": 5.989905,
-          "similarity_weight": 0.7,
-          "contribution": 0.095054
-        },
-        {
-          "competitor_id": "sisters_dubai_mall",
-          "distance_km": 7.166471,
-          "similarity_weight": 1.0,
-          "contribution": 0.091738
-        },
-        {
-          "competitor_id": "sisters_city_walk",
-          "distance_km": 7.397346,
-          "similarity_weight": 1.0,
-          "contribution": 0.084942
-        },
-        {
-          "competitor_id": "nstyle_dubai_mall",
-          "distance_km": 7.769844,
-          "similarity_weight": 0.7,
-          "contribution": 0.052517
-        },
-        {
-          "competitor_id": "nstyle_meadows_souk",
-          "distance_km": 11.573924,
-          "similarity_weight": 0.7,
-          "contribution": 0.014777
-        },
-        {
-          "competitor_id": "nstyle_dubai_marina_mall",
-          "distance_km": 11.713729,
-          "similarity_weight": 0.7,
-          "contribution": 0.014105
-        },
-        {
-          "competitor_id": "sisters_jbr",
-          "distance_km": 12.88545,
-          "similarity_weight": 1.0,
-          "contribution": 0.013635
+          "contribution": 0.010112
         }
       ],
       "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
@@ -281,19 +183,19 @@
     },
     {
       "branch_id": "zawaya_walk",
-      "verified_competitor_pressure_lower_bound": 0.081532,
+      "verified_competitor_pressure_lower_bound": 0.081388,
       "contributions": [
         {
           "competitor_id": "nstyle_matajer_al_juraina",
-          "distance_km": 7.062069,
+          "distance_km": 7.061196,
           "similarity_weight": 0.7,
-          "contribution": 0.06649
+          "contribution": 0.06651
         },
         {
           "competitor_id": "sisters_mirdif_city_centre",
-          "distance_km": 12.590662,
+          "distance_km": 12.62353,
           "similarity_weight": 1.0,
-          "contribution": 0.015042
+          "contribution": 0.014878
         }
       ],
       "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"

@@ -41,7 +41,7 @@ def rounded(value: float) -> float:
 
 
 def build_metrics(snapshot: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
-    branches = snapshot["records"]
+    branches = [branch for branch in snapshot["records"] if "permanently_closed" not in branch["status"]]
     if any(branch["latitude"] is None or branch["longitude"] is None for branch in branches):
         raise ValueError("Network metrics require coordinates for every included branch")
 
@@ -91,7 +91,7 @@ def build_metrics(snapshot: dict[str, Any], config: dict[str, Any]) -> dict[str,
     return {
         "model_id": config["model_id"],
         "input_snapshot_id": snapshot["snapshot_id"],
-        "source_ids": ["2gis_branch_roster"],
+        "source_ids": sorted({source_id for branch in branches for source_id in branch["source_ids"]}),
         "primary_radius_km": config["primary_radius_km"],
         "radius_bands_km": radii,
         "distance_method": config["distance_method"],

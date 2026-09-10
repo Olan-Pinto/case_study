@@ -1,0 +1,55 @@
+{
+  "model_id": "branch-health-v1",
+  "status": "scored_public_proxy",
+  "weights": {"peer_adjusted_reputation": 0.6, "inverse_competitor_pressure": 0.25, "inverse_own_network_overlap": 0.15},
+  "labels": {"protect_review_min": 65, "shrink_review_max_exclusive": 35},
+  "purpose": "Define the evidence, peer-comparison, confidence, and labelling contract for a public-proxy branch-health screen before any branch score is calculated.",
+  "peer_comparison": {
+    "minimum_peer_group_size": 3,
+    "fallback_label": "NETWORK_COMPARISON_ONLY",
+    "rule": "A branch may be percentile-compared only with active branches in the same source-backed format archetype. When fewer than three peers exist, retain the feature but disclose network-wide comparison only."
+  },
+  "permitted_factors": {
+    "public_reputation": {
+      "direction": "positive",
+      "required_fields": ["rating_value", "rating_count", "observed_at", "source_id", "source_url"],
+      "rule": "Use only a permitted, attributable source and shrink sparse rating samples before peer normalization."
+    },
+    "competitor_pressure": {
+      "direction": "negative",
+      "required_fields": ["verified_competitor_pressure_lower_bound", "input_competitor_snapshot_id"],
+      "rule": "Use as a limited two-brand proximity signal only; never interpret zero as no local competition."
+    },
+    "own_network_overlap": {
+      "direction": "negative",
+      "required_fields": ["maximum_pairwise_overlap_coefficient", "primary_radius_km"],
+      "rule": "Use only as geometric proximity; it is not observed cannibalization."
+    },
+    "coverage_uniqueness": {
+      "direction": "positive",
+      "required_fields": ["coverage_uniqueness_value", "method_version"],
+      "rule": "Not available in v1; do not substitute nearest distance or pairwise overlap for this feature."
+    }
+  },
+  "minimum_scoring_requirements": [
+    "source-backed active branch record",
+    "source-backed format archetype",
+    "permitted public reputation record",
+    "peer group or explicit NETWORK_COMPARISON_ONLY fallback",
+    "input snapshot and model version provenance"
+  ],
+  "missingness": {
+    "rule": "Do not impute missing public reputation or format archetype. Coverage uniqueness is unavailable in v1 and must be disclosed as an omitted factor. Withhold a branch-health score until the remaining minimum scoring requirements are met.",
+    "withheld_label": "INSUFFICIENT_EVIDENCE"
+  },
+  "labelling": {
+    "allowed_review_labels_after_eligibility": ["PROTECT_REVIEW", "HOLD_REVIEW", "SHRINK_REVIEW"],
+    "prohibited_claims": ["financial health", "revenue", "profitability", "customer demand", "closure recommendation", "automatic action"],
+    "rule": "Labels prioritize human strategic review; they do not authorize an operating decision."
+  },
+  "confidence": {
+    "separate_from_score": true,
+    "required_dimensions": ["source_reliability", "source_freshness", "peer_group_adequacy", "feature_completeness", "competitor_scope"],
+    "rule": "A high proxy score cannot offset weak evidence confidence."
+  }
+}

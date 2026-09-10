@@ -2,7 +2,11 @@
   "model_id": "bedashing-network-geometry-v1",
   "input_snapshot_id": "bedashing-branches-v1-2026-09-08",
   "source_ids": [
-    "2gis_branch_roster"
+    "2gis_branch_roster",
+    "city_walk_outlet",
+    "user_branch_location_validation_2026_09_09",
+    "waze_khalifa_city",
+    "waze_mirdif_35"
   ],
   "primary_radius_km": 3,
   "radius_bands_km": [
@@ -20,58 +24,8 @@
   "branch_metrics": [
     {
       "branch_id": "pinnacle_building",
-      "nearest_own_branch_id": "golden_mile_galleria",
-      "nearest_own_branch_distance_km": 4.211387,
-      "service_radius_metrics": [
-        {
-          "radius_km": 1,
-          "overlapping_branch_count": 0,
-          "sum_pairwise_intersection_area_km2": 0,
-          "maximum_pairwise_overlap_coefficient": 0.0
-        },
-        {
-          "radius_km": 3,
-          "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 5.270253,
-          "maximum_pairwise_overlap_coefficient": 0.186397
-        },
-        {
-          "radius_km": 5,
-          "overlapping_branch_count": 2,
-          "sum_pairwise_intersection_area_km2": 58.170839,
-          "maximum_pairwise_overlap_coefficient": 0.480091
-        }
-      ]
-    },
-    {
-      "branch_id": "golden_mile_galleria",
-      "nearest_own_branch_id": "pinnacle_building",
-      "nearest_own_branch_distance_km": 4.211387,
-      "service_radius_metrics": [
-        {
-          "radius_km": 1,
-          "overlapping_branch_count": 0,
-          "sum_pairwise_intersection_area_km2": 0,
-          "maximum_pairwise_overlap_coefficient": 0.0
-        },
-        {
-          "radius_km": 3,
-          "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 5.270253,
-          "maximum_pairwise_overlap_coefficient": 0.186397
-        },
-        {
-          "radius_km": 5,
-          "overlapping_branch_count": 2,
-          "sum_pairwise_intersection_area_km2": 38.367445,
-          "maximum_pairwise_overlap_coefficient": 0.480091
-        }
-      ]
-    },
-    {
-      "branch_id": "indigo_central_5",
-      "nearest_own_branch_id": "pinnacle_building",
-      "nearest_own_branch_distance_km": 6.240284,
+      "nearest_own_branch_id": "city_walk_building_18a",
+      "nearest_own_branch_distance_km": 13.050824,
       "service_radius_metrics": [
         {
           "radius_km": 1,
@@ -87,16 +41,16 @@
         },
         {
           "radius_km": 5,
-          "overlapping_branch_count": 3,
-          "sum_pairwise_intersection_area_km2": 38.608008,
-          "maximum_pairwise_overlap_coefficient": 0.260563
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
         }
       ]
     },
     {
       "branch_id": "city_walk_building_18a",
-      "nearest_own_branch_id": "indigo_central_5",
-      "nearest_own_branch_distance_km": 6.629991,
+      "nearest_own_branch_id": "nad_al_sheba_mall",
+      "nearest_own_branch_distance_km": 11.579057,
       "service_radius_metrics": [
         {
           "radius_km": 1,
@@ -112,9 +66,9 @@
         },
         {
           "radius_km": 5,
-          "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 17.482198,
-          "maximum_pairwise_overlap_coefficient": 0.22259
+          "overlapping_branch_count": 0,
+          "sum_pairwise_intersection_area_km2": 0,
+          "maximum_pairwise_overlap_coefficient": 0.0
         }
       ]
     },
@@ -196,7 +150,7 @@
     {
       "branch_id": "zawaya_walk",
       "nearest_own_branch_id": "misk_2",
-      "nearest_own_branch_distance_km": 5.206988,
+      "nearest_own_branch_distance_km": 5.195413,
       "service_radius_metrics": [
         {
           "radius_km": 1,
@@ -207,21 +161,21 @@
         {
           "radius_km": 3,
           "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 1.598144,
-          "maximum_pairwise_overlap_coefficient": 0.056523
+          "sum_pairwise_intersection_area_km2": 1.632767,
+          "maximum_pairwise_overlap_coefficient": 0.057747
         },
         {
           "radius_km": 5,
           "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 28.929271,
-          "maximum_pairwise_overlap_coefficient": 0.368339
+          "sum_pairwise_intersection_area_km2": 29.02813,
+          "maximum_pairwise_overlap_coefficient": 0.369598
         }
       ]
     },
     {
       "branch_id": "misk_2",
       "nearest_own_branch_id": "zawaya_walk",
-      "nearest_own_branch_distance_km": 5.206988,
+      "nearest_own_branch_distance_km": 5.195413,
       "service_radius_metrics": [
         {
           "radius_km": 1,
@@ -232,14 +186,14 @@
         {
           "radius_km": 3,
           "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 1.598144,
-          "maximum_pairwise_overlap_coefficient": 0.056523
+          "sum_pairwise_intersection_area_km2": 1.632767,
+          "maximum_pairwise_overlap_coefficient": 0.057747
         },
         {
           "radius_km": 5,
           "overlapping_branch_count": 1,
-          "sum_pairwise_intersection_area_km2": 28.929271,
-          "maximum_pairwise_overlap_coefficient": 0.368339
+          "sum_pairwise_intersection_area_km2": 29.02813,
+          "maximum_pairwise_overlap_coefficient": 0.369598
         }
       ]
     },
@@ -446,7 +400,7 @@
     {
       "branch_id": "al_dhait_north",
       "nearest_own_branch_id": "misk_2",
-      "nearest_own_branch_distance_km": 64.965362,
+      "nearest_own_branch_distance_km": 65.314381,
       "service_radius_metrics": [
         {
           "radius_km": 1,
@@ -471,7 +425,7 @@
     {
       "branch_id": "al_taif_mall",
       "nearest_own_branch_id": "al_dhait_north",
-      "nearest_own_branch_distance_km": 82.019284,
+      "nearest_own_branch_distance_km": 81.195619,
       "service_radius_metrics": [
         {
           "radius_km": 1,
@@ -621,60 +575,20 @@
   ],
   "pairwise_overlaps": [
     {
-      "branch_a_id": "golden_mile_galleria",
-      "branch_b_id": "pinnacle_building",
-      "radius_km": 3,
-      "distance_km": 4.211387,
-      "intersection_area_km2": 5.270253,
-      "overlap_coefficient": 0.186397
-    },
-    {
-      "branch_a_id": "golden_mile_galleria",
-      "branch_b_id": "pinnacle_building",
-      "radius_km": 5,
-      "distance_km": 4.211387,
-      "intersection_area_km2": 37.706237,
-      "overlap_coefficient": 0.480091
-    },
-    {
-      "branch_a_id": "indigo_central_5",
-      "branch_b_id": "pinnacle_building",
-      "radius_km": 5,
-      "distance_km": 6.240284,
-      "intersection_area_km2": 20.464602,
-      "overlap_coefficient": 0.260563
-    },
-    {
-      "branch_a_id": "golden_mile_galleria",
-      "branch_b_id": "indigo_central_5",
-      "radius_km": 5,
-      "distance_km": 9.632252,
-      "intersection_area_km2": 0.661208,
-      "overlap_coefficient": 0.008419
-    },
-    {
-      "branch_a_id": "city_walk_building_18a",
-      "branch_b_id": "indigo_central_5",
-      "radius_km": 5,
-      "distance_km": 6.629991,
-      "intersection_area_km2": 17.482198,
-      "overlap_coefficient": 0.22259
-    },
-    {
       "branch_a_id": "misk_2",
       "branch_b_id": "zawaya_walk",
       "radius_km": 3,
-      "distance_km": 5.206988,
-      "intersection_area_km2": 1.598144,
-      "overlap_coefficient": 0.056523
+      "distance_km": 5.195413,
+      "intersection_area_km2": 1.632767,
+      "overlap_coefficient": 0.057747
     },
     {
       "branch_a_id": "misk_2",
       "branch_b_id": "zawaya_walk",
       "radius_km": 5,
-      "distance_km": 5.206988,
-      "intersection_area_km2": 28.929271,
-      "overlap_coefficient": 0.368339
+      "distance_km": 5.195413,
+      "intersection_area_km2": 29.02813,
+      "overlap_coefficient": 0.369598
     },
     {
       "branch_a_id": "deerfields_mall",

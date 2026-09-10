@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bedashing branch venue context v1",
+  "type": "object",
+  "required": ["snapshot_id", "input_branch_snapshot_id", "source_ids", "purpose", "records"],
+  "properties": {
+    "snapshot_id": {"const": "bedashing-branch-venue-context-v1-2026-09-09"},
+    "input_branch_snapshot_id": {"type": "string"},
+    "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "purpose": {"type": "string"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["branch_id", "venue_context", "peer_group_id", "classification_basis", "source_ids"],
+        "properties": {
+          "branch_id": {"type": "string"},
+          "venue_context": {"enum": ["destination_retail", "community_or_streetfront", "commercial_building", "airport_concession"]},
+          "peer_group_id": {"enum": ["destination_retail", "community_or_streetfront", "network_comparison_only"]},
+          "classification_basis": {"type": "string", "minLength": 1},
+          "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

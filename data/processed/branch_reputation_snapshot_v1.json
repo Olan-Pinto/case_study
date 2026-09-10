@@ -1,0 +1,274 @@
+{
+  "snapshot_id": "bedashing-branch-reputation-v1-2026-09-09",
+  "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "source_ids": [
+    "user_validated_google_maps_2026_09_09"
+  ],
+  "purpose": "Manually user-validated public Google Maps reputation observations. These are public reputation signals, not financial or operating performance.",
+  "records": [
+    {
+      "branch_id": "pinnacle_building",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 747,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Al+Barsha/@25.1344102,55.1573104,12z/data=!4m10!1m2!2m1!1sbedashing+uae+Pinnacle+Building,+887,+Sheikh+Zayed+road,+Al+Barsha+1,+Hadaeq+Mohammed+Bin+Rashid,+Dubai,+Dubai+Municipality!3m6!1s0x3e5f6b93bbbfddeb:0x354f7bcd7d7d3f4c!8m2!3d25.1131451!4d55.2156092!15sCntiZWRhc2hpbmcgdWFlIFBpbm5hY2xlIEJ1aWxkaW5nLCA4ODcsIFNoZWlraCBaYXllZCByb2FkLCBBbCBCYXJzaGEgMSwgSGFkYWVxIE1vaGFtbWVkIEJpbiBSYXNoaWQsIER1YmFpLCBEdWJhaSBNdW5pY2lwYWxpdHkiA4gBAVp3InViZWRhc2hpbmcgdWFlIHBpbm5hY2xlIGJ1aWxkaW5nIDg4NyBzaGVpa2ggemF5ZWQgcm9hZCBhbCBiYXJzaGEgMSBoYWRhZXEgbW9oYW1tZWQgYmluIHJhc2hpZCBkdWJhaSBkdWJhaSBtdW5pY2lwYWxpdHmSAQxiZWF1dHlfc2Fsb26aAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjVGTWsxVE1YRlpNbVI2WTFoa2RWTnJXa2hUZWtvMlZsWnNhVm93UlJBQuABAPoBBAgAEBY!16s%2Fg%2F11nn1xdt46?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "golden_mile_galleria",
+      "status": "user_confirmed_permanently_closed",
+      "rating_value": null,
+      "rating_count": null,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": null
+    },
+    {
+      "branch_id": "indigo_central_5",
+      "status": "user_confirmed_permanently_closed",
+      "rating_value": null,
+      "rating_count": null,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": null
+    },
+    {
+      "branch_id": "city_walk_building_18a",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 853,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+City+Walk/@25.2004273,55.1070596,12z/data=!4m10!1m2!2m1!1sbe+dashing+uae+all+locations!3m6!1s0x3e5f4264f3dfaa81:0x23647de8fcbb9593!8m2!3d25.2019849!4d55.2638147!15sChxiZSBkYXNoaW5nIHVhZSBhbGwgbG9jYXRpb25zIgOIAQGSAQxiZWF1dHlfc2Fsb27gAQA!16s%2Fg%2F11d_tfs_jn?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "nad_al_sheba_mall",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 628,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Nad+Al+Sheba/@24.6840307,53.497533,8z/data=!4m10!1m2!2m1!1sbedashing+uae+nad_al_sheba_mall!3m6!1s0x3e5f67e946eea047:0x349b58931601ecb1!8m2!3d25.1595625!4d55.3696875!15sCh9iZWRhc2hpbmcgdWFlIG5hZF9hbF9zaGViYV9tYWxsIgOIAQFaISIfYmVkYXNoaW5nIHVhZSBuYWRfYWxfc2hlYmFfbWFsbJIBDGJlYXV0eV9zYWxvbpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VRMWVXVkllRVpuRUFF4AEA-gEECAAQQw!16s%2Fg%2F11l_bl8jf6?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "mirdif_35",
+      "status": "observed",
+      "rating_value": 4.5,
+      "rating_count": 817,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+-+Mirdif+35/@25.2323034,55.430385,17z/data=!3m2!4b1!5s0x3e5f609b98f89ad7:0xe6dc9b7e5636a199!4m6!3m5!1s0x3e5f609959b52927:0x41726164e2af4f0d!8m2!3d25.2322986!4d55.4329599!16s%2Fg%2F11f012fbtg?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "al_husna_street",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 948,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Al+Falah/@24.4110921,54.3819232,11z/data=!4m10!1m2!2m1!1sbedashing+beauty+al+husna+street+abu+dhabi!3m6!1s0x3e5e4ba83efe2485:0x307248231c35dbe0!8m2!3d24.4428939!4d54.7396974!15sCipiZWRhc2hpbmcgYmVhdXR5IGFsIGh1c25hIHN0cmVldCBhYnUgZGhhYmkiA4gBAVosIipiZWRhc2hpbmcgYmVhdXR5IGFsIGh1c25hIHN0cmVldCBhYnUgZGhhYmmSAQxiZWF1dHlfc2Fsb26aASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTTVhazVmU0MxQlJSQULgAQD6AQQIABAr!16s%2Fg%2F11cjkp_3xt?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "zawaya_walk",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 602,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Zawaya+Walk/data=!4m2!3m1!1s0x0:0x2a7c962029fe914f?sa=X&ved=1t:2428&ictx=111"
+    },
+    {
+      "branch_id": "misk_2",
+      "status": "observed",
+      "rating_value": 4.5,
+      "rating_count": 613,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Al+Jada/@25.3192144,55.4773365,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f5fd33000ca61:0x997548845d242887!8m2!3d25.3192096!4d55.4799114!16s%2Fg%2F11khcggwrt?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "deerfields_mall",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 749,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge/@24.5243791,54.6693216,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e4f71a200dc87:0xddbfaf57aebffde8!8m2!3d24.5243742!4d54.6718965!16s%2Fg%2F11gxm9zmpq?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "noya_plaza_mall",
+      "status": "observed",
+      "rating_value": 4.7,
+      "rating_count": 212,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Noya+Plaza/@24.4995674,54.6228626,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e4f08dc409bf1:0x322e43e484f8bbf5!8m2!3d24.4995625!4d54.6254375!16s%2Fg%2F11xkx8tq26?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "west_yas_plaza",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 728,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+West+Yas/@24.4934973,54.584262,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e458f38dc1751:0x8f81811aa6b9c940!8m2!3d24.4934924!4d54.5868369!16s%2Fg%2F11f60xqsn1?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "khalifa_city_al_mireef",
+      "status": "observed",
+      "rating_value": 4.5,
+      "rating_count": 2451,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Khalifa+City+A/@24.4939037,54.5044345,12z/data=!4m10!1m2!2m1!1sBedashing+Beauty+lounge+300,+Al+Mireef+street,+SE42,+Khalifa+City,+Abu+Dhabi,+Abu+Dhabi+Municipality,+Abu+Dhabi+Emirate!3m6!1s0x3e5e45fd2ebd0e7b:0x59cf8ee0537dae8c!8m2!3d24.4399805!4d54.5989056!15sCndCZWRhc2hpbmcgQmVhdXR5IGxvdW5nZSAzMDAsIEFsIE1pcmVlZiBzdHJlZXQsIFNFNDIsIEtoYWxpZmEgQ2l0eSwgQWJ1IERoYWJpLCBBYnUgRGhhYmkgTXVuaWNpcGFsaXR5LCBBYnUgRGhhYmkgRW1pcmF0ZSIDiAEBWnMicWJlZGFzaGluZyBiZWF1dHkgbG91bmdlIDMwMCBhbCBtaXJlZWYgc3RyZWV0IHNlNDIga2hhbGlmYSBjaXR5IGFidSBkaGFiaSBhYnUgZGhhYmkgbXVuaWNpcGFsaXR5IGFidSBkaGFiaSBlbWlyYXRlkgEMYmVhdXR5X3NhbG9umgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU16YWpWZmFqZG5SUkFC4AEA-gEFCLEBEC0!16s%2Fg%2F12q4wtghm?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "zayed_international_airport",
+      "status": "observed",
+      "rating_value": 4.9,
+      "rating_count": 536,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+-+Zayed+International+Airport+(AUH)/@24.4527767,54.6385672,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e4fa95d3f870f:0xa5e2f98ae067a476!8m2!3d24.4527718!4d54.6411421!16s%2Fg%2F11vwdp690n?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "ict_c29_khalifa_park",
+      "status": "observed",
+      "rating_value": 4.9,
+      "rating_count": 1214,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Ministries+Complex/@24.432147,54.159881,11z/data=!4m10!1m2!2m1!1sBedashing+Beauty+lounge+ICT+C-29+Khalifa+Park+Building,+60,+Ammar+Bin+Yasir+street,+E48,+Al+Muntazah,+Abu+Dhabi,+Abu+Dhabi+Municipality,+Abu+Dhabi+Emirate!3m6!1s0x3e5e4395bdd5f445:0xcbf58cc1984a9465!8m2!3d24.432147!4d54.4647516!15sCpoBQmVkYXNoaW5nIEJlYXV0eSBsb3VuZ2UgSUNUIEMtMjkgS2hhbGlmYSBQYXJrIEJ1aWxkaW5nLCA2MCwgQW1tYXIgQmluIFlhc2lyIHN0cmVldCwgRTQ4LCBBbCBNdW50YXphaCwgQWJ1IERoYWJpLCBBYnUgRGhhYmkgTXVuaWNpcGFsaXR5LCBBYnUgRGhhYmkgRW1pcmF0ZSIDiAEBWpYBIpMBYmVkYXNoaW5nIGJlYXV0eSBsb3VuZ2UgaWN0IGMgMjkga2hhbGlmYSBwYXJrIGJ1aWxkaW5nIDYwIGFtbWFyIGJpbiB5YXNpciBzdHJlZXQgZTQ4IGFsIG11bnRhemFoIGFidSBkaGFiaSBhYnUgZGhhYmkgbXVuaWNpcGFsaXR5IGFidSBkaGFiaSBlbWlyYXRlkgEMYmVhdXR5X3NhbG9umgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVI0TldOTFVXTkJFQUXgAQD6AQQIABAx!16s%2Fg%2F11h64v60vs?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "abu_dhabi_unresolved",
+      "status": "observed",
+      "rating_value": 4.5,
+      "rating_count": 1279,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Shakhbout+City/@24.3481903,54.6212812,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6d0fd833b70d:0x97d70fd23ed5ab9e!8m2!3d24.3481854!4d54.6238561!16s%2Fg%2F11h27ztb_8?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "nassib_bin_ahmed_al_humairi",
+      "status": "observed",
+      "rating_value": 4.4,
+      "rating_count": 830,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Mohammad+Bin+Zayed+City/@24.366139,54.5348412,16.75z/data=!4m10!1m2!2m1!1sBedashing+Beauty+67,+Nassib+Bin+Ahmed+Al+Humairi+street,+Z1,+Mohamed+Bin+Zayed+City,+Abu+Dhabi,+Abu+Dhabi+Municipality,+Abu+Dhabi+Emirate!3m6!1s0x3e5e477d7815a7d5:0x6993a12df4b9584a!8m2!3d24.3667831!4d54.5403404!15sCokBQmVkYXNoaW5nIEJlYXV0eSA2NywgTmFzc2liIEJpbiBBaG1lZCBBbCBIdW1haXJpIHN0cmVldCwgWjEsIE1vaGFtZWQgQmluIFpheWVkIENpdHksIEFidSBEaGFiaSwgQWJ1IERoYWJpIE11bmljaXBhbGl0eSwgQWJ1IERoYWJpIEVtaXJhdGUiA4gBAVqGASKDAWJlZGFzaGluZyBiZWF1dHkgNjcgbmFzc2liIGJpbiBhaG1lZCBhbCBodW1haXJpIHN0cmVldCB6MSBtb2hhbWVkIGJpbiB6YXllZCBjaXR5IGFidSBkaGFiaSBhYnUgZGhhYmkgbXVuaWNpcGFsaXR5IGFidSBkaGFiaSBlbWlyYXRlkgEMYmVhdXR5X3NhbG9umgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU5mTjJOMVZVcFJFQUXgAQD6AQQIABA6!16s%2Fg%2F11fsk8cy7n?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "al_dhait_north",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 768,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+RAK/@25.7515458,55.9172968,17z/data=!3m1!4b1!4m6!3m5!1s0x3ef675591a684d49:0x8de6ebf3b74f4b0a!8m2!3d25.751541!4d55.9198717!16s%2Fg%2F11fcpv8fzx?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "al_taif_mall",
+      "status": "observed",
+      "rating_value": 4.7,
+      "rating_count": 497,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Al+Taif+Mall/@25.1202654,56.3227754,17z/data=!3m1!4b1!4m6!3m5!1s0x3ef4f92ce1e5e3d1:0x2b55c743ef9a373c!8m2!3d25.1202606!4d56.3253503!16s%2Fg%2F11kc2ld96h?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "hamad_mohamed_thani_al_rumaithi",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 1290,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Al+Maqta/@24.4130565,54.4903807,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e43d63b13c821:0xe38ee92affc9656d!8m2!3d24.4130516!4d54.4929556!16s%2Fg%2F11q84m2n05?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "al_rakb_street",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 693,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Baniyas/@24.297368,54.6306725,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e37a81d7ac8e5:0xcba37b5ab3f84f95!8m2!3d24.2973631!4d54.6332474!16s%2Fg%2F11f6djp37k?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "saeed_bin_saif_al_falahi",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 671,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Delma/@24.4679589,54.3822047,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e662952bb5bfd:0xa591f0314f060bd0!8m2!3d24.467954!4d54.3847796!16s%2Fg%2F11cs6b8l53?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "al_khaleej_al_arabi",
+      "status": "observed",
+      "rating_value": 4.6,
+      "rating_count": 1740,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+Khaleej+Al+Arabi/@24.4588751,54.3512013,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5e66038dca0eed:0x694d0c3c05574838!8m2!3d24.4588702!4d54.3537762!16s%2Fg%2F11b6_n5tzr?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "branch_id": "madinat_zayed_block_10",
+      "status": "observed",
+      "rating_value": 4.5,
+      "rating_count": 358,
+      "observed_at": "2026-09-09",
+      "source_ids": [
+        "user_validated_google_maps_2026_09_09"
+      ],
+      "source_url": "https://www.google.com/maps/place/Bedashing+Beauty+Lounge+-+Al+Dhafra/@23.6280573,53.7115395,17z/data=!3m1!4b1!4m6!3m5!1s0x3e6767d075fb1537:0xa41f5280695787be!8m2!3d23.6280524!4d53.7141144!16s%2Fg%2F11l5zg47vp?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
+    }
+  ]
+}

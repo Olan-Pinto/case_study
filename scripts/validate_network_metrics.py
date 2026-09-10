@@ -9,7 +9,7 @@ snapshot = json.loads((ROOT / "data" / "processed" / "branches_snapshot_v1.json"
 metrics = json.loads((ROOT / "data" / "processed" / "network_metrics_v1.json").read_text(encoding="utf-8"))
 manifest = json.loads((ROOT / "data" / "processed" / "network_metrics_v1.manifest.json").read_text(encoding="utf-8"))
 
-branch_ids = {branch["branch_id"] for branch in snapshot["records"]}
+branch_ids = {branch["branch_id"] for branch in snapshot["records"] if "permanently_closed" not in branch["status"]}
 assert metrics["input_snapshot_id"] == snapshot["snapshot_id"]
 assert metrics["model_id"] == "bedashing-network-geometry-v1"
 assert metrics["primary_radius_km"] in metrics["radius_bands_km"]

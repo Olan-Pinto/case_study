@@ -38,7 +38,7 @@ def validate(snapshot: dict, manifest: dict) -> list[str]:
             errors.append(f"{record['branch_id']}: null coordinate has non-none confidence")
         if lat is not None and record["coordinate_confidence"] == "none":
             errors.append(f"{record['branch_id']}: coordinate has no confidence")
-        if record["status"] == "candidate_needs_official_validation" and "official confirmation" not in record["validation_needed"]:
+        if record["status"] in {"candidate_needs_official_validation", "user_confirmed_permanently_closed"} and not any("official" in item for item in record["validation_needed"]):
             errors.append(f"{record['branch_id']}: candidate lacks official validation flag")
     return errors
 

@@ -1,0 +1,7 @@
+{
+  "collection_id": "bedashing-manual-reputation-2026-09-09",
+  "coordinate_exceptions": {
+    "pinnacle_building": "User confirmed the Google listing identity from its Pinnacle Building, Office 401, Floor 4, Sheikh Zayed Road text despite its displaced Google place pin.",
+    "zawaya_walk": "User confirmed Shop 32 & 33, Zawaya Walk and supplied its coordinate; the submitted Maps URL has no embedded place coordinate."
+  }
+}

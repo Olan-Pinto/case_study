@@ -2,11 +2,13 @@
 
 ## Current Project State
 
-Phases 0–4 are complete. The project has a validated 24-branch data foundation, a local React/MapLibre network-exploration workspace, deterministic own-network geometry, and a transparent, limited competitor-pressure evidence layer. No backend, branch recommendation, whitespace, or AI implementation exists.
+Phases 0–4 are complete; Phase 5A is complete but intentionally contains no branch scores. The project has a validated 24-branch data foundation, a local React/MapLibre network-exploration workspace, deterministic own-network geometry, and a transparent, limited competitor-pressure evidence layer. No backend, branch recommendation, whitespace, or AI implementation exists.
 
 ## Modular Build Briefing Protocol
 
 Before beginning each implementation phase or independently reviewable modular build, first give the user a concise summary of: (1) completed work and its current state, (2) the next module's exact scope and value, (3) explicit out-of-scope work, and (4) its acceptance criteria/review boundary. Then perform the work only after that briefing. Update this section if the user changes the collaboration protocol.
+
+Within a phase, continue through each independently reviewable component after it passes its proportionate tests and documentation updates. Pause only for a genuine HITL decision, missing evidence that requires user input, external authority, or a material scope choice. At each component boundary, report the verification outcome and immediately brief the next component before continuing.
 
 ## Provenance and Commit Protocol
 
@@ -24,6 +26,8 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 3 network geometry added: committed, versioned 1/3/5 km service-radius metrics; haversine nearest-own-branch distances; analytic circle intersections; validation and unit tests. See `docs/PHASE_3_NETWORK_GEOMETRY.md`.
 - Demo-preparation FAQ added at `docs/DEMO_PREP.md`, covering evidence reconciliation, AI/agent boundaries, map scope, geometry mathematics, limitations, and walkthrough narrative.
 - Phase 4 competitor pressure added: source-backed Sisters/NStyle records, taxonomy, deterministic lower-bound pressure, closed-location exclusions, competitor map toggle, and branch-level evidence details. See `docs/PHASE_4_COMPETITOR_PRESSURE.md`.
+- Phase 5A branch-health contract added: permitted-factor, peer-comparison, missingness, confidence, and non-financial labelling rules. It deliberately withholds scores until source-backed public-reputation and format-archetype evidence exists. See `docs/PHASE_5_BRANCH_HEALTH.md`.
+- Phase 5B completed live source research and address-evidenced venue-context peer groups: 9 destination-retail, 13 community/streetfront, and two network-comparison-only outliers. Google Places API is a technically suitable source but requires user-approved credentials/billing/terms; inconsistent secondary directories are rejected.
 
 ## Tried and Validated
 
@@ -31,7 +35,8 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Bedashing official pages support premium, women-focused, multi-service positioning and 2008 Emirati founding context.
 - Overture Places is a viable monthly, open POI discovery source but its documented duplicates/junk/incomplete properties require filtering and reconciliation; OSM needs ODbL attribution/license review.
 - User-supplied 2GIS branch evidence lists 24 beauty lounges plus a separate head office, reconciling exactly to Bedashing's official 24-lounge claim. This is now the current `branches_snapshot_v1` roster; v0 is retained as evidence history.
-- User supplied and geographically validated coordinates for all 24 2GIS roster records. Every current record is now `secondary_map_coordinate`; no location coordinate was inferred or fabricated.
+- User supplied and geographically validated coordinates for all 24 2GIS roster records. Twenty-one current records remain `secondary_map_coordinate`; no location coordinate was inferred or fabricated.
+- User corrected three branch map locations on 2026-09-09: Pinnacle Building, Zawaya Walk, and Al Dhait North. Al Dhait address is Villa 66 (not Villa 3). These three records are now `user_validated_map_coordinate`; all dependent geometry and pressure artifacts must be regenerated after this correction.
 - `py -3 scripts/validate_branches.py`, `py -3 scripts/inspect_branches.py`, and `py -3 -m unittest discover -s tests -v` pass on the Phase 1 snapshot.
 - `npm run build` passes for the Phase 2 workspace; it imports the committed JSON snapshot and needs no key or backend. The optional OSM raster basemap is visibly attributed and must remain ordinary interactive use only under the OSM tile policy.
 - `network_metrics_v1` deterministically produces 24 branch metrics and 28 overlapping pairs across 1/3/5 km sensitivity bands. Its 3 km primary band is exposed in the branch evidence panel; it is labelled as geometric screening, not a catchment, drive time, or recommendation.
@@ -76,8 +81,9 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 4 is ready for review and commit. The next proposed module is Phase 5: peer-aware public-proxy branch health, factor contributions, confidence, and explicitly non-financial PROTECT/HOLD/SHRINK review labels.
+Phase 5B is complete. The user selected Phase 5C manual Google Maps validation rather than paid Google Places API access. A 24-branch collection worksheet is at `docs/PHASE_5_REPUTATION_COLLECTION.md`; health scoring remains withheld until the dated rating/count/link evidence is supplied.
 
 ## Last Updated
 
-2026-09-09 — Phase 4 completed and verified: 15 active geocoded competitor records, two user-confirmed closures excluded, deterministic pressure evidence, map layer, and in-product limitations.
+2026-09-09 — Phase 5C collection route chosen: manual user validation from Google Maps, captured as dated rating/count/link evidence with no API use or automated Google extraction.
+2026-09-09 — Manual reputation collection structurally accounts for all 24 branches: 22 ratings, two user-confirmed closures. All observations are 2026-09-09. Pinnacle's Google listing is user-confirmed by identity text despite a displaced place pin; Zawaya is user-confirmed by address/coordinate without an embedded place pin.

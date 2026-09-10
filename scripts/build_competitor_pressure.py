@@ -17,7 +17,7 @@ def main() -> None:
     weights = {key: value["similarity_weight"] for key, value in config["taxonomy"].items()}
     rows = []
     active_competitors = [row for row in competitors["records"] if row["latitude"] is not None and row["longitude"] is not None and "permanently_closed" not in row["status"]]
-    for branch in branches["records"]:
+    for branch in (branch for branch in branches["records"] if "permanently_closed" not in branch["status"]):
         contributions = []
         for competitor in active_competitors:
             distance = haversine_km(branch["latitude"], branch["longitude"], competitor["latitude"], competitor["longitude"])
@@ -26,7 +26,7 @@ def main() -> None:
                 contributions.append({"competitor_id": competitor["competitor_id"], "distance_km": round(distance, 6), "similarity_weight": weights[competitor["taxonomy_class"]], "contribution": round(contribution, 6)})
         contributions.sort(key=lambda item: (-item["contribution"], item["competitor_id"]))
         rows.append({"branch_id": branch["branch_id"], "verified_competitor_pressure_lower_bound": round(sum(item["contribution"] for item in contributions), 6), "contributions": contributions, "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"})
-    output = {"model_id": config["model_id"], "input_branch_snapshot_id": branches["snapshot_id"], "input_competitor_snapshot_id": competitors["snapshot_id"], "source_ids": ["sisters_locations", "nstyle_locations", "2gis_branch_roster"], "formula": config["formula"], "interpretation": config["interpretation"], "competitor_geo_coverage": {"officially_listed_candidate_count": competitors["officially_listed_candidate_count"], "geocoded_verified_record_count": competitors["geocoded_verified_record_count"]}, "branch_pressure": rows}
+    output = {"model_id": config["model_id"], "input_branch_snapshot_id": branches["snapshot_id"], "input_competitor_snapshot_id": competitors["snapshot_id"], "source_ids": sorted({source_id for branch in branches["records"] for source_id in branch["source_ids"]} | {source_id for competitor in competitors["records"] for source_id in competitor["source_ids"]}), "formula": config["formula"], "interpretation": config["interpretation"], "competitor_geo_coverage": {"officially_listed_candidate_count": competitors["officially_listed_candidate_count"], "geocoded_verified_record_count": competitors["geocoded_verified_record_count"]}, "branch_pressure": rows}
     (ROOT / "data/processed/competitor_pressure_v1.json").write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote lower-bound pressure for {len(rows)} branches from {len(active_competitors)} active geocoded competitors")
 

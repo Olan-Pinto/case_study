@@ -1,0 +1,32 @@
+{
+  "snapshot_id": "bedashing-branch-venue-context-v1-2026-09-09",
+  "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "source_ids": ["2gis_branch_roster"],
+  "purpose": "Address-evidenced venue-context groups for transparent peer comparison. These are venue contexts, not claims about branch performance, service menu, customer base, or operating format.",
+  "records": [
+    {"branch_id": "pinnacle_building", "venue_context": "commercial_building", "peer_group_id": "network_comparison_only", "classification_basis": "Address says Floor 4 Office 401 in Pinnacle Building.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "golden_mile_galleria", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Golden Mile Galleria Mall.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "indigo_central_5", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names Indigo Central 5 on 18d Street.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "city_walk_building_18a", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names City Walk.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "nad_al_sheba_mall", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Nad Al Sheba Mall.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "mirdif_35", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Mirdif 35 and a Level 2 mall unit.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "al_husna_street", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a ground-level Al Falah street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "zawaya_walk", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Zawaya Walk.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "misk_2", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names Sarab 1 in Muwaileh Commercial.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "deerfields_mall", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Deerfields Mall.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "noya_plaza_mall", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Noya Plaza Mall.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "west_yas_plaza", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names West Yas Plaza.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "khalifa_city_al_mireef", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Khalifa City ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "zayed_international_airport", "venue_context": "airport_concession", "peer_group_id": "network_comparison_only", "classification_basis": "Address names Zayed International Airport, Floor 1.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "ict_c29_khalifa_park", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Khalifa Park ground-floor building address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "abu_dhabi_unresolved", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names a ground-floor Shakhbout City location.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "nassib_bin_ahmed_al_humairi", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Mohamed Bin Zayed City ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "al_dhait_north", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names Villa 3 in Al Dhait North.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "al_taif_mall", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Al Taif Mall.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "hamad_mohamed_thani_al_rumaithi", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Rabdan ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "al_rakb_street", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Bani Yas ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "saeed_bin_saif_al_falahi", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is an Al Nahyan ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "al_khaleej_al_arabi", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is an Al Khalidiyah ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "madinat_zayed_block_10", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names Block 10 in Madinat Zayed without a destination-retail venue.", "source_ids": ["2gis_branch_roster"]}
+  ]
+}

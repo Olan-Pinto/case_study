@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
-import { activeCompetitors, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot } from './data'
+import { activeCompetitors, branchHealth, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot } from './data'
 import { NetworkMap } from './NetworkMap'
 import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
@@ -27,6 +27,7 @@ export function App() {
   const selectedBranch = branches.find((branch) => branch.branch_id === selectedBranchId) ?? null
   const selectedMetric = networkMetrics.branch_metrics.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectedPressure = competitorPressure.branch_pressure.find((metric) => metric.branch_id === selectedBranchId) ?? null
+  const selectedHealth = branchHealth.records.find((metric: any) => metric.branch_id === selectedBranchId) ?? null
   const selectBranch = useCallback((branchId: string) => setSelectedBranchId(branchId), [])
 
   return (
@@ -87,14 +88,14 @@ export function App() {
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} /> : <p className="empty">Select a location to inspect its evidence.</p>}
         </aside>
       </div>
     </main>
   )
 }
 
-function BranchDetail({ branch, metric, pressure }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null }) {
+function BranchDetail({ branch, metric, pressure, health }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any }) {
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)
   const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
   const confirmedClosedCompetitorCount = competitorSnapshot.records.filter((competitor) => competitor.status === 'user_confirmed_permanently_closed').length
@@ -134,6 +135,7 @@ function BranchDetail({ branch, metric, pressure }: { branch: Branch, metric: Br
           })}
         </ul> : <p className="empty-inline">No contributor within the model threshold. This is not evidence that local competition is absent.</p>}
       </section>}
+      {health && <section className="competitor-evidence"><h3>Branch-health public proxy</h3><p><strong>{health.review_label.replace('_', ' ')}</strong> · score {health.public_proxy_score.toFixed(0)}/100 · confidence {health.confidence.toFixed(0)}%</p><p className="geometry-note">Peer basis: {health.comparison_basis.replaceAll('_', ' ')}. Public-proxy evidence only; not financial health or a closure decision.</p></section>}
       {branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>
   )

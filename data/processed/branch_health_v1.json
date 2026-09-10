@@ -1,0 +1,359 @@
+{
+  "model_id": "branch-health-v1",
+  "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "interpretation": "Peer-aware public proxy only; not financial health, demand, or an operating decision.",
+  "records": [
+    {
+      "branch_id": "pinnacle_building",
+      "peer_group_id": "network_comparison_only",
+      "comparison_basis": "NETWORK_COMPARISON_ONLY",
+      "public_proxy_score": 45.23,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 35.45,
+        "inverse_competitor_pressure": 2.27,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "city_walk_building_18a",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 22.5,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 15.0,
+        "inverse_competitor_pressure": 0.0,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "nad_al_sheba_mall",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 54.37,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 37.5,
+        "inverse_competitor_pressure": 9.38,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "mirdif_35",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 21.25,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 7.5,
+        "inverse_competitor_pressure": 6.25,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "al_husna_street",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 55.83,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 40.0,
+        "inverse_competitor_pressure": 8.33,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "zawaya_walk",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 64.38,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 45.0,
+        "inverse_competitor_pressure": 15.62,
+        "inverse_own_network_overlap": 3.75
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "misk_2",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 30.42,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 20.0,
+        "inverse_competitor_pressure": 4.17,
+        "inverse_own_network_overlap": 6.25
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "deerfields_mall",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 31.25,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 22.5,
+        "inverse_competitor_pressure": 3.12,
+        "inverse_own_network_overlap": 5.62
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "noya_plaza_mall",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 65.0,
+      "review_label": "PROTECT_REVIEW",
+      "confidence": 69.35,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 52.5,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 0.0
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "west_yas_plaza",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 48.75,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 30.0,
+        "inverse_competitor_pressure": 18.75,
+        "inverse_own_network_overlap": 0.0
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "khalifa_city_al_mireef",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 25.42,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 10.0,
+        "inverse_competitor_pressure": 10.42,
+        "inverse_own_network_overlap": 5.0
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "zayed_international_airport",
+      "peer_group_id": "network_comparison_only",
+      "comparison_basis": "NETWORK_COMPARISON_ONLY",
+      "public_proxy_score": 72.73,
+      "review_label": "PROTECT_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 57.27,
+        "inverse_competitor_pressure": 11.36,
+        "inverse_own_network_overlap": 4.09
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "ict_c29_khalifa_park",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 68.75,
+      "review_label": "PROTECT_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 60.0,
+        "inverse_competitor_pressure": 6.25,
+        "inverse_own_network_overlap": 2.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "abu_dhabi_unresolved",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 35.0,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 15.0,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "nassib_bin_ahmed_al_humairi",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 25.0,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 5.0,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "al_dhait_north",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 65.0,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 45.0,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "al_taif_mall",
+      "peer_group_id": "destination_retail",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 89.38,
+      "review_label": "PROTECT_REVIEW",
+      "confidence": 83.6,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 60.0,
+        "inverse_competitor_pressure": 21.88,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "hamad_mohamed_thani_al_rumaithi",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 50.0,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 35.0,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 2.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "al_rakb_street",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 70.0,
+      "review_label": "PROTECT_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 50.0,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "saeed_bin_saif_al_falahi",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 57.08,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 55.0,
+        "inverse_competitor_pressure": 2.08,
+        "inverse_own_network_overlap": 0.0
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "al_khaleej_al_arabi",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 30.0,
+      "review_label": "SHRINK_REVIEW",
+      "confidence": 83.75,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 30.0,
+        "inverse_competitor_pressure": 0.0,
+        "inverse_own_network_overlap": 0.0
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    },
+    {
+      "branch_id": "madinat_zayed_block_10",
+      "peer_group_id": "community_or_streetfront",
+      "comparison_basis": "VENUE_CONTEXT_PEERS",
+      "public_proxy_score": 45.0,
+      "review_label": "HOLD_REVIEW",
+      "confidence": 76.65,
+      "factor_contributions": {
+        "peer_adjusted_reputation": 25.0,
+        "inverse_competitor_pressure": 12.5,
+        "inverse_own_network_overlap": 7.5
+      },
+      "omitted_factors": [
+        "coverage_uniqueness_not_available"
+      ]
+    }
+  ]
+}
