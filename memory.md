@@ -22,6 +22,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 1 branch-data foundation added: `data/processed/branches_snapshot_v0.json`, manifest, `schemas/branch_record_v1.json`, standard-library validator, inspection command, tests, and `docs/PHASE_1_DATA_FOUNDATION.md`.
 - Phase 2 network-exploration workspace added: React/TypeScript/Vite, MapLibre branch points, roster/text filters, linked selection, and evidence/source detail. See `docs/PHASE_2_NETWORK_EXPLORATION.md`.
 - Phase 3 network geometry added: committed, versioned 1/3/5 km service-radius metrics; haversine nearest-own-branch distances; analytic circle intersections; validation and unit tests. See `docs/PHASE_3_NETWORK_GEOMETRY.md`.
+- Demo-preparation FAQ added at `docs/DEMO_PREP.md`, covering evidence reconciliation, AI/agent boundaries, map scope, geometry mathematics, limitations, and walkthrough narrative.
 
 ## Tried and Validated
 
@@ -72,8 +73,8 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 3 network geometry is ready for review and commit. The next proposed module is Phase 4: a source-backed competitor taxonomy, candidate collection/reconciliation, and pressure layer.
+Phase 3 was committed and pushed by the user (`5e32cdb`). The next proposed module is Phase 4: a source-backed competitor taxonomy, candidate collection/reconciliation, and pressure layer.
 
 ## Last Updated
 
-2026-09-08 — Phase 3 added: deterministic 1/3/5 km service-radius and nearest-network metrics, with tests and an explicitly limited in-product geometry screen.
+2026-09-08 — Phase 3 committed/pushed by user; added durable demo-preparation FAQ and paused before Phase 4.
