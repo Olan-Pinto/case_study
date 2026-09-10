@@ -1,0 +1,491 @@
+{
+  "model_id": "competitor-pressure-v1",
+  "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "input_competitor_snapshot_id": "bedashing-competitors-v1-2026-09-09",
+  "source_ids": [
+    "sisters_locations",
+    "nstyle_locations",
+    "2gis_branch_roster"
+  ],
+  "formula": "verified_competitor_pressure_lower_bound = sum(similarity_weight * exp(-great_circle_distance_km / distance_decay_km))",
+  "interpretation": "Candidate review is complete for this snapshot, but the screen is a lower bound limited to the researched brands. A zero does not mean no competition.",
+  "competitor_geo_coverage": {
+    "officially_listed_candidate_count": 17,
+    "geocoded_verified_record_count": 15
+  },
+  "branch_pressure": [
+    {
+      "branch_id": "pinnacle_building",
+      "verified_competitor_pressure_lower_bound": 1.3065,
+      "contributions": [
+        {
+          "competitor_id": "sisters_mall_of_emirates",
+          "distance_km": 1.724196,
+          "similarity_weight": 1.0,
+          "contribution": 0.562856
+        },
+        {
+          "competitor_id": "nstyle_mall_of_emirates",
+          "distance_km": 2.550675,
+          "similarity_weight": 0.7,
+          "contribution": 0.299123
+        },
+        {
+          "competitor_id": "nstyle_dubai_marina_mall",
+          "distance_km": 5.562447,
+          "similarity_weight": 0.7,
+          "contribution": 0.10961
+        },
+        {
+          "competitor_id": "sisters_jbr",
+          "distance_km": 6.70445,
+          "similarity_weight": 1.0,
+          "contribution": 0.107012
+        },
+        {
+          "competitor_id": "nstyle_meadows_souk",
+          "distance_km": 5.711437,
+          "similarity_weight": 0.7,
+          "contribution": 0.1043
+        },
+        {
+          "competitor_id": "nstyle_dubai_hills_mall",
+          "distance_km": 5.80076,
+          "similarity_weight": 0.7,
+          "contribution": 0.10124
+        },
+        {
+          "competitor_id": "sisters_dubai_mall",
+          "distance_km": 13.384685,
+          "similarity_weight": 1.0,
+          "contribution": 0.011544
+        },
+        {
+          "competitor_id": "sisters_city_walk",
+          "distance_km": 13.580345,
+          "similarity_weight": 1.0,
+          "contribution": 0.010815
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "golden_mile_galleria",
+      "verified_competitor_pressure_lower_bound": 0.860085,
+      "contributions": [
+        {
+          "competitor_id": "sisters_jbr",
+          "distance_km": 4.097672,
+          "similarity_weight": 1.0,
+          "contribution": 0.255153
+        },
+        {
+          "competitor_id": "nstyle_dubai_marina_mall",
+          "distance_km": 3.027758,
+          "similarity_weight": 0.7,
+          "contribution": 0.255144
+        },
+        {
+          "competitor_id": "sisters_mall_of_emirates",
+          "distance_km": 5.843679,
+          "similarity_weight": 1.0,
+          "contribution": 0.142574
+        },
+        {
+          "competitor_id": "nstyle_mall_of_emirates",
+          "distance_km": 6.056842,
+          "similarity_weight": 0.7,
+          "contribution": 0.092957
+        },
+        {
+          "competitor_id": "nstyle_meadows_souk",
+          "distance_km": 6.191816,
+          "similarity_weight": 0.7,
+          "contribution": 0.088867
+        },
+        {
+          "competitor_id": "nstyle_dubai_hills_mall",
+          "distance_km": 9.950231,
+          "similarity_weight": 0.7,
+          "contribution": 0.02539
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "indigo_central_5",
+      "verified_competitor_pressure_lower_bound": 0.775703,
+      "contributions": [
+        {
+          "competitor_id": "sisters_mall_of_emirates",
+          "distance_km": 4.723316,
+          "similarity_weight": 1.0,
+          "contribution": 0.207124
+        },
+        {
+          "competitor_id": "nstyle_mall_of_emirates",
+          "distance_km": 3.731248,
+          "similarity_weight": 0.7,
+          "contribution": 0.201811
+        },
+        {
+          "competitor_id": "nstyle_dubai_hills_mall",
+          "distance_km": 5.989905,
+          "similarity_weight": 0.7,
+          "contribution": 0.095054
+        },
+        {
+          "competitor_id": "sisters_dubai_mall",
+          "distance_km": 7.166471,
+          "similarity_weight": 1.0,
+          "contribution": 0.091738
+        },
+        {
+          "competitor_id": "sisters_city_walk",
+          "distance_km": 7.397346,
+          "similarity_weight": 1.0,
+          "contribution": 0.084942
+        },
+        {
+          "competitor_id": "nstyle_dubai_mall",
+          "distance_km": 7.769844,
+          "similarity_weight": 0.7,
+          "contribution": 0.052517
+        },
+        {
+          "competitor_id": "nstyle_meadows_souk",
+          "distance_km": 11.573924,
+          "similarity_weight": 0.7,
+          "contribution": 0.014777
+        },
+        {
+          "competitor_id": "nstyle_dubai_marina_mall",
+          "distance_km": 11.713729,
+          "similarity_weight": 0.7,
+          "contribution": 0.014105
+        },
+        {
+          "competitor_id": "sisters_jbr",
+          "distance_km": 12.88545,
+          "similarity_weight": 1.0,
+          "contribution": 0.013635
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "city_walk_building_18a",
+      "verified_competitor_pressure_lower_bound": 1.790196,
+      "contributions": [
+        {
+          "competitor_id": "sisters_city_walk",
+          "distance_km": 0.98608,
+          "similarity_weight": 1.0,
+          "contribution": 0.719864
+        },
+        {
+          "competitor_id": "sisters_dubai_mall",
+          "distance_km": 1.545317,
+          "similarity_weight": 1.0,
+          "contribution": 0.597437
+        },
+        {
+          "competitor_id": "nstyle_dubai_mall",
+          "distance_km": 1.590445,
+          "similarity_weight": 0.7,
+          "contribution": 0.411962
+        },
+        {
+          "competitor_id": "sisters_mall_of_emirates",
+          "distance_km": 11.349057,
+          "similarity_weight": 1.0,
+          "contribution": 0.022754
+        },
+        {
+          "competitor_id": "nstyle_mall_of_emirates",
+          "distance_km": 10.317846,
+          "similarity_weight": 0.7,
+          "contribution": 0.022461
+        },
+        {
+          "competitor_id": "nstyle_dubai_hills_mall",
+          "distance_km": 11.388837,
+          "similarity_weight": 0.7,
+          "contribution": 0.015718
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "nad_al_sheba_mall",
+      "verified_competitor_pressure_lower_bound": 0.155195,
+      "contributions": [
+        {
+          "competitor_id": "sisters_mirdif_city_centre",
+          "distance_km": 7.616865,
+          "similarity_weight": 1.0,
+          "contribution": 0.078949
+        },
+        {
+          "competitor_id": "sisters_dubai_mall",
+          "distance_km": 10.034822,
+          "similarity_weight": 1.0,
+          "contribution": 0.035262
+        },
+        {
+          "competitor_id": "nstyle_dubai_mall",
+          "distance_km": 10.217297,
+          "similarity_weight": 0.7,
+          "contribution": 0.023227
+        },
+        {
+          "competitor_id": "sisters_city_walk",
+          "distance_km": 12.092865,
+          "similarity_weight": 1.0,
+          "contribution": 0.017757
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "mirdif_35",
+      "verified_competitor_pressure_lower_bound": 0.412423,
+      "contributions": [
+        {
+          "competitor_id": "sisters_mirdif_city_centre",
+          "distance_km": 2.908876,
+          "similarity_weight": 1.0,
+          "contribution": 0.379225
+        },
+        {
+          "competitor_id": "nstyle_matajer_al_juraina",
+          "distance_km": 9.145813,
+          "similarity_weight": 0.7,
+          "contribution": 0.033198
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "al_husna_street",
+      "verified_competitor_pressure_lower_bound": 0.015788,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_deerfields_mall",
+          "distance_km": 11.375441,
+          "similarity_weight": 0.7,
+          "contribution": 0.015788
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "zawaya_walk",
+      "verified_competitor_pressure_lower_bound": 0.081532,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_matajer_al_juraina",
+          "distance_km": 7.062069,
+          "similarity_weight": 0.7,
+          "contribution": 0.06649
+        },
+        {
+          "competitor_id": "sisters_mirdif_city_centre",
+          "distance_km": 12.590662,
+          "similarity_weight": 1.0,
+          "contribution": 0.015042
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "misk_2",
+      "verified_competitor_pressure_lower_bound": 0.304769,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_matajer_al_juraina",
+          "distance_km": 2.615956,
+          "similarity_weight": 0.7,
+          "contribution": 0.292684
+        },
+        {
+          "competitor_id": "sisters_mirdif_city_centre",
+          "distance_km": 13.247284,
+          "similarity_weight": 1.0,
+          "contribution": 0.012085
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "deerfields_mall",
+      "verified_competitor_pressure_lower_bound": 0.7,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_deerfields_mall",
+          "distance_km": 0.0,
+          "similarity_weight": 0.7,
+          "contribution": 0.7
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "noya_plaza_mall",
+      "verified_competitor_pressure_lower_bound": 0.112369,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_deerfields_mall",
+          "distance_km": 5.487871,
+          "similarity_weight": 0.7,
+          "contribution": 0.112369
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "west_yas_plaza",
+      "verified_competitor_pressure_lower_bound": 0.03239,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_deerfields_mall",
+          "distance_km": 9.219717,
+          "similarity_weight": 0.7,
+          "contribution": 0.03239
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "khalifa_city_al_mireef",
+      "verified_competitor_pressure_lower_bound": 0.013148,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_deerfields_mall",
+          "distance_km": 11.924323,
+          "similarity_weight": 0.7,
+          "contribution": 0.013148
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "zayed_international_airport",
+      "verified_competitor_pressure_lower_bound": 0.039484,
+      "contributions": [
+        {
+          "competitor_id": "nstyle_deerfields_mall",
+          "distance_km": 8.625585,
+          "similarity_weight": 0.7,
+          "contribution": 0.039484
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "ict_c29_khalifa_park",
+      "verified_competitor_pressure_lower_bound": 0.020687,
+      "contributions": [
+        {
+          "competitor_id": "sisters_al_bateen",
+          "distance_km": 11.63475,
+          "similarity_weight": 1.0,
+          "contribution": 0.020687
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "abu_dhabi_unresolved",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "nassib_bin_ahmed_al_humairi",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "al_dhait_north",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "al_taif_mall",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "hamad_mohamed_thani_al_rumaithi",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "al_rakb_street",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "saeed_bin_saif_al_falahi",
+      "verified_competitor_pressure_lower_bound": 0.628944,
+      "contributions": [
+        {
+          "competitor_id": "sisters_al_bateen",
+          "distance_km": 3.061648,
+          "similarity_weight": 1.0,
+          "contribution": 0.360397
+        },
+        {
+          "competitor_id": "sisters_st_regis",
+          "distance_km": 5.747673,
+          "similarity_weight": 1.0,
+          "contribution": 0.147211
+        },
+        {
+          "competitor_id": "sisters_marina_mall",
+          "distance_km": 6.32757,
+          "similarity_weight": 1.0,
+          "contribution": 0.121336
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "al_khaleej_al_arabi",
+      "verified_competitor_pressure_lower_bound": 1.550652,
+      "contributions": [
+        {
+          "competitor_id": "sisters_al_bateen",
+          "distance_km": 0.480687,
+          "similarity_weight": 1.0,
+          "contribution": 0.851949
+        },
+        {
+          "competitor_id": "sisters_st_regis",
+          "distance_km": 2.700891,
+          "similarity_weight": 1.0,
+          "contribution": 0.406449
+        },
+        {
+          "competitor_id": "sisters_marina_mall",
+          "distance_km": 3.690391,
+          "similarity_weight": 1.0,
+          "contribution": 0.292254
+        }
+      ],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    },
+    {
+      "branch_id": "madinat_zayed_block_10",
+      "verified_competitor_pressure_lower_bound": 0,
+      "contributions": [],
+      "coverage_status": "scope_limited_do_not_interpret_zero_as_no_competition"
+    }
+  ]
+}

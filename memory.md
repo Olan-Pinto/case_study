@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–3 are complete. The project has a validated 24-branch data foundation, a local React/MapLibre network-exploration workspace, and deterministic own-network distance/service-radius overlap metrics. No backend, competitor, recommendation, or AI implementation exists.
+Phases 0–4 are complete. The project has a validated 24-branch data foundation, a local React/MapLibre network-exploration workspace, deterministic own-network geometry, and a transparent, limited competitor-pressure evidence layer. No backend, branch recommendation, whitespace, or AI implementation exists.
 
 ## Modular Build Briefing Protocol
 
@@ -23,6 +23,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 2 network-exploration workspace added: React/TypeScript/Vite, MapLibre branch points, roster/text filters, linked selection, and evidence/source detail. See `docs/PHASE_2_NETWORK_EXPLORATION.md`.
 - Phase 3 network geometry added: committed, versioned 1/3/5 km service-radius metrics; haversine nearest-own-branch distances; analytic circle intersections; validation and unit tests. See `docs/PHASE_3_NETWORK_GEOMETRY.md`.
 - Demo-preparation FAQ added at `docs/DEMO_PREP.md`, covering evidence reconciliation, AI/agent boundaries, map scope, geometry mathematics, limitations, and walkthrough narrative.
+- Phase 4 competitor pressure added: source-backed Sisters/NStyle records, taxonomy, deterministic lower-bound pressure, closed-location exclusions, competitor map toggle, and branch-level evidence details. See `docs/PHASE_4_COMPETITOR_PRESSURE.md`.
 
 ## Tried and Validated
 
@@ -34,6 +35,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - `py -3 scripts/validate_branches.py`, `py -3 scripts/inspect_branches.py`, and `py -3 -m unittest discover -s tests -v` pass on the Phase 1 snapshot.
 - `npm run build` passes for the Phase 2 workspace; it imports the committed JSON snapshot and needs no key or backend. The optional OSM raster basemap is visibly attributed and must remain ordinary interactive use only under the OSM tile policy.
 - `network_metrics_v1` deterministically produces 24 branch metrics and 28 overlapping pairs across 1/3/5 km sensitivity bands. Its 3 km primary band is exposed in the branch evidence panel; it is labelled as geometric screening, not a catchment, drive time, or recommendation.
+- Phase 4 established an official-locator competitor seed: Sisters Beauty Lounge (direct) and NStyle Beauty Lounge (near-direct). User-provided map validation raised active geocoded coverage to 15 candidates. The user confirmed Arabian Ranches and Zero 6 Mall are permanently closed; they are retained for provenance and excluded from active pressure even though the official locator still lists them. `competitor_pressure_v1` remains an explicit lower bound and is not yet decision-ready.
 - OpenStreetMap Nominatim returned one attributable Abu Dhabi Bedashing POI (node 13335655901; 24.458976, 54.3536914); it remains a candidate until matched to official roster evidence.
 
 ## Tried and Rejected
@@ -64,6 +66,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Public UAE demand and compliant ratings sources remain to be validated.
 - Browser smoke testing through the available in-app browser was blocked by its local-host policy (`ERR_BLOCKED_BY_CLIENT`); production build and type checks passed. Verify visual interaction with `npm run dev` in a normal local browser before final submission.
 - Phase 3 overlap uses pairwise analytic circles, so summed pairwise areas may double-count shared area; a later coverage-uniqueness calculation must use union geometry rather than this field.
+- Overture Places 2026-08-19.0 was researched as the preferred bounded POI extraction route, but this run did not yield a usable UAE extraction. Nominatim returned no matches for 16 official competitor-name/location queries. Retain both as unsuccessful data-acquisition attempts rather than fabricating coordinates.
 
 ## Open Questions
 
@@ -73,8 +76,8 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 3 was committed and pushed by the user (`5e32cdb`). The next proposed module is Phase 4: a source-backed competitor taxonomy, candidate collection/reconciliation, and pressure layer.
+Phase 4 is ready for review and commit. The next proposed module is Phase 5: peer-aware public-proxy branch health, factor contributions, confidence, and explicitly non-financial PROTECT/HOLD/SHRINK review labels.
 
 ## Last Updated
 
-2026-09-08 — Phase 3 committed/pushed by user; added durable demo-preparation FAQ and paused before Phase 4.
+2026-09-09 — Phase 4 completed and verified: 15 active geocoded competitor records, two user-confirmed closures excluded, deterministic pressure evidence, map layer, and in-product limitations.

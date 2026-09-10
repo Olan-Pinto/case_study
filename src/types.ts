@@ -46,3 +46,46 @@ export interface NetworkMetrics {
   assumptions: string[]
   branch_metrics: BranchNetworkMetric[]
 }
+
+export interface Competitor {
+  competitor_id: string
+  brand: string
+  name: string
+  taxonomy_class: string
+  emirate: string
+  community: string
+  address: string
+  latitude: number | null
+  longitude: number | null
+  coordinate_confidence: string
+  status: string
+  source_ids: string[]
+  source_urls: string[]
+  limitations: string[]
+}
+
+export interface CompetitorSnapshot {
+  snapshot_id: string
+  records: Competitor[]
+}
+
+export interface CompetitorContribution {
+  competitor_id: string
+  distance_km: number
+  similarity_weight: number
+  contribution: number
+}
+
+export interface BranchCompetitorPressure {
+  branch_id: string
+  verified_competitor_pressure_lower_bound: number
+  contributions: CompetitorContribution[]
+  coverage_status: string
+}
+
+export interface CompetitorPressureSnapshot {
+  model_id: string
+  interpretation: string
+  competitor_geo_coverage: { officially_listed_candidate_count: number; geocoded_verified_record_count: number }
+  branch_pressure: BranchCompetitorPressure[]
+}

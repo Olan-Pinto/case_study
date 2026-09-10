@@ -34,3 +34,11 @@ select { background: #f3ece5; border: 1px solid #d9cec7; border-radius: 5px; col
 .geometry { border-top: 1px solid #e5dad2; margin-top: 18px; padding-top: 16px; }
 .geometry p { color: #56484f; font-size: .76rem; line-height: 1.45; }
 .geometry-note { color: #896a76 !important; }
+.competitor-toggle { background: rgba(255,250,244,.94); border: 1px solid #ded2c9; color: #493b42; font-size: .72rem; left: 14px; padding: 8px 10px; position: absolute; top: 14px; }
+.competitor-toggle input { accent-color: #2f6f7e; margin-right: 6px; }
+.competitor-evidence { border-top: 1px solid #d6e1e2; margin-top: 18px; padding-top: 16px; }
+.competitor-evidence p { color: #40575b; font-size: .76rem; line-height: 1.45; }
+.coverage-warning { background: #e8f1f1; border-left: 3px solid #2f6f7e; padding: 8px 10px; }
+.contributions { list-style: none; margin: 10px 0 0; padding: 0; }
+.contributions li { border-top: 1px solid #e4eded; padding: 8px 0; }
+.contributions strong { display: block; font-size: .74rem; }.contributions small { color: #5e7275; display: block; font-size: .7rem; margin-top: 3px; }.contributions a { color: #276273; font-size: .7rem; font-weight: 700; }.empty-inline { font-size: .74rem !important; }

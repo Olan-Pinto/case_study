@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
-import { branches, networkMetrics, snapshot } from './data'
+import { activeCompetitors, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot } from './data'
 import { NetworkMap } from './NetworkMap'
-import type { Branch, BranchNetworkMetric } from './types'
+import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
 const emirates = ['All', ...Array.from(new Set(branches.map((branch) => branch.emirate))).sort()]
 
@@ -13,6 +13,7 @@ export function App() {
   const [emirate, setEmirate] = useState('All')
   const [query, setQuery] = useState('')
   const [selectedBranchId, setSelectedBranchId] = useState<string | null>(branches[0]?.branch_id ?? null)
+  const [showCompetitors, setShowCompetitors] = useState(true)
 
   const filteredBranches = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -25,6 +26,7 @@ export function App() {
 
   const selectedBranch = branches.find((branch) => branch.branch_id === selectedBranchId) ?? null
   const selectedMetric = networkMetrics.branch_metrics.find((metric) => metric.branch_id === selectedBranchId) ?? null
+  const selectedPressure = competitorPressure.branch_pressure.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectBranch = useCallback((branchId: string) => setSelectedBranchId(branchId), [])
 
   return (
@@ -79,21 +81,23 @@ export function App() {
         </aside>
 
         <section className="map-panel">
-          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} onSelect={selectBranch} />
+          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} onSelect={selectBranch} />
+          <label className="competitor-toggle"><input type="checkbox" checked={showCompetitors} onChange={(event) => setShowCompetitors(event.target.checked)} /> Show {activeCompetitors.length} verified competitors</label>
           <div className="map-caption">Point locations are secondary-map coordinates. Service-radius metrics in the evidence panel are geometric distance bands—not drive-time catchments or performance.</div>
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} /> : <p className="empty">Select a location to inspect its evidence.</p>}
         </aside>
       </div>
     </main>
   )
 }
 
-function BranchDetail({ branch, metric }: { branch: Branch, metric: BranchNetworkMetric | null }) {
+function BranchDetail({ branch, metric, pressure }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null }) {
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)
   const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
+  const confirmedClosedCompetitorCount = competitorSnapshot.records.filter((competitor) => competitor.status === 'user_confirmed_permanently_closed').length
   return (
     <>
       <p className="eyebrow">Location evidence</p>
@@ -118,6 +122,17 @@ function BranchDetail({ branch, metric }: { branch: Branch, metric: BranchNetwor
         <p>Nearest own location: <strong>{nearestBranch?.name.replace('Bedashing Beauty Lounge — ', '')}</strong> · {metric.nearest_own_branch_distance_km.toFixed(2)} km</p>
         <p>Overlapping service radii: <strong>{primaryRadiusMetric.overlapping_branch_count}</strong> · largest pairwise overlap: <strong>{(primaryRadiusMetric.maximum_pairwise_overlap_coefficient * 100).toFixed(0)}%</strong></p>
         <p className="geometry-note">Geometry is a screening input only. It does not measure customer behavior, performance, or drive time.</p>
+      </section>}
+      {pressure && <section className="competitor-evidence">
+        <h3>Verified competitor screen</h3>
+        <p className="coverage-warning"><strong>Candidate review complete:</strong> {competitorPressure.competitor_geo_coverage.geocoded_verified_record_count} active geocoded locations; {confirmedClosedCompetitorCount} user-confirmed closed locations excluded. <strong>Scope limit:</strong> this screen covers only the two researched brands, so zero does not mean no competition.</p>
+        <p>Lower-bound pressure: <strong>{pressure.verified_competitor_pressure_lower_bound.toFixed(2)}</strong></p>
+        {pressure.contributions.length ? <ul className="contributions">
+          {pressure.contributions.map((contribution) => {
+            const competitor = competitorSnapshot.records.find((item) => item.competitor_id === contribution.competitor_id)
+            return <li key={contribution.competitor_id}><strong>{competitor?.name.replace(' Beauty Lounge — ', ' — ') ?? contribution.competitor_id}</strong><small>{contribution.distance_km.toFixed(2)} km · relevance {contribution.similarity_weight.toFixed(1)} · contribution {contribution.contribution.toFixed(2)}</small>{competitor?.source_urls[0] && <a href={competitor.source_urls[0]} target="_blank" rel="noreferrer">Source ↗</a>}</li>
+          })}
+        </ul> : <p className="empty-inline">No contributor within the model threshold. This is not evidence that local competition is absent.</p>}
       </section>}
       {branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>

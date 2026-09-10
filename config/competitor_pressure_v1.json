@@ -1,0 +1,13 @@
+{
+  "model_id": "competitor-pressure-v1",
+  "distance_decay_km": 3,
+  "taxonomy": {
+    "direct_premium_full_service": {"similarity_weight": 1.0, "description": "Premium full-service women's beauty lounge with hair, nails, and adjacent services."},
+    "near_direct_premium_beauty": {"similarity_weight": 0.7, "description": "Premium beauty/nail lounge with material service overlap."},
+    "local_full_service": {"similarity_weight": 0.45, "description": "Local full-service women's salon; requires quality/context review."},
+    "specialist_adjacent": {"similarity_weight": 0.25, "description": "Hair-only, lash, spa, or similarly adjacent specialist."},
+    "low_relevance": {"similarity_weight": 0.0, "description": "Kiosk, barber, or otherwise non-comparable provider."}
+  },
+  "formula": "verified_competitor_pressure_lower_bound = sum(similarity_weight * exp(-great_circle_distance_km / distance_decay_km))",
+  "interpretation": "Candidate review is complete for this snapshot, but the screen is a lower bound limited to the researched brands. A zero does not mean no competition."
+}

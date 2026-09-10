@@ -14,6 +14,7 @@ The core idea is: **deterministic geography and public evidence calculate; the A
 - **Phase 1:** A 24-lounge, coordinate-backed Bedashing roster with schema, validation, provenance, and reproducible inspection.
 - **Phase 2:** A local React/MapLibre workspace with a map, searchable roster, selection, and source/evidence details.
 - **Phase 3:** Nearest-own-branch distances plus 1/3/5 km geometric service-radius overlap metrics.
+- **Phase 4:** A source-backed competitor screen for Sisters Beauty Lounge and NStyle Beauty Lounge, including map visibility, branch-level evidence, and a transparent lower-bound pressure calculation.
 
 The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_execution_roadmap.md). Phase 4 is competitor data and pressure; later phases add branch health, whitespace, scenarios, AI analyst, justified agentic enhancement, and hardening.
 
@@ -89,11 +90,38 @@ This is **not** “19% shared customers,” “24% revenue cannibalization,” o
 
 The prototype does not have validated travel-time routing or customer-origin data. Calling a 3 km circle a “10-minute catchment” would be misleading. The UI and documentation consistently call it a service radius / geometric distance band.
 
+## What does the competitor coverage message mean?
+
+The candidate review is complete: **15 active locations are geocoded** and **2 locations are user-confirmed permanently closed**, so the closed locations are excluded from pressure. The official NStyle locator still lists those closures, and is recorded as stale for those two records.
+
+The remaining scope limitation is different: this initial screen researches only **Sisters Beauty Lounge** and **NStyle Beauty Lounge**. It is not a census of every UAE salon. Therefore, a zero pressure score means no relevant competitor from this researched subset contributed; it does not mean no competition exists.
+
+## In simple terms, what is competitor pressure?
+
+It is a nearby-verified-competitor presence signal. A higher score means more relevant researched competitors are close to the selected Bedashing branch; a lower score means fewer are close. It does not measure branch performance, revenue, market share, quality, or recommend an action.
+
+## How is lower-bound pressure calculated, and what is its range?
+
+For every active, geocoded competitor, the product calculates:
+
+`relevance weight × exp(−distance in km / 3)`
+
+It then adds those contributions. The 3 km value makes contribution decline smoothly with straight-line distance: a competitor at 3 km contributes roughly 37% of its starting weight. Only contributions of at least 0.01 are displayed and summed, intentionally making the score a conservative lower bound.
+
+There is no fixed 0–100 scale. A direct competitor at the same coordinate contributes 1.00; several nearby competitors can make the total exceed 1. The output is a relative evidence signal, not a percentage or rating.
+
+## Why does Sisters have a weight of 1.0 and NStyle 0.7?
+
+These are explicit, reviewable business-rule assumptions—not learned facts or quality scores. Sisters is weighted 1.0 because its premium full-service offer has the closest observed service overlap with Bedashing. NStyle is weighted 0.7 because it remains highly relevant but is more beauty/nail-led and therefore judged a slightly less direct substitute.
+
+The value does not say NStyle is “70% as good” or has 70% of Sisters' market impact. A later version should calibrate these assumptions against real service menus, pricing, customer behavior, or transaction data.
+
 ## What should I say about current limitations?
 
 - The official live locator could not be programmatically reconciled during research; official per-branch verification remains open.
 - Coordinates are user-validated, 2GIS-attributed map evidence rather than official coordinates.
-- Public competitor, demand, ratings, and internal operating data are not in the product yet.
+- The competitor screen covers only two researched brands; it is not a complete UAE salon-market census.
+- Demand, ratings, and internal operating data are not in the product yet.
 - Pairwise overlap-area sums can double-count shared space; they are not union coverage.
 - The OSM basemap is visual context; it is not a source of branch performance or recommendations.
 - No model or API call has been made for the AI feature yet.
@@ -104,7 +132,8 @@ The prototype does not have validated travel-time routing or customer-origin dat
 2. Select a branch from the list or map.
 3. Show its address, coordinate provenance, source links, and snapshot ID.
 4. Explain its nearest own branch and 3 km geometry screen.
-5. State the honest limitation: this is evidence-backed geography, not yet a branch decision.
+5. Toggle the verified competitor layer and explain the lower-bound pressure contributors for the selected branch.
+6. State the honest limitation: this is evidence-backed geography and competitor presence, not yet a branch decision.
 
 ## Git and review cadence
 

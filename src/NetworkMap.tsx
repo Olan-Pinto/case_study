@@ -1,13 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { Map, NavigationControl, setWorkerUrl, type MapGeoJSONFeature } from 'maplibre-gl'
 import mapWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
-import type { Branch } from './types'
+import type { Branch, Competitor } from './types'
 
 setWorkerUrl(mapWorkerUrl)
 
 const SOURCE_ID = 'bedashing-branches'
 const LAYER_ID = 'bedashing-branch-points'
 const SELECTED_LAYER_ID = 'bedashing-selected-branch'
+const COMPETITOR_SOURCE_ID = 'competitor-points'
+const COMPETITOR_LAYER_ID = 'competitor-points'
 
 const mapStyle = {
   version: 8 as const,
@@ -38,13 +40,19 @@ function toFeatureCollection(branches: Branch[]) {
   }
 }
 
+function competitorFeatureCollection(competitors: Competitor[]) {
+  return { type: 'FeatureCollection' as const, features: competitors.filter((item) => item.latitude !== null && item.longitude !== null).map((item) => ({ type: 'Feature' as const, properties: { competitor_id: item.competitor_id, name: item.name, taxonomy_class: item.taxonomy_class }, geometry: { type: 'Point' as const, coordinates: [item.longitude!, item.latitude!] } })) }
+}
+
 interface NetworkMapProps {
   branches: Branch[]
   selectedBranchId: string | null
+  competitors: Competitor[]
+  showCompetitors: boolean
   onSelect: (branchId: string) => void
 }
 
-export function NetworkMap({ branches, selectedBranchId, onSelect }: NetworkMapProps) {
+export function NetworkMap({ branches, selectedBranchId, competitors, showCompetitors, onSelect }: NetworkMapProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<Map | null>(null)
 
@@ -63,6 +71,8 @@ export function NetworkMap({ branches, selectedBranchId, onSelect }: NetworkMapP
 
     map.on('load', () => {
       map.addSource(SOURCE_ID, { type: 'geojson', data: toFeatureCollection(branches) })
+      map.addSource(COMPETITOR_SOURCE_ID, { type: 'geojson', data: competitorFeatureCollection(competitors) })
+      map.addLayer({ id: COMPETITOR_LAYER_ID, type: 'circle', source: COMPETITOR_SOURCE_ID, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 3, 10, 5, 14, 7], 'circle-color': '#2f6f7e', 'circle-stroke-color': '#fffaf4', 'circle-stroke-width': 1.5, 'circle-opacity': 0.9 }, layout: { visibility: showCompetitors ? 'visible' : 'none' } })
       map.addLayer({
         id: LAYER_ID,
         type: 'circle',
@@ -101,6 +111,12 @@ export function NetworkMap({ branches, selectedBranchId, onSelect }: NetworkMapP
       mapRef.current = null
     }
   }, [branches, onSelect])
+
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !map.isStyleLoaded() || !map.getLayer(COMPETITOR_LAYER_ID)) return
+    map.setLayoutProperty(COMPETITOR_LAYER_ID, 'visibility', showCompetitors ? 'visible' : 'none')
+  }, [showCompetitors])
 
   useEffect(() => {
     const map = mapRef.current
