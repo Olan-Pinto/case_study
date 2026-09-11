@@ -1,0 +1,37 @@
+{
+  "model_id": "branch-health-scenarios-v1",
+  "status": "bounded_weight_scenarios",
+  "base_model_id": "branch-health-v1",
+  "scope": "Existing active Bedashing branches only. Recompute the same public-proxy scorecard with named, bounded weights.",
+  "guardrails": [
+    "Scenarios do not change source data, peer groups, labels thresholds, confidence, or branch status.",
+    "Scenarios do not estimate demand, revenue, profit, customer behavior, or closure decisions.",
+    "Weights must each be between zero and one and sum exactly to one."
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "baseline",
+      "label": "Baseline",
+      "description": "Current balanced public-proxy scorecard.",
+      "weights": {"peer_adjusted_reputation": 0.6, "inverse_competitor_pressure": 0.25, "inverse_own_network_overlap": 0.15}
+    },
+    {
+      "scenario_id": "reputation_priority",
+      "label": "Reputation priority",
+      "description": "Places more relative emphasis on public reputation within the same venue-context peer group.",
+      "weights": {"peer_adjusted_reputation": 0.75, "inverse_competitor_pressure": 0.15, "inverse_own_network_overlap": 0.1}
+    },
+    {
+      "scenario_id": "competitor_pressure_priority",
+      "label": "Competitor-pressure priority",
+      "description": "Places more relative emphasis on the limited two-brand competitor-pressure lower bound.",
+      "weights": {"peer_adjusted_reputation": 0.45, "inverse_competitor_pressure": 0.4, "inverse_own_network_overlap": 0.15}
+    },
+    {
+      "scenario_id": "network_spacing_priority",
+      "label": "Network-spacing priority",
+      "description": "Places more relative emphasis on lower geometric overlap with the existing Bedashing network.",
+      "weights": {"peer_adjusted_reputation": 0.4, "inverse_competitor_pressure": 0.15, "inverse_own_network_overlap": 0.45}
+    }
+  ]
+}

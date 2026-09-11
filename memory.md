@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–6 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, and 1,939 bounded whitespace research-screening cells. The whitespace output is deliberately not a demand model, opening recommendation, or AI feature. No backend or AI implementation exists.
+Phases 0–7 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, bounded whitespace research cells, and a transparent scenario-sensitivity workspace. Neither whitespace nor scenarios are demand models, opening recommendations, financial forecasts, or AI features. No backend or AI implementation exists.
 
 ## Modular Build Briefing Protocol
 
@@ -32,6 +32,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 6A whitespace contract added: H3 candidate resolution, exclusions, permitted screening factors, and `RESEARCH_REQUIRED` missingness guardrail. See `docs/PHASE_6_WHITESPACE.md`.
 - Phase 6 completed: deterministic H3 resolution-8 cells in bounded Dubai/Abu Dhabi city clusters, user-validated urban-context anchor screening, limited two-brand competitor saturation, map inspection, source traceability, and conservative `WATCH_RESEARCH`/`SKIP_RESEARCH`/`RESEARCH_REQUIRED` labels. All confidence is capped at 20%; no `GROW_RESEARCH` or opening recommendation is emitted.
 - Post-Phase-6 UI clarification: user-confirmed permanently closed branches are bold red in the roster and red on the map. The whitespace layer now has non-overlapping toggles and a WATCH/SKIP/RESEARCH legend.
+- Phase 7 completed: four versioned branch-health scenario replays (baseline, reputation priority, competitor-pressure priority, and network-spacing priority). Scenarios alter only bounded weights, preserve all evidence and confidence, show branch-level baseline/score deltas/label changes, and are explicitly sensitivity analysis rather than forecasts or actions. Baseline replay exactly matches the Phase 5 health output.
 
 ## Tried and Validated
 
@@ -85,10 +86,11 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 6 is complete. Proceed to Phase 7 scenario analysis: explicitly model transparent, user-controlled changes to the existing evidence rather than inventing demand or financial outcomes.
+Phase 7 is complete. Proceed to Phase 8: optional grounded AI portfolio analyst over typed, deterministic, evidence-returning tools with a no-AI fallback.
 
 ## Last Updated
 
 2026-09-09 — Phase 5C collection route chosen: manual user validation from Google Maps, captured as dated rating/count/link evidence with no API use or automated Google extraction.
 2026-09-09 — Manual reputation collection structurally accounts for all 24 branches: 22 ratings, two user-confirmed closures. All observations are 2026-09-09. Pinnacle's Google listing is user-confirmed by identity text despite a displaced place pin; Zawaya is user-confirmed by address/coordinate without an embedded place pin.
 2026-09-10 — Phase 6 completed with 1,939 deterministic bounded research-screening cells. User-supplied coordinates/status for Dubai Hills, Reem, Saadiyat, City Walk, Yas, and Rashid Yachts are preserved alongside official context sources. Rashid Yachts is excluded as temporarily closed. The output may prioritize research only; it does not claim demand or recommend openings.
+2026-09-10 — Phase 7 completed with four bounded branch-health scorecard replays. Baseline exactly reproduces Phase 5; alternative scenarios vary only declared weights and display the numeric/label delta for every active branch.

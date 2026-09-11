@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
-import { activeCompetitors, branchHealth, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
+import { activeCompetitors, branchHealthScenarios, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
 import { NetworkMap } from './NetworkMap'
 import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
@@ -16,6 +16,7 @@ export function App() {
   const [showCompetitors, setShowCompetitors] = useState(true)
   const [showWhitespace, setShowWhitespace] = useState(false)
   const [selectedCandidate, setSelectedCandidate] = useState<any>(null)
+  const [scenarioId, setScenarioId] = useState('baseline')
 
   const filteredBranches = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -29,7 +30,8 @@ export function App() {
   const selectedBranch = branches.find((branch) => branch.branch_id === selectedBranchId) ?? null
   const selectedMetric = networkMetrics.branch_metrics.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectedPressure = competitorPressure.branch_pressure.find((metric) => metric.branch_id === selectedBranchId) ?? null
-  const selectedHealth = branchHealth.records.find((metric: any) => metric.branch_id === selectedBranchId) ?? null
+  const selectedScenario = branchHealthScenarios.scenarios.find((scenario: any) => scenario.scenario_id === scenarioId) ?? branchHealthScenarios.scenarios[0]
+  const selectedHealth = selectedScenario.records.find((metric: any) => metric.branch_id === selectedBranchId) ?? null
   const selectBranch = useCallback((branchId: string) => { setSelectedCandidate(null); setSelectedBranchId(branchId) }, [])
 
   return (
@@ -52,6 +54,11 @@ export function App() {
         <span>24 coordinates</span>
         <span>•</span>
         <span>Public mapping evidence, not operating performance</span>
+        <label className="scenario-control">Scenario
+          <select value={scenarioId} onChange={(event) => setScenarioId(event.target.value)}>
+            {branchHealthScenarios.scenarios.map((scenario: any) => <option key={scenario.scenario_id} value={scenario.scenario_id}>{scenario.label}</option>)}
+          </select>
+        </label>
       </section>
 
       <div className="layout">
@@ -97,7 +104,7 @@ export function App() {
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} /> : <p className="empty">Select a location to inspect its evidence.</p>}
         </aside>
       </div>
     </main>
@@ -106,7 +113,7 @@ export function App() {
 
 function WhitespaceDetail({ candidate }: { candidate: any }) { return <><p className="eyebrow">Whitespace evidence</p><h2>{candidate.label.replaceAll('_', ' ')}</h2><p className="place">{candidate.study_area_id.replaceAll('_', ' ')}</p><dl className="facts"><div><dt>Nearest active branch</dt><dd>{candidate.nearest_active_branch_distance_km.toFixed(2)} km</dd></div><div><dt>Nearest high-priority anchor</dt><dd>{candidate.nearest_high_priority_anchor_km.toFixed(2)} km</dd></div><div><dt>Limited competitor pressure</dt><dd>{candidate.competitor_pressure_lower_bound.toFixed(2)}</dd></div><div><dt>Confidence</dt><dd>{candidate.confidence}%</dd></div></dl><section className="caution"><h3>Important limitation</h3><p>{candidate.limitations[0]}</p></section></> }
 
-function BranchDetail({ branch, metric, pressure, health }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any }) {
+function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any, scenario: any }) {
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)
   const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
   const confirmedClosedCompetitorCount = competitorSnapshot.records.filter((competitor) => competitor.status === 'user_confirmed_permanently_closed').length
@@ -146,7 +153,7 @@ function BranchDetail({ branch, metric, pressure, health }: { branch: Branch, me
           })}
         </ul> : <p className="empty-inline">No contributor within the model threshold. This is not evidence that local competition is absent.</p>}
       </section>}
-      {health && <section className="competitor-evidence"><h3>Branch-health public proxy</h3><p><strong>{health.review_label.replace('_', ' ')}</strong> · score {health.public_proxy_score.toFixed(0)}/100 · confidence {health.confidence.toFixed(0)}%</p><p className="geometry-note">Peer basis: {health.comparison_basis.replaceAll('_', ' ')}. Public-proxy evidence only; not financial health or a closure decision.</p></section>}
+      {health && <section className="competitor-evidence"><h3>Branch-health public proxy</h3><p><strong>{health.review_label.replace('_', ' ')}</strong> · score {health.public_proxy_score.toFixed(0)}/100 · confidence {health.confidence.toFixed(0)}%</p><p className="geometry-note">Peer basis: {health.comparison_basis.replaceAll('_', ' ')}. Public-proxy evidence only; not financial health or a closure decision.</p><section className="scenario-evidence"><h3>Scenario sensitivity · {scenario.label}</h3><p>{scenario.description}</p><dl className="scenario-facts"><div><dt>Baseline → scenario</dt><dd>{health.baseline_public_proxy_score.toFixed(0)} → {health.public_proxy_score.toFixed(0)} <strong className={health.score_delta > 0 ? 'positive-delta' : health.score_delta < 0 ? 'negative-delta' : ''}>({health.score_delta > 0 ? '+' : ''}{health.score_delta.toFixed(0)})</strong></dd></div><div><dt>Review label</dt><dd>{health.baseline_review_label.replace('_', ' ')} → {health.review_label.replace('_', ' ')}{health.label_changed && <strong className="label-change"> changed</strong>}</dd></div><div><dt>Weights</dt><dd>Reputation {Math.round(scenario.weights.peer_adjusted_reputation * 100)}% · competitors {Math.round(scenario.weights.inverse_competitor_pressure * 100)}% · spacing {Math.round(scenario.weights.inverse_own_network_overlap * 100)}%</dd></div></dl><p className="geometry-note">Same evidence; only declared scorecard weights changed. This is sensitivity analysis, not a forecast.</p></section></section>}
       {branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>
   )
