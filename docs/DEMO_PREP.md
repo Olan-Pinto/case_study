@@ -26,6 +26,10 @@ The map’s optional whitespace layer contains H3 resolution-8 cell centroids sc
 
 Use the Scenario selector in the context bar, then select an active branch. The scenario panel reports the baseline score, the replayed score, delta, review-label change, and the three exact weights. A useful line for the demo is: “The evidence has not changed. I am making a strategic preference explicit and seeing whether that preference is material enough to cross a review threshold.” The available scenarios prioritize public reputation, the limited two-brand competitor-pressure proxy, or lower geometric own-network overlap. They are bounded weight replays—not forecasts, demand simulations, or instructions to act.
 
+## Phase 8: grounded AI analyst
+
+The Optional AI analyst panel is deliberately not a chatbot over unrestricted files or the web. It can use six read-only tools: branch profile, branch comparison, scenario details, a whitespace-cell profile, bounded whitespace search, and source provenance. The tool outputs carry source IDs, snapshot/model IDs, and limitations. The model only explains those outputs; deterministic Python models still calculate every score. With no server key, the panel returns a clear disabled state and the rest of the workspace works normally.
+
 ## Why does Bedashing say 24 lounges when an early list showed 15?
 
 The early 15-record list was a conservative, incomplete secondary directory result—not a conclusion that only 15 locations exist. Bedashing's official website claims 24 UAE lounges, but its accessible web locator returned zero server-rendered shops and its booking route errored during research, so it could not independently supply the branch roster.

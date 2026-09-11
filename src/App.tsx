@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import { activeCompetitors, branchHealthScenarios, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
 import { NetworkMap } from './NetworkMap'
+import { AnalystPanel } from './AnalystPanel'
 import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
 const emirates = ['All', ...Array.from(new Set(branches.map((branch) => branch.emirate))).sort()]
@@ -105,6 +106,7 @@ export function App() {
 
         <aside className="detail-panel" aria-live="polite">
           {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          <AnalystPanel branch={selectedBranch} scenarioId={scenarioId} />
         </aside>
       </div>
     </main>

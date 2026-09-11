@@ -3,16 +3,24 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analyst": "node --env-file=.env server/analyst-server.mjs",
+    "test:analyst": "node --test server/portfolio-tools.test.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
     "maplibre-gl": "^6.8.0",
+    "openai": "^7.15.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "vite": "latest"
   },
   "devDependencies": {

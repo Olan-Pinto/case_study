@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–7 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, bounded whitespace research cells, and a transparent scenario-sensitivity workspace. Neither whitespace nor scenarios are demand models, opening recommendations, financial forecasts, or AI features. No backend or AI implementation exists.
+Phases 0–8 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, bounded whitespace research cells, transparent scenario sensitivity, and an optional grounded AI analyst. Neither whitespace nor scenarios are demand models, opening recommendations, or financial forecasts. The AI analyst synthesizes only read-only tool evidence and is disabled without a server-side key.
 
 ## Modular Build Briefing Protocol
 
@@ -32,7 +32,12 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 6A whitespace contract added: H3 candidate resolution, exclusions, permitted screening factors, and `RESEARCH_REQUIRED` missingness guardrail. See `docs/PHASE_6_WHITESPACE.md`.
 - Phase 6 completed: deterministic H3 resolution-8 cells in bounded Dubai/Abu Dhabi city clusters, user-validated urban-context anchor screening, limited two-brand competitor saturation, map inspection, source traceability, and conservative `WATCH_RESEARCH`/`SKIP_RESEARCH`/`RESEARCH_REQUIRED` labels. All confidence is capped at 20%; no `GROW_RESEARCH` or opening recommendation is emitted.
 - Post-Phase-6 UI clarification: user-confirmed permanently closed branches are bold red in the roster and red on the map. The whitespace layer now has non-overlapping toggles and a WATCH/SKIP/RESEARCH legend.
+- UX refinement before Phase 8 user testing: desktop workspace uses fixed-height panels with independent roster/detail scroll rather than document-level scroll. Basemap changed to OpenFreeMap Liberty with label fields configured to prefer English, then Latin; local-name fallback remains where neither field exists.
 - Phase 7 completed: four versioned branch-health scenario replays (baseline, reputation priority, competitor-pressure priority, and network-spacing priority). Scenarios alter only bounded weights, preserve all evidence and confidence, show branch-level baseline/score deltas/label changes, and are explicitly sensitivity analysis rather than forecasts or actions. Baseline replay exactly matches the Phase 5 health output.
+- Phase 8 completed: optional server-side OpenAI Responses API analyst with six strict read-only local tools, a four-call application limit, source/snapshot/model evidence envelopes, explicit refusals for unknown/write-like tools, model-evaluation fixtures, UI panel, and a verified `AI_DISABLED` no-key fallback. No OpenAI API call was made during build.
+- Phase 8 UI refinement: grounded answers render safe GitHub-style Markdown (headings, emphasis, lists, tables) without raw HTML. The analyst avoids wide tables in the narrow evidence panel.
+- Phase 8 observability refinement: each grounded answer exposes a collapsed, user-visible approved-tool activity trace with safe inputs, status, duration, and source IDs. It deliberately excludes private model reasoning, chain-of-thought, secrets, and raw tool payloads.
+- Phase 8 matching refinement: the analyst now resolves an unambiguous human-friendly branch/community/address reference against the committed roster before profile retrieval. Ambiguous references surface choices rather than a guessed branch; e.g. Al Nahyan resolves to `saeed_bin_saif_al_falahi` via its verified address/community.
 
 ## Tried and Validated
 
@@ -86,7 +91,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 7 is complete. Proceed to Phase 8: optional grounded AI portfolio analyst over typed, deterministic, evidence-returning tools with a no-AI fallback.
+Phase 8 is complete. Proceed to Phase 9 only if a bounded agentic capability adds value beyond the analyst; a controlled refresh/reconciliation workflow with human approval is the leading candidate.
 
 ## Last Updated
 
@@ -94,3 +99,6 @@ Phase 7 is complete. Proceed to Phase 8: optional grounded AI portfolio analyst 
 2026-09-09 — Manual reputation collection structurally accounts for all 24 branches: 22 ratings, two user-confirmed closures. All observations are 2026-09-09. Pinnacle's Google listing is user-confirmed by identity text despite a displaced place pin; Zawaya is user-confirmed by address/coordinate without an embedded place pin.
 2026-09-10 — Phase 6 completed with 1,939 deterministic bounded research-screening cells. User-supplied coordinates/status for Dubai Hills, Reem, Saadiyat, City Walk, Yas, and Rashid Yachts are preserved alongside official context sources. Rashid Yachts is excluded as temporarily closed. The output may prioritize research only; it does not claim demand or recommend openings.
 2026-09-10 — Phase 7 completed with four bounded branch-health scorecard replays. Baseline exactly reproduces Phase 5; alternative scenarios vary only declared weights and display the numeric/label delta for every active branch.
+2026-09-10 — Phase 8 completed with an optional grounded OpenAI Responses API tool-calling analyst. The server is read-only and the key remains server-only via ignored `.env`. Both the no-key fallback and live API smoke checks were runtime-verified: one grounded branch explanation and one refused closure request. Tool and fixture tests run without an API call.
+2026-09-10 — Phase 8 analyst observability now shows a collapsed evidence-activity trace for each grounded answer. The trace makes its actual bounded tool use auditable without exposing private model reasoning or secrets.
+2026-09-10 — Phase 8 analyst branch matching now accepts human-friendly references from the committed roster; it resolves only unique matches and returns ambiguity rather than guessing.

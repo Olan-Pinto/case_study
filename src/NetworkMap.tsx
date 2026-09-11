@@ -13,20 +13,13 @@ const COMPETITOR_LAYER_ID = 'competitor-points'
 const WHITESPACE_SOURCE_ID = 'whitespace-cells'
 const WHITESPACE_LAYER_ID = 'whitespace-cells'
 
-const mapStyle = {
-  version: 8 as const,
-  sources: {
-    osm: {
-      type: 'raster' as const,
-      tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-      tileSize: 256,
-      attribution: '© OpenStreetMap contributors',
-    },
-  },
-  layers: [
-    { id: 'background', type: 'background' as const, paint: { 'background-color': '#f5f2ed' } },
-    { id: 'osm', type: 'raster' as const, source: 'osm', minzoom: 0, maxzoom: 19, paint: { 'raster-opacity': 0.78 } },
-  ],
+const mapStyle = 'https://tiles.openfreemap.org/styles/liberty'
+
+function preferEnglishLabels(map: Map) {
+  const englishFirstName: any = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']]
+  for (const layer of map.getStyle().layers ?? []) {
+    if (layer.type === 'symbol' && layer.layout?.['text-field']) map.setLayoutProperty(layer.id, 'text-field', englishFirstName)
+  }
 }
 
 function toFeatureCollection(branches: Branch[]) {
@@ -76,6 +69,7 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
     map.addControl(new NavigationControl({ visualizePitch: true }), 'bottom-right')
 
     map.on('load', () => {
+      preferEnglishLabels(map)
       map.addSource(SOURCE_ID, { type: 'geojson', data: toFeatureCollection(branches) })
       map.addSource(COMPETITOR_SOURCE_ID, { type: 'geojson', data: competitorFeatureCollection(competitors) })
       map.addSource(WHITESPACE_SOURCE_ID, { type: 'geojson', data: whitespaceFeatureCollection(candidates) })
