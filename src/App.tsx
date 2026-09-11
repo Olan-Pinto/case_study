@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
-import { activeCompetitors, branchHealth, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot } from './data'
+import { activeCompetitors, branchHealth, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
 import { NetworkMap } from './NetworkMap'
 import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
@@ -14,6 +14,8 @@ export function App() {
   const [query, setQuery] = useState('')
   const [selectedBranchId, setSelectedBranchId] = useState<string | null>(branches[0]?.branch_id ?? null)
   const [showCompetitors, setShowCompetitors] = useState(true)
+  const [showWhitespace, setShowWhitespace] = useState(false)
+  const [selectedCandidate, setSelectedCandidate] = useState<any>(null)
 
   const filteredBranches = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -28,7 +30,7 @@ export function App() {
   const selectedMetric = networkMetrics.branch_metrics.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectedPressure = competitorPressure.branch_pressure.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectedHealth = branchHealth.records.find((metric: any) => metric.branch_id === selectedBranchId) ?? null
-  const selectBranch = useCallback((branchId: string) => setSelectedBranchId(branchId), [])
+  const selectBranch = useCallback((branchId: string) => { setSelectedCandidate(null); setSelectedBranchId(branchId) }, [])
 
   return (
     <main className="workspace">
@@ -69,10 +71,10 @@ export function App() {
           <input className="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search area or location" aria-label="Search branches" />
           <div className="branch-list">
             {filteredBranches.map((branch) => (
-              <button className={`branch-row ${branch.branch_id === selectedBranchId ? 'selected' : ''}`} key={branch.branch_id} onClick={() => selectBranch(branch.branch_id)}>
+              <button className={`branch-row ${branch.branch_id === selectedBranchId ? 'selected' : ''} ${branch.status === 'user_confirmed_permanently_closed' ? 'permanently-closed' : ''}`} key={branch.branch_id} onClick={() => selectBranch(branch.branch_id)}>
                 <span className="branch-marker" />
                 <span>
-                  <strong>{branch.name.replace('Bedashing Beauty Lounge — ', '')}</strong>
+                  <strong>{branch.name.replace('Bedashing Beauty Lounge — ', '')}{branch.status === 'user_confirmed_permanently_closed' && ' — PERMANENTLY CLOSED'}</strong>
                   <small>{branch.community} · {branch.emirate}</small>
                 </span>
               </button>
@@ -82,18 +84,27 @@ export function App() {
         </aside>
 
         <section className="map-panel">
-          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} onSelect={selectBranch} />
+          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} showCandidates={showWhitespace} onSelect={selectBranch} onSelectCandidate={setSelectedCandidate} />
           <label className="competitor-toggle"><input type="checkbox" checked={showCompetitors} onChange={(event) => setShowCompetitors(event.target.checked)} /> Show {activeCompetitors.length} verified competitors</label>
+          <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} onChange={(event) => setShowWhitespace(event.target.checked)} /> Show bounded whitespace research cells</label>
+          <div className="whitespace-legend" aria-label="Whitespace research-cell legend">
+            <strong>Whitespace screening</strong>
+            <span><i className="legend-watch" />Watch research</span>
+            <span><i className="legend-skip" />Skip research</span>
+            <span><i className="legend-required" />Research required</span>
+          </div>
           <div className="map-caption">Point locations are secondary-map coordinates. Service-radius metrics in the evidence panel are geometric distance bands—not drive-time catchments or performance.</div>
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} /> : <p className="empty">Select a location to inspect its evidence.</p>}
         </aside>
       </div>
     </main>
   )
 }
+
+function WhitespaceDetail({ candidate }: { candidate: any }) { return <><p className="eyebrow">Whitespace evidence</p><h2>{candidate.label.replaceAll('_', ' ')}</h2><p className="place">{candidate.study_area_id.replaceAll('_', ' ')}</p><dl className="facts"><div><dt>Nearest active branch</dt><dd>{candidate.nearest_active_branch_distance_km.toFixed(2)} km</dd></div><div><dt>Nearest high-priority anchor</dt><dd>{candidate.nearest_high_priority_anchor_km.toFixed(2)} km</dd></div><div><dt>Limited competitor pressure</dt><dd>{candidate.competitor_pressure_lower_bound.toFixed(2)}</dd></div><div><dt>Confidence</dt><dd>{candidate.confidence}%</dd></div></dl><section className="caution"><h3>Important limitation</h3><p>{candidate.limitations[0]}</p></section></> }
 
 function BranchDetail({ branch, metric, pressure, health }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any }) {
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)

@@ -1,0 +1,20 @@
+{
+  "model_id": "whitespace-v1",
+  "status": "contract_only_not_scored",
+  "candidate_grid": {"system": "h3", "resolution": 8, "sensitivity_resolutions": [7, 9]},
+  "study_scope": {"rule": "Generate only within a bounded, source-reviewed urban study area; do not treat the UAE bounding box as urban demand.", "areas": [{"id": "dubai_cluster", "label": "Dubai operating cluster", "bbox": [25.05, 55.12, 25.35, 55.49]}, {"id": "abu_dhabi_city_cluster", "label": "Abu Dhabi city operating cluster", "bbox": [24.28, 54.32, 24.55, 54.75]}]},
+  "candidate_distance_km": {"minimum_from_active_branch": 3, "maximum_from_active_branch": 8},
+  "saturation": {"competitor_decay_km": 3, "skip_pressure_at_or_above": 1.5},
+  "urban_context_anchors": [{"id":"dubai_hills_mall","latitude":25.101946778474346,"longitude":55.23994814519226,"status":"active","role":"high_priority","source_ids":["user_urban_context_validation_2026_09_10","dubai_hills_mall_official"]},{"id":"dubai_hills_estate","latitude":25.116043220956865,"longitude":55.26816498428391,"status":"active","role":"high_priority","source_ids":["user_urban_context_validation_2026_09_10","emaar_communities_official"]},{"id":"rashid_yachts","latitude":25.259305762189427,"longitude":55.27927466655721,"status":"temporarily_closed","role":"exclude","source_ids":["user_urban_context_validation_2026_09_10","emaar_communities_official"]},{"id":"reem_mall","latitude":24.48886620114063,"longitude":54.40078352645439,"status":"active","role":"high_priority","source_ids":["user_urban_context_validation_2026_09_10","adrec_h1_2026_market_report"]},{"id":"saadiyat_cultural_district","latitude":24.533556542334587,"longitude":54.40906048107613,"status":"active","role":"high_priority","source_ids":["user_urban_context_validation_2026_09_10","adrec_h1_2026_market_report"]},{"id":"city_walk","latitude":25.207688496283346,"longitude":55.2626325881696,"status":"active","role":"control","source_ids":["user_urban_context_validation_2026_09_10","city_walk_official"]},{"id":"yas_mall","latitude":24.48912225230468,"longitude":54.60865760886124,"status":"active","role":"control","source_ids":["user_urban_context_validation_2026_09_10","yas_mall_official"]}],
+  "exclusions": ["water", "non_urban_area", "existing_active_branch_cell", "unsupported_demand_claim"],
+  "permitted_factors": {
+    "own_network_distance": "positive screening signal; never a customer catchment",
+    "own_network_coverage": "negative screening signal; must use active branches only",
+    "competitor_validation": "moderate relevant pressure may validate a market; zero does not prove demand",
+    "competitor_saturation": "high relevant pressure is a negative screening signal",
+    "built_environment_context": "unavailable until source-backed and geographically compatible"
+  },
+  "missingness": {"rule": "Do not infer demand from distance, absence of competitors, or blank POI data. Without source-backed built-environment context, output only RESEARCH_REQUIRED.", "withheld_label": "RESEARCH_REQUIRED"},
+  "labels": {"future": ["GROW_RESEARCH", "WATCH_RESEARCH", "SKIP_RESEARCH"], "rule": "Labels prioritize manual expansion research and are never opening recommendations."},
+  "confidence": {"required_dimensions": ["study_area_validity", "active_network_completeness", "competitor_scope", "built_environment_coverage", "geographic_method_adequacy"]}
+}

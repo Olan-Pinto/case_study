@@ -1,4 +1,4 @@
-export type BranchStatus = 'observed_currently_listed' | 'candidate_needs_official_validation' | 'confirmed_closed'
+export type BranchStatus = 'observed_currently_listed' | 'candidate_needs_official_validation' | 'confirmed_closed' | 'user_confirmed_permanently_closed'
 
 export interface Branch {
   branch_id: string

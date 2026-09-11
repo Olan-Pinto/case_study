@@ -10,6 +10,8 @@ const LAYER_ID = 'bedashing-branch-points'
 const SELECTED_LAYER_ID = 'bedashing-selected-branch'
 const COMPETITOR_SOURCE_ID = 'competitor-points'
 const COMPETITOR_LAYER_ID = 'competitor-points'
+const WHITESPACE_SOURCE_ID = 'whitespace-cells'
+const WHITESPACE_LAYER_ID = 'whitespace-cells'
 
 const mapStyle = {
   version: 8 as const,
@@ -34,7 +36,7 @@ function toFeatureCollection(branches: Branch[]) {
       .filter((branch) => branch.latitude !== null && branch.longitude !== null)
       .map((branch) => ({
         type: 'Feature' as const,
-        properties: { branch_id: branch.branch_id, name: branch.name, emirate: branch.emirate },
+        properties: { branch_id: branch.branch_id, name: branch.name, emirate: branch.emirate, status: branch.status },
         geometry: { type: 'Point' as const, coordinates: [branch.longitude!, branch.latitude!] },
       })),
   }
@@ -43,16 +45,20 @@ function toFeatureCollection(branches: Branch[]) {
 function competitorFeatureCollection(competitors: Competitor[]) {
   return { type: 'FeatureCollection' as const, features: competitors.filter((item) => item.latitude !== null && item.longitude !== null).map((item) => ({ type: 'Feature' as const, properties: { competitor_id: item.competitor_id, name: item.name, taxonomy_class: item.taxonomy_class }, geometry: { type: 'Point' as const, coordinates: [item.longitude!, item.latitude!] } })) }
 }
+function whitespaceFeatureCollection(candidates: any[]) { return { type: 'FeatureCollection' as const, features: candidates.map((item) => ({ type: 'Feature' as const, properties: { cell_id: item.cell_id, label: item.label }, geometry: { type: 'Point' as const, coordinates: [item.longitude, item.latitude] } })) } }
 
 interface NetworkMapProps {
   branches: Branch[]
   selectedBranchId: string | null
   competitors: Competitor[]
   showCompetitors: boolean
+  candidates: any[]
+  showCandidates: boolean
+  onSelectCandidate: (candidate: any) => void
   onSelect: (branchId: string) => void
 }
 
-export function NetworkMap({ branches, selectedBranchId, competitors, showCompetitors, onSelect }: NetworkMapProps) {
+export function NetworkMap({ branches, selectedBranchId, competitors, showCompetitors, candidates, showCandidates, onSelect, onSelectCandidate }: NetworkMapProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<Map | null>(null)
 
@@ -72,6 +78,9 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
     map.on('load', () => {
       map.addSource(SOURCE_ID, { type: 'geojson', data: toFeatureCollection(branches) })
       map.addSource(COMPETITOR_SOURCE_ID, { type: 'geojson', data: competitorFeatureCollection(competitors) })
+      map.addSource(WHITESPACE_SOURCE_ID, { type: 'geojson', data: whitespaceFeatureCollection(candidates) })
+      map.addLayer({ id: WHITESPACE_LAYER_ID, type: 'circle', source: WHITESPACE_SOURCE_ID, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 3.5, 10, 5, 14, 7], 'circle-color': ['match',['get','label'],'WATCH_RESEARCH','#e0a13b','SKIP_RESEARCH','#a94b4b','#8796a5'], 'circle-stroke-color': '#fffaf4', 'circle-stroke-width': .5, 'circle-opacity': .65 }, layout: { visibility: showCandidates ? 'visible' : 'none' } })
+      map.on('click', WHITESPACE_LAYER_ID, (event) => { const feature=event.features?.[0]; const candidate=candidates.find((item) => item.cell_id===feature?.properties?.cell_id); if(candidate) onSelectCandidate(candidate) })
       map.addLayer({ id: COMPETITOR_LAYER_ID, type: 'circle', source: COMPETITOR_SOURCE_ID, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 3, 10, 5, 14, 7], 'circle-color': '#2f6f7e', 'circle-stroke-color': '#fffaf4', 'circle-stroke-width': 1.5, 'circle-opacity': 0.9 }, layout: { visibility: showCompetitors ? 'visible' : 'none' } })
       map.addLayer({
         id: LAYER_ID,
@@ -79,8 +88,8 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
         source: SOURCE_ID,
         paint: {
           'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 5, 10, 8, 14, 11],
-          'circle-color': '#8f3d66',
-          'circle-stroke-color': '#fffaf4',
+          'circle-color': ['match', ['get', 'status'], 'user_confirmed_permanently_closed', '#d7191c', '#8f3d66'],
+          'circle-stroke-color': ['match', ['get', 'status'], 'user_confirmed_permanently_closed', '#710000', '#fffaf4'],
           'circle-stroke-width': 2,
           'circle-opacity': 0.93,
         },
@@ -110,13 +119,15 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
       map.remove()
       mapRef.current = null
     }
-  }, [branches, onSelect])
+  }, [branches, candidates, onSelect, onSelectCandidate])
 
   useEffect(() => {
     const map = mapRef.current
     if (!map || !map.isStyleLoaded() || !map.getLayer(COMPETITOR_LAYER_ID)) return
     map.setLayoutProperty(COMPETITOR_LAYER_ID, 'visibility', showCompetitors ? 'visible' : 'none')
   }, [showCompetitors])
+
+  useEffect(() => { const map=mapRef.current; if(map?.isStyleLoaded()&&map.getLayer(WHITESPACE_LAYER_ID)) map.setLayoutProperty(WHITESPACE_LAYER_ID,'visibility',showCandidates?'visible':'none') }, [showCandidates])
 
   useEffect(() => {
     const map = mapRef.current

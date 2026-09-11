@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–4 are complete; Phase 5A is complete but intentionally contains no branch scores. The project has a validated 24-branch data foundation, a local React/MapLibre network-exploration workspace, deterministic own-network geometry, and a transparent, limited competitor-pressure evidence layer. No backend, branch recommendation, whitespace, or AI implementation exists.
+Phases 0–6 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, and 1,939 bounded whitespace research-screening cells. The whitespace output is deliberately not a demand model, opening recommendation, or AI feature. No backend or AI implementation exists.
 
 ## Modular Build Briefing Protocol
 
@@ -28,6 +28,10 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 4 competitor pressure added: source-backed Sisters/NStyle records, taxonomy, deterministic lower-bound pressure, closed-location exclusions, competitor map toggle, and branch-level evidence details. See `docs/PHASE_4_COMPETITOR_PRESSURE.md`.
 - Phase 5A branch-health contract added: permitted-factor, peer-comparison, missingness, confidence, and non-financial labelling rules. It deliberately withholds scores until source-backed public-reputation and format-archetype evidence exists. See `docs/PHASE_5_BRANCH_HEALTH.md`.
 - Phase 5B completed live source research and address-evidenced venue-context peer groups: 9 destination-retail, 13 community/streetfront, and two network-comparison-only outliers. Google Places API is a technically suitable source but requires user-approved credentials/billing/terms; inconsistent secondary directories are rejected.
+- Phase 5 completed: 22 active-branch public-proxy health records with review labels, confidence, contributions, and UI evidence; two user-confirmed Bedashing closures are excluded from active geometry/pressure.
+- Phase 6A whitespace contract added: H3 candidate resolution, exclusions, permitted screening factors, and `RESEARCH_REQUIRED` missingness guardrail. See `docs/PHASE_6_WHITESPACE.md`.
+- Phase 6 completed: deterministic H3 resolution-8 cells in bounded Dubai/Abu Dhabi city clusters, user-validated urban-context anchor screening, limited two-brand competitor saturation, map inspection, source traceability, and conservative `WATCH_RESEARCH`/`SKIP_RESEARCH`/`RESEARCH_REQUIRED` labels. All confidence is capped at 20%; no `GROW_RESEARCH` or opening recommendation is emitted.
+- Post-Phase-6 UI clarification: user-confirmed permanently closed branches are bold red in the roster and red on the map. The whitespace layer now has non-overlapping toggles and a WATCH/SKIP/RESEARCH legend.
 
 ## Tried and Validated
 
@@ -81,9 +85,10 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 5B is complete. The user selected Phase 5C manual Google Maps validation rather than paid Google Places API access. A 24-branch collection worksheet is at `docs/PHASE_5_REPUTATION_COLLECTION.md`; health scoring remains withheld until the dated rating/count/link evidence is supplied.
+Phase 6 is complete. Proceed to Phase 7 scenario analysis: explicitly model transparent, user-controlled changes to the existing evidence rather than inventing demand or financial outcomes.
 
 ## Last Updated
 
 2026-09-09 — Phase 5C collection route chosen: manual user validation from Google Maps, captured as dated rating/count/link evidence with no API use or automated Google extraction.
 2026-09-09 — Manual reputation collection structurally accounts for all 24 branches: 22 ratings, two user-confirmed closures. All observations are 2026-09-09. Pinnacle's Google listing is user-confirmed by identity text despite a displaced place pin; Zawaya is user-confirmed by address/coordinate without an embedded place pin.
+2026-09-10 — Phase 6 completed with 1,939 deterministic bounded research-screening cells. User-supplied coordinates/status for Dubai Hills, Reem, Saadiyat, City Walk, Yas, and Rashid Yachts are preserved alongside official context sources. Rashid Yachts is excluded as temporarily closed. The output may prioritize research only; it does not claim demand or recommend openings.

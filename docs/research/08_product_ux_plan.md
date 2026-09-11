@@ -11,7 +11,7 @@ Layers: network, service radii, own overlap, relevant competitors, competitive c
 1. **Network overview:** filter emirate/archetype; see label mix, overlap and opportunity layer, then select a priority.
 2. **Investigate a branch:** inspect context, peers, proximity, competition, overlap, recommendation, contributions, confidence, evidence and caveats.
 3. **Compare branches:** select two+ branches and compare normalized values with peer basis shown.
-4. **Find whitespace:** select a cell, understand GROW/WATCH/SKIP and market-validation vs saturation evidence.
+4. **Find whitespace:** select a cell, understand RESEARCH_REQUIRED/WATCH/SKIP and the difference between market-validation signals and saturation evidence. A later, source-backed phase would be required before any growth recommendation.
 5. **Scenario plan:** adjust bounded priorities; inspect changed labels and sensitivities.
 6. **Ask analyst:** ask a portfolio question; see its sources/tool evidence; use deterministic fallback when disabled.
 

@@ -18,6 +18,10 @@ The core idea is: **deterministic geography and public evidence calculate; the A
 
 The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_execution_roadmap.md). Phase 4 is competitor data and pressure; later phases add branch health, whitespace, scenarios, AI analyst, justified agentic enhancement, and hardening.
 
+## Phase 6: bounded whitespace research
+
+The map’s optional whitespace layer contains H3 resolution-8 cell centroids screened only inside the configured Dubai and Abu Dhabi city clusters. A cell is retained only when it is 3–8 km from an active Bedashing branch. The display is a research queue, not a growth map: `WATCH RESEARCH` is close to a user-validated high-priority urban-context anchor with lower limited competitor pressure; `SKIP RESEARCH` has high limited pressure; and `RESEARCH REQUIRED` has insufficient evidence for either screen. The model intentionally never emits `GROW` or an opening recommendation because it has no defensible local demand, footfall, tenancy, or financial data.
+
 ## Why does Bedashing say 24 lounges when an early list showed 15?
 
 The early 15-record list was a conservative, incomplete secondary directory result—not a conclusion that only 15 locations exist. Bedashing's official website claims 24 UAE lounges, but its accessible web locator returned zero server-rendered shops and its booking route errored during research, so it could not independently supply the branch roster.
