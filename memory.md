@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–8 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, bounded whitespace research cells, transparent scenario sensitivity, and an optional grounded AI analyst. Neither whitespace nor scenarios are demand models, opening recommendations, or financial forecasts. The AI analyst synthesizes only read-only tool evidence and is disabled without a server-side key.
+Phases 0–9 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, bounded whitespace research cells, transparent scenario sensitivity, an optional grounded AI analyst, and a bounded AI portfolio-review worklist agent. Neither whitespace nor scenarios are demand models, opening recommendations, or financial forecasts. The AI components synthesize only read-only tool evidence and are disabled without a server-side key.
 
 ## Modular Build Briefing Protocol
 
@@ -38,6 +38,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 8 UI refinement: grounded answers render safe GitHub-style Markdown (headings, emphasis, lists, tables) without raw HTML. The analyst avoids wide tables in the narrow evidence panel.
 - Phase 8 observability refinement: each grounded answer exposes a collapsed, user-visible approved-tool activity trace with safe inputs, status, duration, and source IDs. It deliberately excludes private model reasoning, chain-of-thought, secrets, and raw tool payloads.
 - Phase 8 matching refinement: the analyst now resolves an unambiguous human-friendly branch/community/address reference against the committed roster before profile retrieval. Ambiguous references surface choices rather than a guessed branch; e.g. Al Nahyan resolves to `saeed_bin_saif_al_falahi` via its verified address/community.
+- Phase 9 completed: a bounded AI portfolio-review worklist agent first gathers active evidence for UAE/Dubai/Abu Dhabi, then selects limited branch-profile and permitted whitespace follow-ups to return a cited human research queue. It has a forced first tool, four sequential-call limit, visible trace, no web/data-write path, and no operating recommendation. See `docs/PHASE_9_PORTFOLIO_REVIEW_AGENT.md`.
 
 ## Tried and Validated
 
@@ -91,7 +92,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 8 is complete. Proceed to Phase 9 only if a bounded agentic capability adds value beyond the analyst; a controlled refresh/reconciliation workflow with human approval is the leading candidate.
+Phase 9 is complete. Proceed to Phase 10: harden the reviewer experience, document setup and provenance, validate accessibility/error/performance boundaries, and write the final README/demo plan.
 
 ## Last Updated
 
@@ -102,3 +103,4 @@ Phase 8 is complete. Proceed to Phase 9 only if a bounded agentic capability add
 2026-09-10 — Phase 8 completed with an optional grounded OpenAI Responses API tool-calling analyst. The server is read-only and the key remains server-only via ignored `.env`. Both the no-key fallback and live API smoke checks were runtime-verified: one grounded branch explanation and one refused closure request. Tool and fixture tests run without an API call.
 2026-09-10 — Phase 8 analyst observability now shows a collapsed evidence-activity trace for each grounded answer. The trace makes its actual bounded tool use auditable without exposing private model reasoning or secrets.
 2026-09-10 — Phase 8 analyst branch matching now accepts human-friendly references from the committed roster; it resolves only unique matches and returns ambiguity rather than guessing.
+2026-09-11 — Phase 9 refresh-review prototype was removed because it added no stakeholder value. It was replaced by a bounded AI portfolio-review agent that produces a cited research worklist by scope. Deterministic contracts/build pass; a live model smoke test requires explicit authorization because it sends local portfolio evidence to OpenAI.

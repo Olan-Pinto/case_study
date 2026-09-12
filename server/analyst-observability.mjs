@@ -1,4 +1,5 @@
 const activityTitles = {
+  get_portfolio_scope: 'Read the selected portfolio scope',
   resolve_branch_reference: 'Matched the location to the roster',
   get_branch_profile: 'Checked branch evidence',
   compare_branches: 'Compared branch evidence',
@@ -9,6 +10,7 @@ const activityTitles = {
 }
 
 function compactInput(toolName, args) {
+  if (toolName === 'get_portfolio_scope') return { scope: args.scope }
   if (toolName === 'resolve_branch_reference') return { reference: args.reference }
   if (toolName === 'get_branch_profile') return { branch_id: args.branch_id, scenario_id: args.scenario_id }
   if (toolName === 'compare_branches') return { branch_ids: args.branch_ids, scenario_id: args.scenario_id }

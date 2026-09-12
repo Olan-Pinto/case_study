@@ -59,12 +59,19 @@ The product is **semi-agentic, bounded, and tool-using**—not autonomous. The m
 Current design decisions:
 
 - **HITL: adopt** for publishing a refreshed snapshot or accepting consequential overrides.
-- **Loop engineering: defer** until a bounded refresh workflow earns its complexity.
+- **Portfolio-review agent: adopt** because a bounded multi-tool worklist turns portfolio evidence into a useful human research queue.
+- **Refresh automation: defer** because a manual candidate-entry form did not add enough decision value.
 - **Graph runtime: reject initially** because the expected tool paths are simple.
 - **MCP: defer** as an adapter until there is a real second consumer.
 - **A2A: reject for this prototype** because there are no independent agents that need delegation.
 
 This is appropriate for an AI Engineering role because it demonstrates current agent engineering judgement without using “agentic” as a buzzword.
+
+## What is the Phase 9 agentic workflow?
+
+Phase 9 is a portfolio research worklist agent. The user chooses UAE, Dubai, or Abu Dhabi; the agent first reads the bounded active evidence inventory for that scope, then selects limited branch and whitespace checks before producing a short, cited list of what a human should investigate next.
+
+It does **not** browse, scrape, invent facts, rewrite data, publish anything, or recommend an opening/closure. Its autonomous work is safe evidence gathering and research triage; a human owns both verification and decisions.
 
 ## Why did Phase 2 avoid performance, catchments, competition, and recommendations?
 

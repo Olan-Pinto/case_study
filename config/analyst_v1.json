@@ -4,7 +4,7 @@
   "provider": {"api": "OpenAI Responses API", "default_model": "gpt-5.5", "environment_override": "OPENAI_MODEL", "key_environment_variable": "OPENAI_API_KEY", "store": false, "source_ids": ["openai_responses_2026_09_10"]},
   "limits": {"max_question_characters": 500, "max_tool_calls": 4, "parallel_tool_calls": false},
   "observability": {"user_visible_activity": "approved tool activity only", "exposed_fields": ["tool title", "safe tool input", "status", "duration_ms", "source_ids"], "never_expose": ["private model reasoning", "chain of thought", "API keys", "raw tool payloads"]},
-  "allowlisted_tools": ["resolve_branch_reference", "get_branch_profile", "compare_branches", "get_scenario", "get_opportunity_profile", "search_opportunity_cells", "get_source_provenance"],
+  "allowlisted_tools": ["get_portfolio_scope", "resolve_branch_reference", "get_branch_profile", "compare_branches", "get_scenario", "get_opportunity_profile", "search_opportunity_cells", "get_source_provenance"],
   "guardrails": [
     "Read committed local snapshots only; never fetch arbitrary web data or use unapproved tools.",
     "Every portfolio-specific answer must be grounded in at least one allowlisted tool result.",

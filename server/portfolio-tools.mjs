@@ -11,6 +11,7 @@ const health = json('data/processed/branch_health_v1.json')
 const scenarios = json('data/processed/branch_health_scenarios_v1.json')
 const whitespace = json('data/processed/whitespace_candidates_v1.json')
 const config = json('config/analyst_v1.json')
+const portfolioReviewConfig = json('config/portfolio_review_v1.json')
 
 const byId = (records, key) => new Map(records.map((record) => [record[key], record]))
 const branchesById = byId(branchSnapshot.records, 'branch_id')
@@ -63,8 +64,27 @@ function scenarioRecord(branch_id, scenario_id = 'baseline') {
   if (!record) throw new Error(`No active branch-health record for: ${branch_id}`)
   return { scenario: { scenario_id: scenario.scenario_id, label: scenario.label, description: scenario.description, weights: scenario.weights }, record }
 }
+function portfolioScope(scope) {
+  const scopeConfig = portfolioReviewConfig.scopes[scope]
+  if (!scopeConfig) throw new Error(`Unknown portfolio scope: ${scope}`)
+  const baseline = scenarioById.get('baseline')
+  const profiles = branchSnapshot.records.filter((branch) => healthById.has(branch.branch_id) && (!scopeConfig.emirates || scopeConfig.emirates.includes(branch.emirate))).map((branch) => {
+    const branchHealth = baseline.records.find((record) => record.branch_id === branch.branch_id)
+    const branchPressure = pressureById.get(branch.branch_id)
+    const branchMetric = metricsById.get(branch.branch_id)
+    return {
+      branch_id: branch.branch_id, name: branch.name, emirate: branch.emirate, community: branch.community,
+      review_label: branchHealth.review_label, public_proxy_score: branchHealth.public_proxy_score, confidence: branchHealth.confidence,
+      lower_bound_competitor_pressure: branchPressure?.verified_competitor_pressure_lower_bound ?? null,
+      nearest_own_branch_distance_km: branchMetric?.nearest_own_branch_distance_km ?? null,
+      validation_needed: branch.validation_needed, source_ids: branch.source_ids,
+    }
+  })
+  return { scope, label: scopeConfig.label, active_branch_count: profiles.length, profiles, permitted_whitespace_study_areas: scopeConfig.whitespace_study_areas, interpretation: 'A public-proxy evidence inventory for prioritizing follow-up research, not a ranking of business actions.' }
+}
 
 export const TOOL_DEFINITIONS = [
+  { type: 'function', name: 'get_portfolio_scope', description: 'Return the bounded active-branch evidence inventory for exactly one scope: uae, dubai, or abu_dhabi. Use this first for a portfolio-review worklist. It includes public-proxy label, confidence, competitor lower bound, spacing, validation gaps, source IDs, and permitted whitespace study areas; it is not a business-action ranking.', strict: true, parameters: { type: 'object', properties: { scope: { type: 'string', enum: ['uae', 'dubai', 'abu_dhabi'] } }, required: ['scope'], additionalProperties: false } },
   { type: 'function', name: 'resolve_branch_reference', description: 'Resolve a human-friendly Bedashing branch, community, address, or known branch ID to one committed roster record. Use before a profile lookup when the user did not supply an exact branch ID. Returns resolved, ambiguous, or not-found; never guess an ambiguous match.', strict: true, parameters: { type: 'object', properties: { reference: { type: 'string' } }, required: ['reference'], additionalProperties: false } },
   { type: 'function', name: 'get_branch_profile', description: 'Return read-only branch, geometry, competitor-pressure, health, scenario, provenance, and limitations for one known active branch ID. It also accepts one unambiguous human-friendly branch, community, or address reference.', strict: true, parameters: { type: 'object', properties: { branch_id: { type: 'string' }, scenario_id: { type: 'string' } }, required: ['branch_id', 'scenario_id'], additionalProperties: false } },
   { type: 'function', name: 'compare_branches', description: 'Compare two or three known active branch IDs using the same named scenario.', strict: true, parameters: { type: 'object', properties: { branch_ids: { type: 'array', items: { type: 'string' }, minItems: 2, maxItems: 3 }, scenario_id: { type: 'string' } }, required: ['branch_ids', 'scenario_id'], additionalProperties: false } },
@@ -77,6 +97,11 @@ export const TOOL_DEFINITIONS = [
 export function executeTool(name, args) {
   try {
     if (!config.allowlisted_tools.includes(name)) return fail('TOOL_NOT_ALLOWED', `Tool is not allowlisted: ${name}`)
+    if (name === 'get_portfolio_scope') {
+      requireString(args.scope, 'scope')
+      const data = portfolioScope(args.scope)
+      return envelope(name, data, [...data.profiles.flatMap((profile) => profile.source_ids), ...scenarioSourceIds])
+    }
     if (name === 'resolve_branch_reference') {
       requireString(args.reference, 'reference')
       const resolution = resolveBranchReference(args.reference)

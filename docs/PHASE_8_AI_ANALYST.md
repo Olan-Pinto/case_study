@@ -2,11 +2,11 @@
 
 ## Outcome
 
-Phase 8 adds an optional, server-side natural-language analyst. The model does not calculate the portfolio scores or receive raw unrestricted files. It selects from six strict, read-only functions that return committed snapshot evidence. The browser never receives `OPENAI_API_KEY`.
+Phase 8 adds an optional, server-side natural-language analyst. The model does not calculate the portfolio scores or receive raw unrestricted files. It selects from strict, read-only functions that return committed snapshot evidence. The browser never receives `OPENAI_API_KEY`.
 
 ## Tool boundary
 
-The allowlist is: branch-reference resolution, branch profile, branch comparison, scenario metadata, one whitespace-cell profile, bounded whitespace search, and source provenance. The resolver maps an unambiguous human-friendly branch/community/address reference to a committed roster record; broad or conflicting references return candidate choices rather than a guess. Each result contains source IDs, snapshot/model IDs, and limitations. Refreshing data, arbitrary web browsing, scoring changes, writes, and operating decisions are unavailable.
+The allowlist is: portfolio-scope inventory, branch-reference resolution, branch profile, branch comparison, scenario metadata, one whitespace-cell profile, bounded whitespace search, and source provenance. The resolver maps an unambiguous human-friendly branch/community/address reference to a committed roster record; broad or conflicting references return candidate choices rather than a guess. Each result contains source IDs, snapshot/model IDs, and limitations. Refreshing data, arbitrary web browsing, scoring changes, writes, and operating decisions are unavailable.
 
 The server uses the OpenAI Responses API with custom function tools, server-side instructions, `store: false`, one-at-a-time tool calls, and a four-call application limit. To preserve the no-storage setting, it explicitly carries the user item, model output item, and function-output item between tool turns rather than relying on a stored previous response. The official API supports model responses that call custom functions, explicit instructions, tool selection, and conversation continuation. [OpenAI Responses API reference](https://developers.openai.com/api/reference/cli/resources/responses/methods/create)
 

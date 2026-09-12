@@ -3,6 +3,13 @@ import assert from 'node:assert/strict'
 import { executeTool } from './portfolio-tools.mjs'
 import { toPublicToolActivity } from './analyst-observability.mjs'
 
+test('portfolio-scope tool returns only active Abu Dhabi evidence and its permitted research area', () => {
+  const result=executeTool('get_portfolio_scope',{scope:'abu_dhabi'})
+  assert.equal(result.status,'ok'); assert.equal(result.data.scope,'abu_dhabi'); assert.equal(result.data.permitted_whitespace_study_areas[0],'abu_dhabi_city_cluster')
+  assert.ok(result.data.profiles.length>0); assert.ok(result.data.profiles.every((profile)=>profile.emirate==='Abu Dhabi'))
+  assert.ok(result.data.profiles.every((profile)=>profile.review_label && profile.source_ids.length>0))
+})
+
 test('branch profile returns scenario evidence and source IDs', () => {
   const result=executeTool('get_branch_profile',{branch_id:'saeed_bin_saif_al_falahi',scenario_id:'baseline'})
   assert.equal(result.status,'ok'); assert.equal(result.data.scenario_health.baseline_public_proxy_score,result.data.scenario_health.public_proxy_score); assert.ok(result.source_ids.includes('user_validated_google_maps_2026_09_09'))

@@ -1,0 +1,13 @@
+{
+  "workflow_id": "portfolio-review-agent-v1",
+  "purpose": "Use bounded read-only portfolio tools to create a cited research worklist for a selected geography.",
+  "scopes": {
+    "uae": {"label": "Whole UAE portfolio", "emirates": null, "whitespace_study_areas": ["dubai_cluster", "abu_dhabi_city_cluster"]},
+    "dubai": {"label": "Dubai portfolio", "emirates": ["Dubai"], "whitespace_study_areas": ["dubai_cluster"]},
+    "abu_dhabi": {"label": "Abu Dhabi portfolio", "emirates": ["Abu Dhabi"], "whitespace_study_areas": ["abu_dhabi_city_cluster"]}
+  },
+  "limits": {"max_tool_calls": 4, "max_worklist_items": 5, "parallel_tool_calls": false},
+  "required_first_tool": "get_portfolio_scope",
+  "output_requirements": ["scope reviewed", "numbered investigation worklist", "per-item evidence reason", "per-item next verification", "source or snapshot IDs", "not concluded"],
+  "prohibited": ["opening or closure recommendation", "financial or demand claim", "new score", "data write", "external web browsing", "unstated evidence"]
+}
