@@ -99,9 +99,9 @@ export function App() {
         </aside>
 
         <section className="map-panel">
-          <NetworkMap branches={filteredBranches} allBranches={branches} networkMetrics={networkMetrics} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} showCandidates={showWhitespace} showServiceRadii={showServiceRadii} radiusKm={radiusKm} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
+          <NetworkMap branches={filteredBranches} allBranches={branches} networkMetrics={networkMetrics} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} selectedCandidateId={selectedCandidate?.cell_id ?? null} showCandidates={showWhitespace} showServiceRadii={showServiceRadii} radiusKm={radiusKm} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
           <label className="competitor-toggle"><input type="checkbox" checked={showCompetitors} onChange={(event) => setShowCompetitors(event.target.checked)} /> Show {activeCompetitors.length} verified competitors</label>
-          <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} onChange={(event) => setShowWhitespace(event.target.checked)} /> Show bounded whitespace research cells</label>
+          <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} onChange={(event) => setShowWhitespace(event.target.checked)} /> Show whitespace research areas</label>
           <div className="whitespace-legend" aria-label="Whitespace research-cell legend">
             <strong>Whitespace screening</strong>
             <span><i className="legend-watch" />Watch research</span>
@@ -117,7 +117,7 @@ export function App() {
             </label>
             {showServiceRadii && selectedBranchIsActive && <div className="radius-key"><span><i className="radius-selected" />Selected branch</span><span><i className="radius-overlap" />Overlapping branch</span><small>Distance only—not drive time or customers</small></div>}
           </div>
-          <div className="map-caption">Point locations are secondary-map coordinates. Service-radius metrics in the evidence panel are geometric distance bands—not drive-time catchments or performance.</div>
+          <div className="map-caption">Branch points are mapped coordinates. Whitespace hexagons are research areas, not precise sites. Service radii are geometric distance bands—not drive-time catchments or performance.</div>
         </section>
 
         <aside className="detail-panel" aria-live="polite">

@@ -18,8 +18,8 @@ The user supplied coordinates and status validation for seven urban-context anch
 
 The process is deterministic:
 
-1. Generate H3 resolution-8 centroids only inside the two configured study-area bounding boxes.
-2. Retain a centroid only when it is 3–8 km from an active Bedashing branch. This is a spacing screen, not a catchment or travel-time measure.
+1. Generate H3 resolution-8 cells only inside the two configured study-area bounding boxes and preserve each cell's true polygon boundary.
+2. Retain a cell only when its centre is 3–8 km from an active Bedashing branch. This is a spacing screen, not a catchment or travel-time measure.
 3. Calculate a limited, transparent competitor-pressure lower bound from the verified Sisters and NStyle records. It is not a full competitive census.
 4. Apply conservative research labels:
    - `SKIP_RESEARCH` when lower-bound pressure is at least 1.5.
@@ -30,6 +30,6 @@ The process is deterministic:
 
 ## Product surface and verification
 
-The map has an opt-in “Show bounded whitespace research cells” layer and an always-visible WATCH/SKIP/RESEARCH color key. Selecting a cell exposes the calculated network distance, high-priority-anchor distance, limited competitor-pressure lower bound, confidence, and the limitation. A branch selection returns the detail panel to branch evidence. User-confirmed permanently closed Bedashing locations are bold red in the roster and red on the map, so they remain historically auditable but are visually distinct from the active network.
+The map has an opt-in “Show whitespace research areas” layer and an always-visible WATCH/SKIP/RESEARCH color key. It renders the actual H3 hexagon boundaries—not centroid dots—so each mark means a screening area rather than a precise proposed site. Selecting anywhere inside a hexagon outlines it and exposes the calculated network distance, high-priority-anchor distance, limited competitor-pressure lower bound, confidence, and limitation. A branch selection returns the detail panel to branch evidence. Permanently closed Bedashing locations are bold red in the roster and red on the map, so they remain historically auditable but are visually distinct from the active network.
 
 `scripts/build_whitespace_candidates.py` regenerates the snapshot. `scripts/validate_whitespace_contract.py`, `scripts/validate_whitespace_candidates.py`, and the whitespace tests protect the contract and label boundaries. Overture Places was assessed for a richer POI route but did not yield a usable bounded UAE extract, so it is recorded as an attempted—not substituted—source.

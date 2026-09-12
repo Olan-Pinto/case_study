@@ -25,7 +25,7 @@ The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_exe
 
 ## Phase 6: bounded whitespace research
 
-The map’s optional whitespace layer contains H3 resolution-8 cell centroids screened only inside the configured Dubai and Abu Dhabi city clusters. A cell is retained only when it is 3–8 km from an active Bedashing branch. The display is a research queue, not a growth map: `WATCH RESEARCH` is close to a user-validated high-priority urban-context anchor with lower limited competitor pressure; `SKIP RESEARCH` has high limited pressure; and `RESEARCH REQUIRED` has insufficient evidence for either screen. The model intentionally never emits `GROW` or an opening recommendation because it has no defensible local demand, footfall, tenancy, or financial data.
+The map’s optional whitespace layer renders the true boundaries of H3 resolution-8 cells screened only inside the configured Dubai and Abu Dhabi city clusters. The hexagon is a research area—not a precise proposed address. A cell is retained only when its centre is 3–8 km from an active Bedashing branch. The display is a research queue, not a growth map: `WATCH RESEARCH` is close to a validated high-priority urban-context anchor with lower limited competitor pressure; `SKIP RESEARCH` has high limited pressure; and `RESEARCH REQUIRED` has insufficient evidence for either screen. The model intentionally never emits `GROW` or an opening recommendation because it has no defensible local demand, footfall, tenancy, or financial data.
 
 ## Phase 7: scenario sensitivity
 

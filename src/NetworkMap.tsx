@@ -11,6 +11,8 @@ const COMPETITOR_SOURCE_ID = 'competitor-points'
 const COMPETITOR_LAYER_ID = 'competitor-points'
 const WHITESPACE_SOURCE_ID = 'whitespace-cells'
 const WHITESPACE_LAYER_ID = 'whitespace-cells'
+const WHITESPACE_OUTLINE_LAYER_ID = 'whitespace-cells-outline'
+const SELECTED_WHITESPACE_OUTLINE_LAYER_ID = 'selected-whitespace-cell-outline'
 const RADIUS_SOURCE_ID = 'service-radii'
 const RADIUS_FILL_LAYER_ID = 'service-radii-fill'
 const RADIUS_OUTLINE_LAYER_ID = 'service-radii-outline'
@@ -40,7 +42,16 @@ function toFeatureCollection(branches: Branch[]) {
 function competitorFeatureCollection(competitors: Competitor[]) {
   return { type: 'FeatureCollection' as const, features: competitors.filter((item) => item.latitude !== null && item.longitude !== null).map((item) => ({ type: 'Feature' as const, properties: { competitor_id: item.competitor_id, name: item.name, taxonomy_class: item.taxonomy_class }, geometry: { type: 'Point' as const, coordinates: [item.longitude!, item.latitude!] } })) }
 }
-function whitespaceFeatureCollection(candidates: any[]) { return { type: 'FeatureCollection' as const, features: candidates.map((item) => ({ type: 'Feature' as const, properties: { cell_id: item.cell_id, label: item.label }, geometry: { type: 'Point' as const, coordinates: [item.longitude, item.latitude] } })) } }
+function whitespaceFeatureCollection(candidates: any[]) {
+  return {
+    type: 'FeatureCollection' as const,
+    features: candidates.map((item) => ({
+      type: 'Feature' as const,
+      properties: { cell_id: item.cell_id, label: item.label },
+      geometry: { type: 'Polygon' as const, coordinates: [item.boundary] },
+    })),
+  }
+}
 
 function geodesicCircle(longitude: number, latitude: number, radiusKm: number) {
   const earthRadiusKm = 6371.0088
@@ -96,6 +107,7 @@ interface NetworkMapProps {
   competitors: Competitor[]
   showCompetitors: boolean
   candidates: any[]
+  selectedCandidateId: string | null
   showCandidates: boolean
   allBranches: Branch[]
   networkMetrics: NetworkMetrics
@@ -105,7 +117,7 @@ interface NetworkMapProps {
   onSelect: (branchId: string) => void
 }
 
-export function NetworkMap({ branches, selectedBranchId, competitors, showCompetitors, candidates, showCandidates, allBranches, networkMetrics, showServiceRadii, radiusKm, onSelect, onSelectCandidate }: NetworkMapProps) {
+export function NetworkMap({ branches, selectedBranchId, competitors, showCompetitors, candidates, selectedCandidateId, showCandidates, allBranches, networkMetrics, showServiceRadii, radiusKm, onSelect, onSelectCandidate }: NetworkMapProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<Map | null>(null)
   const selectedMarkerRef = useRef<Marker | null>(null)
@@ -134,8 +146,12 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
       map.addSource(COMPETITOR_SOURCE_ID, { type: 'geojson', data: competitorFeatureCollection(competitors) })
       map.addSource(WHITESPACE_SOURCE_ID, { type: 'geojson', data: whitespaceFeatureCollection(candidates) })
       map.addSource(RADIUS_SOURCE_ID, { type: 'geojson', data: radiusFeatureCollection(allBranches, networkMetrics, selectedBranchId, radiusKm) })
-      map.addLayer({ id: WHITESPACE_LAYER_ID, type: 'circle', source: WHITESPACE_SOURCE_ID, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 3.5, 10, 5, 14, 7], 'circle-color': ['match',['get','label'],'WATCH_RESEARCH','#e0a13b','SKIP_RESEARCH','#a94b4b','#8796a5'], 'circle-stroke-color': '#fffaf4', 'circle-stroke-width': .5, 'circle-opacity': .65 }, layout: { visibility: showCandidates ? 'visible' : 'none' } })
+      map.addLayer({ id: WHITESPACE_LAYER_ID, type: 'fill', source: WHITESPACE_SOURCE_ID, paint: { 'fill-color': ['match',['get','label'],'WATCH_RESEARCH','#e0a13b','SKIP_RESEARCH','#a94b4b','#8796a5'], 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 6, .42, 10, .5, 14, .58] }, layout: { visibility: showCandidates ? 'visible' : 'none' } })
+      map.addLayer({ id: WHITESPACE_OUTLINE_LAYER_ID, type: 'line', source: WHITESPACE_SOURCE_ID, paint: { 'line-color': '#fffaf4', 'line-width': ['interpolate', ['linear'], ['zoom'], 6, .35, 12, 1], 'line-opacity': .8 }, layout: { visibility: showCandidates ? 'visible' : 'none' } })
+      map.addLayer({ id: SELECTED_WHITESPACE_OUTLINE_LAYER_ID, type: 'line', source: WHITESPACE_SOURCE_ID, filter: ['==', ['get', 'cell_id'], selectedCandidateId ?? ''], paint: { 'line-color': '#172b35', 'line-width': 3, 'line-opacity': 1 }, layout: { visibility: showCandidates ? 'visible' : 'none' } })
       map.on('click', WHITESPACE_LAYER_ID, (event) => { const feature=event.features?.[0]; const candidate=candidates.find((item) => item.cell_id===feature?.properties?.cell_id); if(candidate) onSelectCandidate(candidate) })
+      map.on('mouseenter', WHITESPACE_LAYER_ID, () => { map.getCanvas().style.cursor = 'pointer' })
+      map.on('mouseleave', WHITESPACE_LAYER_ID, () => { map.getCanvas().style.cursor = '' })
       map.addLayer({ id: RADIUS_FILL_LAYER_ID, type: 'fill', source: RADIUS_SOURCE_ID, paint: { 'fill-color': ['match', ['get', 'role'], 'selected', '#e09a3e', '#2f7885'], 'fill-opacity': ['match', ['get', 'role'], 'selected', .22, .13] }, layout: { visibility: showServiceRadii ? 'visible' : 'none' } })
       map.addLayer({ id: RADIUS_OUTLINE_LAYER_ID, type: 'line', source: RADIUS_SOURCE_ID, paint: { 'line-color': ['match', ['get', 'role'], 'selected', '#b46616', '#23616b'], 'line-width': ['match', ['get', 'role'], 'selected', 2.5, 1.5], 'line-dasharray': [3, 2] }, layout: { visibility: showServiceRadii ? 'visible' : 'none' } })
       map.addLayer({ id: COMPETITOR_LAYER_ID, type: 'circle', source: COMPETITOR_SOURCE_ID, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 3, 10, 5, 14, 7], 'circle-color': '#2f6f7e', 'circle-stroke-color': '#fffaf4', 'circle-stroke-width': 1.5, 'circle-opacity': 0.9 }, layout: { visibility: showCompetitors ? 'visible' : 'none' } })
@@ -174,7 +190,20 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
     map.setLayoutProperty(COMPETITOR_LAYER_ID, 'visibility', showCompetitors ? 'visible' : 'none')
   }, [showCompetitors])
 
-  useEffect(() => { const map=mapRef.current; if(map?.isStyleLoaded()&&map.getLayer(WHITESPACE_LAYER_ID)) map.setLayoutProperty(WHITESPACE_LAYER_ID,'visibility',showCandidates?'visible':'none') }, [showCandidates])
+  useEffect(() => {
+    const map=mapRef.current
+    if (!map || !map.getLayer(WHITESPACE_LAYER_ID)) return
+    const visibility=showCandidates?'visible':'none'
+    map.setLayoutProperty(WHITESPACE_LAYER_ID,'visibility',visibility)
+    map.setLayoutProperty(WHITESPACE_OUTLINE_LAYER_ID,'visibility',visibility)
+    map.setLayoutProperty(SELECTED_WHITESPACE_OUTLINE_LAYER_ID,'visibility',visibility)
+  }, [showCandidates])
+
+  useEffect(() => {
+    const map=mapRef.current
+    if (!map || !map.getLayer(SELECTED_WHITESPACE_OUTLINE_LAYER_ID)) return
+    map.setFilter(SELECTED_WHITESPACE_OUTLINE_LAYER_ID, ['==', ['get', 'cell_id'], selectedCandidateId ?? ''])
+  }, [selectedCandidateId])
 
   useEffect(() => {
     const map = mapRef.current
