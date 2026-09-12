@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
-    branches = json.loads((ROOT / "data/processed/branches_snapshot_v1.json").read_text(encoding="utf-8"))
+    branches = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text(encoding="utf-8"))
     context = json.loads((ROOT / "data/processed/branch_venue_context_v1.json").read_text(encoding="utf-8"))
     assert context["input_branch_snapshot_id"] == branches["snapshot_id"]
     branch_ids = {row["branch_id"] for row in branches["records"]}
@@ -22,7 +22,8 @@ def main() -> None:
         assert row["venue_context"] in allowed_contexts
         assert row["peer_group_id"] in allowed_peer_groups
         assert row["classification_basis"]
-        assert row["source_ids"] == ["2gis_branch_roster"]
+        assert "2gis_branch_roster" in row["source_ids"]
+        assert set(row["source_ids"]) <= {"2gis_branch_roster", "user_branch_location_validation_2026_09_09"}
         if row["venue_context"] in {"commercial_building", "airport_concession"}:
             assert row["peer_group_id"] == "network_comparison_only"
     group_counts = Counter(row["peer_group_id"] for row in rows)

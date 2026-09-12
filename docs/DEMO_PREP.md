@@ -15,8 +15,13 @@ The core idea is: **deterministic geography and public evidence calculate; the A
 - **Phase 2:** A local React/MapLibre workspace with a map, searchable roster, selection, and source/evidence details.
 - **Phase 3:** Nearest-own-branch distances plus 1/3/5 km geometric service-radius overlap metrics.
 - **Phase 4:** A source-backed competitor screen for Sisters Beauty Lounge and NStyle Beauty Lounge, including map visibility, branch-level evidence, and a transparent lower-bound pressure calculation.
+- **Phase 5:** A 22-active-branch public-proxy health screen with peer groups, rating-sample adjustment, transparent factor contributions, evidence confidence, and human-review labels.
+- **Phase 6:** Bounded H3 whitespace research cells around selected urban-context anchors, with conservative research-only labels and no opening recommendation.
+- **Phase 7:** Four transparent score-weight sensitivity scenarios.
+- **Phase 8:** An optional grounded AI analyst using strict read-only tools, source/model IDs, a bounded tool loop, and a visible safe activity trace.
+- **Phase 9:** A bounded AI portfolio-review workflow that gathers evidence and produces a human research worklist by scope.
 
-The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_execution_roadmap.md). Phase 4 is competitor data and pressure; later phases add branch health, whitespace, scenarios, AI analyst, justified agentic enhancement, and hardening.
+The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_execution_roadmap.md). Phases 0–9 are implemented; Phase 10 is final hardening, documentation, and demo preparation.
 
 ## Phase 6: bounded whitespace research
 
@@ -28,13 +33,13 @@ Use the Scenario selector in the context bar, then select an active branch. The 
 
 ## Phase 8: grounded AI analyst
 
-The Optional AI analyst panel is deliberately not a chatbot over unrestricted files or the web. It can use six read-only tools: branch profile, branch comparison, scenario details, a whitespace-cell profile, bounded whitespace search, and source provenance. The tool outputs carry source IDs, snapshot/model IDs, and limitations. The model only explains those outputs; deterministic Python models still calculate every score. With no server key, the panel returns a clear disabled state and the rest of the workspace works normally.
+The Optional AI analyst panel is deliberately not a chatbot over unrestricted files or the web. It can use eight read-only tools: portfolio scope, branch-reference resolution, branch profile, branch comparison, scenario details, a whitespace-cell profile, bounded whitespace search, and source provenance. The tool outputs carry source IDs, snapshot/model IDs, and limitations. The model only explains those outputs; deterministic Python models still calculate every score. With no server key, the panel returns a clear disabled state and the rest of the workspace works normally.
 
 ## Why does Bedashing say 24 lounges when an early list showed 15?
 
 The early 15-record list was a conservative, incomplete secondary directory result—not a conclusion that only 15 locations exist. Bedashing's official website claims 24 UAE lounges, but its accessible web locator returned zero server-rendered shops and its booking route errored during research, so it could not independently supply the branch roster.
 
-The decisive reconciliation came from the user-supplied 2GIS chain listing: it contained exactly **24 beauty-lounge entries** and one distinct **head-office** entry. Excluding the head office reconciles exactly to the official 24-lounge claim. Therefore the prototype contains 24 lounges, not 15.
+The decisive reconciliation came from the user-supplied 2GIS chain listing: it contained exactly **24 historically observed beauty-lounge entries** and one distinct **head-office** entry. Excluding the head office reconciles exactly to the official 24-lounge claim. Later user validation identified two of those 24 as permanently closed, so the current analysis uses **22 active branches** while retaining all 24 records for traceability.
 
 This does not prove every record is officially confirmed in real time. It means the count is reconciled using the best available evidence, while the remaining official per-branch locator verification is stated as a limitation.
 
@@ -95,7 +100,7 @@ These are **geometric service radii**. They are not stated as travel times, actu
 2. **Circle overlap:** For each 1, 3, and 5 km band, the system applies the analytic equal-circle intersection formula to calculate shared circle area.
 3. **Per-branch summary:** It records nearest own branch, distance, number of overlapping own-branch circles, maximum pairwise overlap coefficient, and sum of pairwise overlap areas.
 
-The output is deterministic, versioned in `network_metrics_v1.json`, validated, and unit-tested. It currently contains 24 branch metrics and 28 non-zero overlap records across all bands.
+The output is deterministic, versioned in `network_metrics_v1.json`, validated, and unit-tested. After excluding the two user-confirmed closed branches, it contains 22 active-branch metric records and 23 non-zero pairwise overlap records across all bands.
 
 ## How should I explain the overlap values?
 
@@ -140,19 +145,21 @@ The value does not say NStyle is “70% as good” or has 70% of Sisters' market
 - The official live locator could not be programmatically reconciled during research; official per-branch verification remains open.
 - Coordinates are user-validated, 2GIS-attributed map evidence rather than official coordinates.
 - The competitor screen covers only two researched brands; it is not a complete UAE salon-market census.
-- Demand, ratings, and internal operating data are not in the product yet.
+- Public Google Maps rating and review-count observations are included as manually user-validated evidence. Demand, transactions, customer origins, lease economics, and other internal operating data are not included.
 - Pairwise overlap-area sums can double-count shared space; they are not union coverage.
 - The OSM basemap is visual context; it is not a source of branch performance or recommendations.
-- No model or API call has been made for the AI feature yet.
+- The optional AI path was live smoke-tested with the user-provided server-side key. The key remains in ignored `.env`, never enters the browser or repository, and deterministic features require no API call.
 
 ## What should I demonstrate now?
 
-1. Filter the roster by emirate or search by community.
-2. Select a branch from the list or map.
-3. Show its address, coordinate provenance, source links, and snapshot ID.
-4. Explain its nearest own branch and 3 km geometry screen.
-5. Toggle the verified competitor layer and explain the lower-bound pressure contributors for the selected branch.
-6. State the honest limitation: this is evidence-backed geography and competitor presence, not yet a branch decision.
+1. Start with the 24 historical / 22 active distinction in the context bar.
+2. Select Al Khaleej Al Arabi and show address provenance, 3 km own-network geometry, and its verified competitor contributors.
+3. Expand “Why this score?” to show the public rating, adjusted rating, peer percentile, exact factor contributions, and total.
+4. Expand confidence to show the six evidence-quality components and explain why confidence is separate from score.
+5. Change the scenario and show that only declared priorities—not source evidence—change.
+6. Ask the AI analyst to explain the branch, then open its tool trace and source IDs.
+7. Run the scoped portfolio worklist to demonstrate bounded semi-agentic evidence gathering with a human decision boundary.
+8. State the central limitation: the system prioritizes review from public proxies; it does not know revenue, profit, demand, or customer behavior.
 
 ## Git and review cadence
 

@@ -1,6 +1,6 @@
 {
   "snapshot_id": "bedashing-branch-venue-context-v1-2026-09-09",
-  "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "input_branch_snapshot_id": "bedashing-branches-v2-2026-09-09",
   "source_ids": ["2gis_branch_roster"],
   "purpose": "Address-evidenced venue-context groups for transparent peer comparison. These are venue contexts, not claims about branch performance, service menu, customer base, or operating format.",
   "records": [
@@ -21,7 +21,7 @@
     {"branch_id": "ict_c29_khalifa_park", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Khalifa Park ground-floor building address.", "source_ids": ["2gis_branch_roster"]},
     {"branch_id": "abu_dhabi_unresolved", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names a ground-floor Shakhbout City location.", "source_ids": ["2gis_branch_roster"]},
     {"branch_id": "nassib_bin_ahmed_al_humairi", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Mohamed Bin Zayed City ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
-    {"branch_id": "al_dhait_north", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address names Villa 3 in Al Dhait North.", "source_ids": ["2gis_branch_roster"]},
+    {"branch_id": "al_dhait_north", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "User-validated address names Villa 66 on Sheikh Rashid Bin Saeed Al Maktoum Road in Al Dhait North.", "source_ids": ["2gis_branch_roster", "user_branch_location_validation_2026_09_09"]},
     {"branch_id": "al_taif_mall", "venue_context": "destination_retail", "peer_group_id": "destination_retail", "classification_basis": "Address names Al Taif Mall.", "source_ids": ["2gis_branch_roster"]},
     {"branch_id": "hamad_mohamed_thani_al_rumaithi", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Rabdan ground-floor street address.", "source_ids": ["2gis_branch_roster"]},
     {"branch_id": "al_rakb_street", "venue_context": "community_or_streetfront", "peer_group_id": "community_or_streetfront", "classification_basis": "Address is a Bani Yas ground-floor street address.", "source_ids": ["2gis_branch_roster"]},

@@ -1,6 +1,6 @@
 {
   "model_id": "bedashing-network-geometry-v1",
-  "input_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "input_snapshot_id": "bedashing-branches-v2-2026-09-09",
   "input_source_ids": [
     "2gis_branch_roster",
     "city_walk_outlet",

@@ -2,7 +2,7 @@
 
 ## What this module does
 
-The local React workspace reads the committed `branches_snapshot_v1.json` directly in the browser. It provides:
+The local React workspace reads the committed `branches_snapshot_v2.json` directly in the browser. It provides:
 
 - A UAE map with all 24 evidence-backed branch points.
 - Emirate and text filters.

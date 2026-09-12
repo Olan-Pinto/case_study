@@ -16,11 +16,10 @@ class NetworkMetricsTests(unittest.TestCase):
 
     def test_generated_metrics_are_symmetric_and_reproducible(self):
         root = Path(__file__).resolve().parents[1]
-        snapshot = json.loads((root / "data" / "processed" / "branches_snapshot_v1.json").read_text(encoding="utf-8"))
+        snapshot = json.loads((root / "data" / "processed" / "branches_snapshot_v2.json").read_text(encoding="utf-8"))
         config = json.loads((root / "config" / "geospatial_v1.json").read_text(encoding="utf-8"))
         committed = json.loads((root / "data" / "processed" / "network_metrics_v1.json").read_text(encoding="utf-8"))
         self.assertEqual(build_metrics(snapshot, config), committed)
         for overlap in committed["pairwise_overlaps"]:
             self.assertLess(overlap["branch_a_id"], overlap["branch_b_id"])
             self.assertGreater(overlap["intersection_area_km2"], 0)
-

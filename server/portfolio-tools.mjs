@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const json = (path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'))
-const branchSnapshot = json('data/processed/branches_snapshot_v1.json')
+const branchSnapshot = json('data/processed/branches_snapshot_v2.json')
 const metrics = json('data/processed/network_metrics_v1.json')
 const pressure = json('data/processed/competitor_pressure_v1.json')
 const health = json('data/processed/branch_health_v1.json')

@@ -52,7 +52,7 @@ def main() -> None:
     args = parser.parse_args()
     assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.observed_at), "--observed-at must be YYYY-MM-DD"
 
-    branches = json.loads((ROOT / "data/processed/branches_snapshot_v1.json").read_text(encoding="utf-8"))["records"]
+    branches = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text(encoding="utf-8"))["records"]
     exceptions = json.loads(EXCEPTIONS_PATH.read_text(encoding="utf-8"))["coordinate_exceptions"]
     branches_by_id = {branch["branch_id"]: branch for branch in branches}
     rows = parse_collection(args.collection_path.read_text(encoding="utf-8"))

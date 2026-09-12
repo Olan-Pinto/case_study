@@ -11,7 +11,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
-    branches = json.loads((ROOT / "data/processed/branches_snapshot_v1.json").read_text(encoding="utf-8"))
+    branches = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text(encoding="utf-8"))
     competitors = json.loads((ROOT / "data/processed/competitors_snapshot_v1.json").read_text(encoding="utf-8"))
     config = json.loads((ROOT / "config/competitor_pressure_v1.json").read_text(encoding="utf-8"))
     weights = {key: value["similarity_weight"] for key, value in config["taxonomy"].items()}

@@ -31,7 +31,7 @@ def label_for_score(score: float, config: dict) -> str:
 
 def load_datasets() -> dict:
     paths = {
-        "branches": "data/processed/branches_snapshot_v1.json",
+        "branches": "data/processed/branches_snapshot_v2.json",
         "reputation": "data/processed/branch_reputation_snapshot_v1.json",
         "context": "data/processed/branch_venue_context_v1.json",
         "pressure": "data/processed/competitor_pressure_v1.json",

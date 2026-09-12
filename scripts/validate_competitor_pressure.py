@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-branches = json.loads((ROOT / "data/processed/branches_snapshot_v1.json").read_text(encoding="utf-8"))
+branches = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text(encoding="utf-8"))
 competitors = json.loads((ROOT / "data/processed/competitors_snapshot_v1.json").read_text(encoding="utf-8"))
 pressure = json.loads((ROOT / "data/processed/competitor_pressure_v1.json").read_text(encoding="utf-8"))
 branch_ids = {row["branch_id"] for row in branches["records"] if "permanently_closed" not in row["status"]}

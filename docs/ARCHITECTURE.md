@@ -4,32 +4,40 @@
 
 This is a case-study prototype for a Head of Retail / Portfolio and Expansion Lead at Bedashing Beauty. It answers strategic network questions using public, reproducible proxies; it is not a revenue model or an automated closure engine.
 
-## Proposed runtime
+## Implemented runtime
 
 ```text
-Versioned public-source snapshot -> validation -> deterministic spatial engine
-                                                -> FastAPI read API -> React workspace + MapLibre/deck.gl
-                                                -> structured evidence / template explanations
-                                                                    -> optional server-only OpenAI Responses tool agent
+Attributed public/manual evidence
+        -> Python validation and deterministic model builders
+        -> committed, versioned JSON snapshots
+        -> React + TypeScript + MapLibre reviewer workspace
+
+Browser analyst request
+        -> local Node.js read-only HTTP facade
+        -> allowlisted deterministic portfolio tools
+        -> optional server-side OpenAI Responses tool loop
+        -> grounded answer + safe tool-activity trace
 ```
 
-The browser receives only processed, reviewer-safe data. It never receives provider credentials. The product remains fully usable when AI is disabled: map, scores, labels, factor contributions, source links, and scenario results are deterministic.
+The browser receives processed, reviewer-safe data and never receives the OpenAI credential. The core product remains usable when AI is disabled: map, scores, labels, factor contributions, sources, and scenario results are deterministic.
 
-## Boundaries
+## Implemented boundaries
 
-| Boundary | Responsibility | Chosen form |
+| Boundary | Responsibility | Current implementation |
 |---|---|---|
-| Ingestion | Fetch, preserve source metadata, normalize and reconcile | Explicit Python refresh scripts, later |
-| Snapshot | Reviewer reproducibility | Small committed `data/processed/` Parquet/GeoParquet plus manifest |
-| Analytics | Distances, catchments, scoring, confidence, scenarios | Python packages and DuckDB Spatial; pure functions where feasible |
-| API | Read-only query facade | FastAPI, later |
-| UI | Explore, compare, disclose evidence | React + TypeScript + Vite, later |
-| AI | Interpret user intent and synthesize tool evidence | OpenAI Responses API, server-side and optional |
+| Collection | Normalize manually validated evidence and preserve provenance | Python collection/build scripts plus source registry |
+| Snapshot | Reproducible reviewer input | Small committed JSON snapshots and manifests under `data/processed/` |
+| Analytics | Distances, geometric overlap, pressure, health proxy, scenarios, whitespace screens | Deterministic Python scripts; H3 for whitespace cells |
+| UI | Explore, compare, and disclose evidence | React + TypeScript + Vite + MapLibre |
+| Local API | Serve the optional analyst without exposing credentials | Node.js read-only HTTP server |
+| AI | Interpret intent and synthesize allowlisted tool evidence | Optional server-side OpenAI Responses API loop |
+
+FastAPI, DuckDB Spatial, Parquet/GeoParquet, GeoPandas, Shapely, and deck.gl were Phase 0 candidates, not the final prototype runtime. They remain reasonable scale-up options but were unnecessary for this bounded committed dataset.
 
 ## Data contracts
 
-Every entity includes `source_ids`, `observed_at`, `confidence`, `completeness`, and a snapshot/model version. Derived records include their input IDs and transformation version. Recommendation records contain a label, score, factor contributions, confidence, model version, and scenario parameters.
+Each core entity carries source IDs or source URLs and a snapshot/model identifier. Derived outputs identify their input snapshot and model version. Branch-health records contain the displayed score, review label, factor values and contributions, confidence components, peer-comparison basis, omitted factors, and missing requirements.
 
 ## Deliberate omissions
 
-No PostGIS, Redis, queue, Kubernetes, paid Places API, live-on-load data fetch, browser-held secret, autonomous branch action, or multi-agent mesh belongs in the first working prototype. See [DECISIONS.md](DECISIONS.md) and the research documents for revisit conditions.
+No PostGIS, Redis, queue, Kubernetes, paid Places API, live-on-load data refresh, browser-held secret, autonomous branch action, or multi-agent mesh belongs in this prototype. See [DECISIONS.md](DECISIONS.md) for decisions and revisit conditions.

@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT = ROOT / "data" / "processed" / "branches_snapshot_v1.json"
-MANIFEST = ROOT / "data" / "processed" / "branches_snapshot_v1.manifest.json"
+SNAPSHOT = ROOT / "data" / "processed" / "branches_snapshot_v2.json"
+MANIFEST = ROOT / "data" / "processed" / "branches_snapshot_v2.manifest.json"
 UAE_BOUNDS = {"lat": (22.0, 27.7), "lon": (51.0, 57.0)}
 REQUIRED = {"branch_id", "name", "emirate", "community", "address", "status", "latitude", "longitude", "coordinate_confidence", "source_ids", "source_urls", "validation_needed"}
 
@@ -16,8 +16,12 @@ def validate(snapshot: dict, manifest: dict) -> list[str]:
     ids = [record.get("branch_id") for record in records]
     if len(ids) != len(set(ids)):
         errors.append("duplicate branch_id")
-    if manifest.get("candidate_records", 0) + manifest.get("currently_listed_records", 0) != len(records):
+    if manifest.get("historical_roster_records") != len(records):
         errors.append("manifest record counts do not equal snapshot records")
+    active_count = sum("permanently_closed" not in record.get("status", "") for record in records)
+    closed_count = sum("permanently_closed" in record.get("status", "") for record in records)
+    if manifest.get("active_records") != active_count or manifest.get("user_confirmed_permanently_closed_records") != closed_count:
+        errors.append("manifest active/closed counts do not match snapshot statuses")
     if snapshot.get("official_claimed_uae_lounges") != manifest.get("official_claimed_uae_lounges"):
         errors.append("official claimed count differs between snapshot and manifest")
     for record in records:
@@ -38,7 +42,7 @@ def validate(snapshot: dict, manifest: dict) -> list[str]:
             errors.append(f"{record['branch_id']}: null coordinate has non-none confidence")
         if lat is not None and record["coordinate_confidence"] == "none":
             errors.append(f"{record['branch_id']}: coordinate has no confidence")
-        if record["status"] in {"candidate_needs_official_validation", "user_confirmed_permanently_closed"} and not any("official" in item for item in record["validation_needed"]):
+        if record["status"] == "candidate_needs_official_validation" and not any("official" in item for item in record["validation_needed"]):
             errors.append(f"{record['branch_id']}: candidate lacks official validation flag")
     return errors
 

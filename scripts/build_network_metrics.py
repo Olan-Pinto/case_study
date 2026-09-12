@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT_PATH = ROOT / "data" / "processed" / "branches_snapshot_v1.json"
+SNAPSHOT_PATH = ROOT / "data" / "processed" / "branches_snapshot_v2.json"
 CONFIG_PATH = ROOT / "config" / "geospatial_v1.json"
 OUTPUT_PATH = ROOT / "data" / "processed" / "network_metrics_v1.json"
 MANIFEST_PATH = ROOT / "data" / "processed" / "network_metrics_v1.manifest.json"

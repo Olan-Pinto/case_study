@@ -28,7 +28,7 @@ def main():
       'model_id':config['model_id'],
       'status':'deterministic_scenario_replay',
       'base_model_id':config['base_model_id'],
-      'input_branch_snapshot_id':'bedashing-branches-v1-2026-09-08',
+      'input_branch_snapshot_id':json.loads((ROOT/'data/processed/branches_snapshot_v2.json').read_text())['snapshot_id'],
       'source_ids':['2gis_branch_roster','user_validated_google_maps_2026_09_09','sisters_locations','nstyle_locations','user_geospatial_validation_2026_09_09'],
       'interpretation':'Named weight sensitivity only. The output is a public-proxy scenario, not a financial forecast or operating decision.',
       'scenarios':scenarios,

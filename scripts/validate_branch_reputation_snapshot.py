@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
-    branches = json.loads((ROOT / "data/processed/branches_snapshot_v1.json").read_text(encoding="utf-8"))
+    branches = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text(encoding="utf-8"))
     snapshot = json.loads((ROOT / "data/processed/branch_reputation_snapshot_v1.json").read_text(encoding="utf-8"))
     assert snapshot["input_branch_snapshot_id"] == branches["snapshot_id"]
     assert {row["branch_id"] for row in snapshot["records"]} == {row["branch_id"] for row in branches["records"]}

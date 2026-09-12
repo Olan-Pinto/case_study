@@ -4,7 +4,7 @@ import h3
 from build_network_metrics import haversine_km
 ROOT=Path(__file__).resolve().parents[1]
 def main():
- c=json.loads((ROOT/'config/whitespace_v1.json').read_text()); branches=json.loads((ROOT/'data/processed/branches_snapshot_v1.json').read_text())['records']; active=[b for b in branches if 'permanently_closed' not in b['status']]
+ c=json.loads((ROOT/'config/whitespace_v1.json').read_text()); snapshot=json.loads((ROOT/'data/processed/branches_snapshot_v2.json').read_text()); branches=snapshot['records']; active=[b for b in branches if 'permanently_closed' not in b['status']]
  competitors=json.loads((ROOT/'data/processed/competitors_snapshot_v1.json').read_text())['records']; weights={'direct_premium_full_service':1.0,'near_direct_premium_beauty':.7}
  rows=[]
  for area in c['study_scope']['areas']:
@@ -25,6 +25,6 @@ def main():
  source_ids={'2gis_branch_roster','sisters_locations','nstyle_locations'}
  for anchor in c['urban_context_anchors']:
   source_ids.update(anchor['source_ids'])
- out={'model_id':c['model_id'],'status':'anchor_and_saturation_screened_candidate_cells','input_branch_snapshot_id':'bedashing-branches-v1-2026-09-08','source_ids':sorted(source_ids),'records':sorted(rows,key=lambda x:(x['study_area_id'],x['cell_id']))}
+ out={'model_id':c['model_id'],'status':'anchor_and_saturation_screened_candidate_cells','input_branch_snapshot_id':snapshot['snapshot_id'],'source_ids':sorted(source_ids),'records':sorted(rows,key=lambda x:(x['study_area_id'],x['cell_id']))}
  (ROOT/'data/processed/whitespace_candidates_v1.json').write_text(json.dumps(out,indent=2)+'\n'); print(f'Wrote {len(rows)} bounded research-screening cells')
 if __name__=='__main__': main()

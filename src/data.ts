@@ -1,4 +1,4 @@
-import rawSnapshot from '../data/processed/branches_snapshot_v1.json'
+import rawSnapshot from '../data/processed/branches_snapshot_v2.json'
 import rawNetworkMetrics from '../data/processed/network_metrics_v1.json'
 import rawCompetitors from '../data/processed/competitors_snapshot_v1.json'
 import rawCompetitorPressure from '../data/processed/competitor_pressure_v1.json'

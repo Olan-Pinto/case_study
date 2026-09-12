@@ -2,7 +2,7 @@
 
 ## Current snapshot
 
-`data/processed/branches_snapshot_v1.json` is the current roster: 24 2GIS beauty-lounge entries, excluding one separate head-office entry, match Bedashing’s official 24-UAE-lounge claim. The prior 15-record `v0` snapshot is retained as research history. This resolves the **count** and supplies 24 user-validated, 2GIS-attributed coordinates. Canonical labels still require ordinary cleanup, but no coordinate is inferred or fabricated.
+`data/processed/branches_snapshot_v2.json` is the current roster snapshot: 24 historically observed 2GIS beauty-lounge entries, excluding one separate head-office entry, match Bedashing’s official 24-UAE-lounge claim. User validation on 2026-09-09 identified 22 active records and two permanently closed records; the closed records remain in the historical roster but are excluded from active analysis. The prior 15-record `v0` snapshot is retained as research history. All 24 records are geocoded, but no coordinate is inferred or fabricated.
 
 The official Bedashing locator claims 24 UAE lounges, but the server-rendered locator showed zero results and the official Zenoti booking endpoint returned an error during Phase 1 retrieval on 2026-09-08. These are retrieval limitations, not closure evidence.
 

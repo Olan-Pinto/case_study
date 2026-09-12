@@ -8,7 +8,9 @@ import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './ty
 const emirates = ['All', ...Array.from(new Set(branches.map((branch) => branch.emirate))).sort()]
 
 function statusLabel(status: Branch['status']) {
-  return status === 'observed_currently_listed' ? 'Currently listed' : status.replaceAll('_', ' ')
+  if (status === 'observed_currently_listed') return 'Currently listed'
+  if (status === 'user_confirmed_permanently_closed') return 'Permanently closed'
+  return status.replaceAll('_', ' ')
 }
 
 export function App() {
@@ -34,7 +36,9 @@ export function App() {
   const selectedPressure = competitorPressure.branch_pressure.find((metric) => metric.branch_id === selectedBranchId) ?? null
   const selectedScenario = branchHealthScenarios.scenarios.find((scenario: any) => scenario.scenario_id === scenarioId) ?? branchHealthScenarios.scenarios[0]
   const selectedHealth = selectedScenario.records.find((metric: any) => metric.branch_id === selectedBranchId) ?? null
+  const selectedBranchIsActive = selectedBranch !== null && !selectedBranch.status.includes('permanently_closed')
   const selectBranch = useCallback((branchId: string) => { setSelectedCandidate(null); setSelectedBranchId(branchId) }, [])
+  const selectCandidate = useCallback((candidate: any) => { setSelectedBranchId(null); setSelectedCandidate(candidate) }, [])
 
   return (
     <main className="workspace">
@@ -50,10 +54,10 @@ export function App() {
       </header>
 
       <section className="context-strip" aria-label="Data scope">
-        <strong>{snapshot.official_claimed_uae_lounges} lounges</strong>
-        <span>Reconciled current roster</span>
+        <strong>{snapshot.official_claimed_uae_lounges} historical roster records</strong>
+        <span>22 active · 2 permanently closed</span>
         <span>•</span>
-        <span>24 coordinates</span>
+        <span>24 geocoded records</span>
         <span>•</span>
         <span>Public mapping evidence, not operating performance</span>
         <label className="scenario-control">Scenario
@@ -93,7 +97,7 @@ export function App() {
         </aside>
 
         <section className="map-panel">
-          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} showCandidates={showWhitespace} onSelect={selectBranch} onSelectCandidate={setSelectedCandidate} />
+          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} showCandidates={showWhitespace} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
           <label className="competitor-toggle"><input type="checkbox" checked={showCompetitors} onChange={(event) => setShowCompetitors(event.target.checked)} /> Show {activeCompetitors.length} verified competitors</label>
           <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} onChange={(event) => setShowWhitespace(event.target.checked)} /> Show bounded whitespace research cells</label>
           <div className="whitespace-legend" aria-label="Whitespace research-cell legend">
@@ -107,8 +111,8 @@ export function App() {
 
         <aside className="detail-panel" aria-live="polite">
           {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} /> : <p className="empty">Select a location to inspect its evidence.</p>}
-          <AnalystPanel branch={selectedBranch} scenarioId={scenarioId} />
-          <PortfolioReviewPanel />
+          {!selectedCandidate && selectedBranchIsActive && <AnalystPanel branch={selectedBranch} scenarioId={scenarioId} />}
+          {!selectedCandidate && selectedBranchIsActive && <PortfolioReviewPanel />}
         </aside>
       </div>
     </main>
@@ -122,6 +126,7 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
   const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
   const confirmedClosedCompetitorCount = competitorSnapshot.records.filter((competitor) => competitor.status === 'user_confirmed_permanently_closed').length
   const reputation = branchReputation.records.find((record: any) => record.branch_id === branch.branch_id)
+  const permanentlyClosed = branch.status === 'user_confirmed_permanently_closed'
   return (
     <>
       <p className="eyebrow">Location evidence</p>
@@ -131,16 +136,21 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
       <dl className="facts">
         <div><dt>Address</dt><dd>{branch.address}</dd></div>
         <div><dt>Coordinates</dt><dd>{branch.latitude?.toFixed(6)}, {branch.longitude?.toFixed(6)}</dd></div>
-        <div><dt>Coordinate evidence</dt><dd>2GIS-attributed, user validated</dd></div>
-        <div><dt>Snapshot</dt><dd>{snapshot.snapshot_id}</dd></div>
       </dl>
-      <section className="sources">
-        <h3>Sources</h3>
-        <p>Location-level URLs are preserved with this record. They support presence and geography—not financial performance or a final portfolio decision.</p>
-        <ul>
-          {branch.source_urls.map((url) => <li key={url}><a href={url} target="_blank" rel="noreferrer">Open evidence source <span aria-hidden="true">↗</span></a></li>)}
-        </ul>
-      </section>
+      {permanentlyClosed ? <section className="closed-record">
+        <h3>Excluded from active analysis</h3>
+        <p>This location is permanently closed. It remains in the historical roster for traceability and is excluded from geometry, competitor-pressure, branch-health, scenario, and AI analysis.</p>
+        <details className="archival-sources">
+          <summary>Historical location evidence</summary>
+          <ul>{branch.source_urls.map((url) => <li key={url}><a href={url} target="_blank" rel="noreferrer">Open archived source <span aria-hidden="true">↗</span></a></li>)}</ul>
+        </details>
+      </section> : <section className="sources">
+          <h3>Sources</h3>
+          <p>Location-level URLs are preserved with this record. They support presence and geography—not financial performance or a final portfolio decision.</p>
+          <ul>
+            {branch.source_urls.map((url) => <li key={url}><a href={url} target="_blank" rel="noreferrer">Open evidence source <span aria-hidden="true">↗</span></a></li>)}
+          </ul>
+        </section>}
       {metric && primaryRadiusMetric && <section className="geometry">
         <h3>Network geometry · {networkMetrics.primary_radius_km} km</h3>
         <p>Nearest own location: <strong>{nearestBranch?.name.replace('Bedashing Beauty Lounge — ', '')}</strong> · {metric.nearest_own_branch_distance_km.toFixed(2)} km</p>
@@ -149,7 +159,7 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
       </section>}
       {pressure && <section className="competitor-evidence">
         <h3>Verified competitor screen</h3>
-        <p className="coverage-warning"><strong>Candidate review complete:</strong> {competitorPressure.competitor_geo_coverage.geocoded_verified_record_count} active geocoded locations; {confirmedClosedCompetitorCount} user-confirmed closed locations excluded. <strong>Scope limit:</strong> this screen covers only the two researched brands, so zero does not mean no competition.</p>
+        <p className="coverage-warning"><strong>Candidate review complete:</strong> {competitorPressure.competitor_geo_coverage.geocoded_verified_record_count} active geocoded locations; {confirmedClosedCompetitorCount} permanently closed locations excluded. <strong>Scope limit:</strong> this screen covers only the two researched brands, so zero does not mean no competition.</p>
         <p>Lower-bound pressure: <strong>{pressure.verified_competitor_pressure_lower_bound.toFixed(2)}</strong></p>
         {pressure.contributions.length ? <ul className="contributions">
           {pressure.contributions.map((contribution) => {
@@ -159,7 +169,7 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
         </ul> : <p className="empty-inline">No contributor within the model threshold. This is not evidence that local competition is absent.</p>}
       </section>}
       {health && <BranchHealthEvidence health={health} scenario={scenario} reputation={reputation} />}
-      {branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
+      {!permanentlyClosed && branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>
   )
 }

@@ -12,7 +12,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT = ROOT / "data" / "processed" / "branches_snapshot_v1.json"
+SNAPSHOT = ROOT / "data" / "processed" / "branches_snapshot_v2.json"
 OUTPUT = ROOT / "data" / "interim" / "nominatim_candidates_v1.json"
 USER_AGENT = "Mozilla/5.0 (compatible; BedashingCaseStudyResearch/1.0)"
 

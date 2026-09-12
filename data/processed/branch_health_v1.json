@@ -1,6 +1,6 @@
 {
   "model_id": "branch-health-v1",
-  "input_branch_snapshot_id": "bedashing-branches-v1-2026-09-08",
+  "input_branch_snapshot_id": "bedashing-branches-v2-2026-09-09",
   "interpretation": "Peer-aware public proxy only; not financial health, demand, or an operating decision.",
   "records": [
     {

@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-snapshot = json.loads((ROOT / "data" / "processed" / "branches_snapshot_v1.json").read_text(encoding="utf-8"))
+snapshot = json.loads((ROOT / "data" / "processed" / "branches_snapshot_v2.json").read_text(encoding="utf-8"))
 metrics = json.loads((ROOT / "data" / "processed" / "network_metrics_v1.json").read_text(encoding="utf-8"))
 manifest = json.loads((ROOT / "data" / "processed" / "network_metrics_v1.manifest.json").read_text(encoding="utf-8"))
 

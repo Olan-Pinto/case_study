@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-branches=json.loads((ROOT/'data/processed/branches_snapshot_v1.json').read_text())['records']
+branches=json.loads((ROOT/'data/processed/branches_snapshot_v2.json').read_text())['records']
 health=json.loads((ROOT/'data/processed/branch_health_v1.json').read_text())
 config=json.loads((ROOT/'config/branch_health_v1.json').read_text())
 active={b['branch_id'] for b in branches if 'permanently_closed' not in b['status']}

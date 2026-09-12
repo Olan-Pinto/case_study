@@ -16,7 +16,7 @@ def main() -> None:
     parser.add_argument("collection_path", type=Path)
     parser.add_argument("--observed-at", required=True)
     args = parser.parse_args()
-    branches = json.loads((ROOT / "data/processed/branches_snapshot_v1.json").read_text(encoding="utf-8"))
+    branches = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text(encoding="utf-8"))
     rows = parse_collection(args.collection_path.read_text(encoding="utf-8"))
     by_id = {str(row["branch_id"]): row for row in rows}
     records = []
