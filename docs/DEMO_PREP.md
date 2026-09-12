@@ -20,8 +20,9 @@ The core idea is: **deterministic geography and public evidence calculate; the A
 - **Phase 7:** Four transparent score-weight sensitivity scenarios.
 - **Phase 8:** An optional grounded AI analyst using strict read-only tools, source/model IDs, a bounded tool loop, and a visible safe activity trace.
 - **Phase 9:** A bounded AI portfolio-review workflow that gathers evidence and produces a human research worklist by scope.
+- **Phase 10:** Reviewer-ready setup, full offline verification, requirements traceability, on-demand whitespace loading, safe runtime failures, and the final demo path.
 
-The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_execution_roadmap.md). Phases 0–9 are implemented; Phase 10 is final hardening, documentation, and demo preparation.
+The roadmap has 10 implementation phases after Phase 0 and lives in [09_execution_roadmap.md](research/09_execution_roadmap.md). Phases 0–10 are implemented.
 
 ## Phase 6: bounded whitespace research
 

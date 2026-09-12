@@ -26,7 +26,7 @@ export function AnalystPanel({ branch, scenarioId }: { branch: Branch | null, sc
     } finally { setLoading(false) }
   }
 
-  return <section className="analyst-panel">
+  return <section className="analyst-panel" aria-busy={loading}>
     <p className="eyebrow">Optional AI analyst</p>
     <h2>Ask about the evidence</h2>
     <p>It can read approved snapshots through tools. It cannot change scores, browse the web, or make operating decisions.</p>

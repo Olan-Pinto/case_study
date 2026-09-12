@@ -1,11 +1,12 @@
 import { useCallback, useMemo, useState } from 'react'
-import { activeCompetitors, branchHealthScenarios, branchReputation, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
+import { activeCompetitors, branchHealthScenarios, branchReputation, branches, competitorPressure, competitorSnapshot, loadWhitespaceCandidates, networkMetrics, snapshot } from './data'
 import { NetworkMap } from './NetworkMap'
 import { AnalystPanel } from './AnalystPanel'
 import { PortfolioReviewPanel } from './PortfolioReviewPanel'
 import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
 const emirates = ['All', ...Array.from(new Set(branches.map((branch) => branch.emirate))).sort()]
+const emptyCandidates: any[] = []
 
 function statusLabel(status: Branch['status']) {
   if (status === 'observed_currently_listed') return 'Currently listed'
@@ -19,6 +20,8 @@ export function App() {
   const [selectedBranchId, setSelectedBranchId] = useState<string | null>(branches[0]?.branch_id ?? null)
   const [showCompetitors, setShowCompetitors] = useState(true)
   const [showWhitespace, setShowWhitespace] = useState(false)
+  const [whitespaceCandidates, setWhitespaceCandidates] = useState<any>(null)
+  const [whitespaceStatus, setWhitespaceStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const [showServiceRadii, setShowServiceRadii] = useState(false)
   const [radiusKm, setRadiusKm] = useState(networkMetrics.primary_radius_km)
   const [selectedCandidate, setSelectedCandidate] = useState<any>(null)
@@ -41,6 +44,20 @@ export function App() {
   const selectedBranchIsActive = selectedBranch !== null && !selectedBranch.status.includes('permanently_closed')
   const selectBranch = useCallback((branchId: string) => { setSelectedCandidate(null); setSelectedBranchId(branchId) }, [])
   const selectCandidate = useCallback((candidate: any) => { setSelectedBranchId(null); setSelectedCandidate(candidate) }, [])
+  async function toggleWhitespace(checked: boolean) {
+    if (!checked) { setShowWhitespace(false); return }
+    if (whitespaceCandidates) { setShowWhitespace(true); return }
+    setWhitespaceStatus('loading')
+    try {
+      const snapshot = await loadWhitespaceCandidates()
+      setWhitespaceCandidates(snapshot)
+      setWhitespaceStatus('ready')
+      setShowWhitespace(true)
+    } catch {
+      setWhitespaceStatus('error')
+      setShowWhitespace(false)
+    }
+  }
 
   return (
     <main className="workspace">
@@ -86,7 +103,7 @@ export function App() {
           <input className="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search area or location" aria-label="Search branches" />
           <div className="branch-list">
             {filteredBranches.map((branch) => (
-              <button className={`branch-row ${branch.branch_id === selectedBranchId ? 'selected' : ''} ${branch.status === 'user_confirmed_permanently_closed' ? 'permanently-closed' : ''}`} key={branch.branch_id} onClick={() => selectBranch(branch.branch_id)}>
+              <button className={`branch-row ${branch.branch_id === selectedBranchId ? 'selected' : ''} ${branch.status === 'user_confirmed_permanently_closed' ? 'permanently-closed' : ''}`} key={branch.branch_id} onClick={() => selectBranch(branch.branch_id)} aria-pressed={branch.branch_id === selectedBranchId}>
                 <span className="branch-marker" />
                 <span>
                   <strong>{branch.name.replace('Bedashing Beauty Lounge — ', '')}{branch.status === 'user_confirmed_permanently_closed' && ' — PERMANENTLY CLOSED'}</strong>
@@ -98,10 +115,11 @@ export function App() {
           </div>
         </aside>
 
-        <section className="map-panel">
-          <NetworkMap branches={filteredBranches} allBranches={branches} networkMetrics={networkMetrics} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} selectedCandidateId={selectedCandidate?.cell_id ?? null} showCandidates={showWhitespace} showServiceRadii={showServiceRadii} radiusKm={radiusKm} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
+        <section className="map-panel" id="network-map" aria-label="Network map and layer controls">
+          <NetworkMap branches={filteredBranches} allBranches={branches} networkMetrics={networkMetrics} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates?.records ?? emptyCandidates} selectedCandidateId={selectedCandidate?.cell_id ?? null} showCandidates={showWhitespace} showServiceRadii={showServiceRadii} radiusKm={radiusKm} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
           <label className="competitor-toggle"><input type="checkbox" checked={showCompetitors} onChange={(event) => setShowCompetitors(event.target.checked)} /> Show {activeCompetitors.length} verified competitors</label>
-          <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} onChange={(event) => setShowWhitespace(event.target.checked)} /> Show whitespace research areas</label>
+          <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} disabled={whitespaceStatus === 'loading'} onChange={(event) => void toggleWhitespace(event.target.checked)} /> {whitespaceStatus === 'loading' ? 'Loading whitespace research areas…' : 'Show whitespace research areas'}</label>
+          {whitespaceStatus === 'error' && <div className="map-layer-status" role="alert">Whitespace data could not be loaded. Branch analysis remains available.</div>}
           <div className="whitespace-legend" aria-label="Whitespace research-cell legend">
             <strong>Research priority</strong>
             <span><i className="legend-prioritize" />Prioritize research</span>
@@ -121,8 +139,8 @@ export function App() {
           <div className="map-caption">Branch points are mapped coordinates. Whitespace hexagons are research areas, not precise sites. Service radii are geometric distance bands—not drive-time catchments or performance.</div>
         </section>
 
-        <aside className="detail-panel" aria-live="polite">
-          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} residentialContext={whitespaceCandidates.residential_context} priority={whitespaceCandidates.research_priority} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} radiusKm={radiusKm} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+        <aside className="detail-panel" id="evidence-detail" aria-label="Selected evidence" aria-live="polite">
+          {selectedCandidate && whitespaceCandidates ? <WhitespaceDetail candidate={selectedCandidate} residentialContext={whitespaceCandidates.residential_context} priority={whitespaceCandidates.research_priority} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} radiusKm={radiusKm} /> : <p className="empty">Select a location to inspect its evidence.</p>}
           {!selectedCandidate && selectedBranchIsActive && <AnalystPanel branch={selectedBranch} scenarioId={scenarioId} />}
           {!selectedCandidate && selectedBranchIsActive && <PortfolioReviewPanel />}
         </aside>

@@ -2,7 +2,7 @@
 
 ## Current Project State
 
-Phases 0–9 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, a transparent whitespace research-priority model, scenario sensitivity, an optional grounded AI analyst, and a bounded AI portfolio-review worklist agent. Neither whitespace nor scenarios are demand models, opening recommendations, or financial forecasts. The AI components synthesize only read-only tool evidence and are disabled without a server-side key.
+Phases 0–10 are complete. The project has a reconciled historical 24-location roster, a 22-active-branch operating view, map workspace, geometry, competitor pressure, a public-proxy branch-health screen, a transparent whitespace research-priority model, scenario sensitivity, an optional grounded AI analyst, a bounded AI portfolio-review worklist agent, and reviewer-ready setup/verification documentation. Neither whitespace nor scenarios are demand models, opening recommendations, or financial forecasts. The AI components synthesize only read-only tool evidence and are disabled without a server-side key.
 
 ## Modular Build Briefing Protocol
 
@@ -39,6 +39,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 - Phase 8 observability refinement: each grounded answer exposes a collapsed, user-visible approved-tool activity trace with safe inputs, status, duration, and source IDs. It deliberately excludes private model reasoning, chain-of-thought, secrets, and raw tool payloads.
 - Phase 8 matching refinement: the analyst now resolves an unambiguous human-friendly branch/community/address reference against the committed roster before profile retrieval. Ambiguous references surface choices rather than a guessed branch; e.g. Al Nahyan resolves to `saeed_bin_saif_al_falahi` via its verified address/community.
 - Phase 9 completed: a bounded AI portfolio-review worklist agent first gathers active evidence for UAE/Dubai/Abu Dhabi, then selects limited branch-profile and permitted whitespace follow-ups to return a cited human research queue. It has a forced first tool, four sequential-call limit, visible trace, no web/data-write path, and no operating recommendation. See `docs/PHASE_9_PORTFOLIO_REVIEW_AGENT.md`.
+- Phase 10 completed: the technical README now provides fast setup, decision logic, AI architecture, provenance, limitations, and a five-to-ten-minute demo path. One offline verification runner checks the production build, all snapshot/model contracts, the AI tool boundary, and 33 Python tests. Whitespace data loads on demand, the committed Vite config contains the AI proxy, runtime failures are safe, and final requirements traceability maps every assessment item to evidence, verification, and a demo action.
 
 ## Tried and Validated
 
@@ -92,7 +93,7 @@ Do not commit or push without explicit user sign-off. At every independently rev
 
 ## Next Recommended Step
 
-Phase 9 is complete. Proceed to Phase 10: harden the reviewer experience, document setup and provenance, validate accessibility/error/performance boundaries, and write the final README/demo plan.
+All planned phases are complete. Rehearse or record the five-to-ten-minute walkthrough, optionally run one final live AI smoke test with the existing server-side key, then submit the repository and demo.
 
 ## Last Updated
 
@@ -109,3 +110,4 @@ Phase 9 is complete. Proceed to Phase 10: harden the reviewer experience, docume
 2026-09-12 — H3 whitespace-map remediation completed and manually accepted. All 1,939 resolution-8 records now preserve validated closed polygon boundaries derived from their H3 cell IDs. The map renders clickable hexagonal research areas instead of centroid dots, outlines the selected cell, and explicitly avoids implying a precise proposed site. Both whitespace validators, 32 Python tests, the production build, live browser interaction, and manual review pass.
 2026-09-12 — Residential-context remediation component completed and manually accepted. Current WorldPop Global2 R2025A v1 UAE 2025 population estimates are acquired to ignored raw storage with SHA-256 verification, aggregated into 1,939 H3 cells, and exposed as modelled residents plus within-study-area percentile. Coverage is available for 1,578 cells; 361 cells remain explicit missingness and are never converted to zero. The signal is evidence-only and does not yet alter labels. Source and alpha-release limitations are recorded in the registry and Phase 6 documentation. Automated acquisition, aggregation, validators, 33 Python tests, 8 Node tests, production build, and desktop UI review pass.
 2026-09-12 — Whitespace research-priority remediation completed and manually accepted. The four-factor model produces 145 prioritize, 583 watch, 850 deprioritize, and 361 unscored/insufficient-evidence cells. Every scored record exposes normalized factor values and contributions that sum to its 0–100 score; confidence is a separate six-component evidence-quality measure. The AI opportunity tools return the same score contract and highest-priority results first. The shared grid builder removes the prior circular build dependency. Production build, 33 Python tests, 8 Node tests, validators, diff checks, and manual high-contrast UI review pass.
+2026-09-12 — Phase 10 completed. The README, final traceability matrix, Phase 10 hardening record, offline verification runner, visible focus/runtime fallbacks, on-demand whitespace loading, tracked Vite AI proxy, and safe server errors are complete. Manual review confirmed the lazy-loaded whitespace polygons remain selectable. The final verification passes the production build, 8 Node tool tests, 33 Python tests, all snapshot/model/AI/runtime validators, diff checks, and the `.env` ignore check. The initial JavaScript entry is approximately 1.55 MB instead of 3.59 MB; the 2.04 MB whitespace chunk loads only on request.

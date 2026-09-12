@@ -5,7 +5,6 @@ import rawCompetitorPressure from '../data/processed/competitor_pressure_v1.json
 import rawBranchHealth from '../data/processed/branch_health_v1.json'
 import rawBranchHealthScenarios from '../data/processed/branch_health_scenarios_v1.json'
 import rawBranchReputation from '../data/processed/branch_reputation_snapshot_v1.json'
-import rawWhitespace from '../data/processed/whitespace_candidates_v1.json'
 import type { CompetitorPressureSnapshot, CompetitorSnapshot, NetworkMetrics, Snapshot } from './types'
 
 export const snapshot = rawSnapshot as Snapshot
@@ -17,4 +16,7 @@ export const competitorPressure = rawCompetitorPressure as CompetitorPressureSna
 export const branchHealth = rawBranchHealth as any
 export const branchHealthScenarios = rawBranchHealthScenarios as any
 export const branchReputation = rawBranchReputation as any
-export const whitespaceCandidates = rawWhitespace as any
+export async function loadWhitespaceCandidates() {
+  const module = await import('../data/processed/whitespace_candidates_v1.json')
+  return module.default as any
+}

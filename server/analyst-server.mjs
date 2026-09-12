@@ -63,5 +63,5 @@ createServer(async (request, response) => {
     const question = body?.question
     if (typeof question !== 'string' || !question.trim() || question.length > maxQuestion) return respond(response, 400, { status: 'INVALID_QUESTION', message: `question must be 1–${maxQuestion} characters` })
     return respond(response, 200, await ask(question.trim()))
-  } catch (error) { return respond(response, 500, { status: 'ANALYST_ERROR', message: 'The analyst could not complete this request.', detail: error instanceof Error ? error.message : 'unknown error' }) }
+  } catch { return respond(response, 500, { status: 'ANALYST_ERROR', message: 'The analyst could not complete this request. Check the server log and try again.' }) }
 }).listen(port, () => console.log(`Portfolio analyst server listening on http://localhost:${port}`))

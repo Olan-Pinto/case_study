@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Map, Marker, NavigationControl, setWorkerUrl, type GeoJSONSource, type MapGeoJSONFeature } from 'maplibre-gl'
 import mapWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import type { Branch, Competitor, NetworkMetrics } from './types'
@@ -121,6 +121,7 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<Map | null>(null)
   const selectedMarkerRef = useRef<Marker | null>(null)
+  const [mapError, setMapError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return
@@ -133,6 +134,10 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
       maxBounds: [[51.5, 21.5], [57.7, 27]],
     })
     mapRef.current = map
+    let initialLoadComplete = false
+    map.on('error', (event) => {
+      if (!initialLoadComplete) setMapError(event.error?.message || 'The basemap could not be loaded.')
+    })
     map.addControl(new NavigationControl({ visualizePitch: true }), 'bottom-right')
     const selectedMarkerElement = document.createElement('div')
     selectedMarkerElement.className = 'selected-branch-marker'
@@ -141,6 +146,8 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
     selectedMarkerRef.current = new Marker({ element: selectedMarkerElement, anchor: 'center' }).setLngLat([0, 0]).addTo(map)
 
     map.on('load', () => {
+      initialLoadComplete = true
+      setMapError(null)
       preferEnglishLabels(map)
       map.addSource(SOURCE_ID, { type: 'geojson', data: toFeatureCollection(branches) })
       map.addSource(COMPETITOR_SOURCE_ID, { type: 'geojson', data: competitorFeatureCollection(competitors) })
@@ -235,8 +242,8 @@ export function NetworkMap({ branches, selectedBranchId, competitors, showCompet
     markerElement.dataset.branchId = branch.branch_id
     selectedMarker.setLngLat([branch.longitude, branch.latitude])
     const radiusZoom = radiusKm === 1 ? 12.5 : radiusKm === 3 ? 11 : 10.25
-    map.flyTo({ center: [branch.longitude, branch.latitude], zoom: showServiceRadii ? radiusZoom : Math.max(map.getZoom(), 11), duration: 700, essential: true })
+    map.flyTo({ center: [branch.longitude, branch.latitude], zoom: showServiceRadii ? radiusZoom : Math.max(map.getZoom(), 11), duration: 700, essential: false })
   }, [allBranches, radiusKm, selectedBranchId, showServiceRadii])
 
-  return <div className="map" aria-label="Interactive map of the Bedashing UAE network" ref={containerRef} />
+  return <><div className="map" role="region" aria-label="Interactive map of the Bedashing UAE network" ref={containerRef} />{mapError && <div className="map-error" role="alert"><strong>Basemap unavailable</strong><span>{mapError}</span><small>The branch roster, evidence, scores, and AI fallback remain usable.</small></div>}</>
 }

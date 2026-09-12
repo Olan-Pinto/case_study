@@ -29,7 +29,7 @@ export function PortfolioReviewPanel() {
     } finally { setLoading(false) }
   }
 
-  return <section className="portfolio-review-panel">
+  return <section className="portfolio-review-panel" aria-busy={loading}>
     <p className="eyebrow">Phase 9 · AI research worklist</p>
     <h2>Review a portfolio scope</h2>
     <p>The agent gathers bounded portfolio evidence, selects follow-up checks, and gives a cited list of what a human should investigate next. It does not make a business decision.</p>
