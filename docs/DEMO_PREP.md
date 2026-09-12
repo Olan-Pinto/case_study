@@ -16,7 +16,7 @@ The core idea is: **deterministic geography and public evidence calculate; the A
 - **Phase 3:** Nearest-own-branch distances plus 1/3/5 km geometric service-radius overlap metrics.
 - **Phase 4:** A source-backed competitor screen for Sisters Beauty Lounge and NStyle Beauty Lounge, including map visibility, branch-level evidence, and a transparent lower-bound pressure calculation.
 - **Phase 5:** A 22-active-branch public-proxy health screen with peer groups, rating-sample adjustment, transparent factor contributions, evidence confidence, and human-review labels.
-- **Phase 6:** Bounded H3 whitespace research cells around selected urban-context anchors, with conservative research-only labels and no opening recommendation.
+- **Phase 6:** Bounded H3 whitespace cells with a transparent four-factor research-priority score, required-evidence withholding, and no opening recommendation.
 - **Phase 7:** Four transparent score-weight sensitivity scenarios.
 - **Phase 8:** An optional grounded AI analyst using strict read-only tools, source/model IDs, a bounded tool loop, and a visible safe activity trace.
 - **Phase 9:** A bounded AI portfolio-review workflow that gathers evidence and produces a human research worklist by scope.
@@ -25,7 +25,7 @@ The roadmap has 10 phases and lives in [09_execution_roadmap.md](research/09_exe
 
 ## Phase 6: bounded whitespace research
 
-The map’s optional whitespace layer renders the true boundaries of H3 resolution-8 cells screened only inside the configured Dubai and Abu Dhabi city clusters. The hexagon is a research area—not a precise proposed address. A cell is retained only when its centre is 3–8 km from an active Bedashing branch. Each selected cell now shows a WorldPop 2025 modelled resident count and relative residential-intensity percentile when covered; missing raster coverage remains missing rather than zero. This is population context—not customers, spending, footfall, or salon demand—and is not yet used in the label. `WATCH RESEARCH` remains close to a validated high-priority urban-context anchor with lower limited competitor pressure; `SKIP RESEARCH` has high limited pressure; and `RESEARCH REQUIRED` has insufficient evidence for either screen. The model intentionally never emits `GROW` or an opening recommendation because it still lacks directly observed demand, tenancy, and financial data.
+The optional layer renders real H3 resolution-8 areas inside configured Dubai and Abu Dhabi city clusters. Each covered cell receives a 0–100 research-priority score: residential intensity contributes up to 50 points, distance from the active network 20, proximity to a validated urban-context anchor 15, and competitor market validation 15. The UI shows the exact arithmetic. Scores of 60+, 40–59.99, and below 40 mean prioritize, watch, and deprioritize manual research. Missing WorldPop coverage withholds the score entirely. These are queue positions—not probabilities, forecasts, precise sites, or opening recommendations.
 
 ## Phase 7: scenario sensitivity
 

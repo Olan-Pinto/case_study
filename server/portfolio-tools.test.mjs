@@ -30,9 +30,11 @@ test('broad Abu Dhabi reference is surfaced as ambiguous instead of guessed', ()
   const resolution=executeTool('resolve_branch_reference',{reference:'Abu Dhabi'})
   assert.equal(resolution.status,'ok'); assert.equal(resolution.data.resolution,'ambiguous'); assert.ok(resolution.data.total_candidates>1)
 })
-test('opportunity search honors the bounded label and limit', () => {
-  const result=executeTool('search_opportunity_cells',{label:'WATCH_RESEARCH',study_area_id:'abu_dhabi_city_cluster',limit:2})
-  assert.equal(result.status,'ok'); assert.ok(result.data.records.length<=2); assert.ok(result.data.records.every((record)=>record.label==='WATCH_RESEARCH'))
+test('opportunity search honors the bounded label and returns the highest scores first', () => {
+  const result=executeTool('search_opportunity_cells',{label:'PRIORITIZE_RESEARCH',study_area_id:'abu_dhabi_city_cluster',limit:2})
+  assert.equal(result.status,'ok'); assert.ok(result.data.records.length<=2); assert.ok(result.data.records.every((record)=>record.label==='PRIORITIZE_RESEARCH'))
+  assert.ok(result.data.records[0].research_priority_score>=result.data.records.at(-1).research_priority_score)
+  assert.equal(result.data.research_priority_contract.model_id,'whitespace-research-priority-v1')
 })
 test('write-like or unknown tools are denied', () => {
   assert.equal(executeTool('refresh_everything',{}).error.code,'TOOL_NOT_ALLOWED')

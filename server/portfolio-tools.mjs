@@ -140,14 +140,14 @@ export function executeTool(name, args) {
     if (name === 'get_opportunity_profile') {
       requireString(args.cell_id, 'cell_id'); const record = whitespaceById.get(args.cell_id)
       if (!record) return fail('NOT_FOUND', `Unknown cell_id: ${args.cell_id}`)
-      return envelope(name, { record, interpretation: 'A research-screening cell, not an opening recommendation.' }, whitespace.source_ids)
+      return envelope(name, { record, research_priority_contract: whitespace.research_priority, interpretation: 'A ranked research-screening cell, not an opening recommendation or probability of success.' }, whitespace.source_ids)
     }
     if (name === 'search_opportunity_cells') {
-      if (args.label !== null && !['RESEARCH_REQUIRED', 'WATCH_RESEARCH', 'SKIP_RESEARCH'].includes(args.label)) throw new Error('label is invalid')
+      if (args.label !== null && !['RESEARCH_REQUIRED', 'PRIORITIZE_RESEARCH', 'WATCH_RESEARCH', 'DEPRIORITIZE_RESEARCH'].includes(args.label)) throw new Error('label is invalid')
       if (args.study_area_id !== null && !['dubai_cluster', 'abu_dhabi_city_cluster'].includes(args.study_area_id)) throw new Error('study_area_id is invalid')
       if (!Number.isInteger(args.limit) || args.limit < 1 || args.limit > 10) throw new Error('limit must be an integer between 1 and 10')
-      const records = whitespace.records.filter((record) => (!args.label || record.label === args.label) && (!args.study_area_id || record.study_area_id === args.study_area_id)).slice(0, args.limit)
-      return envelope(name, { records, returned_count: records.length, interpretation: 'Research screens only; absence from this limited result is not a demand conclusion.' }, whitespace.source_ids)
+      const records = whitespace.records.filter((record) => (!args.label || record.label === args.label) && (!args.study_area_id || record.study_area_id === args.study_area_id)).sort((left, right) => (right.research_priority_score ?? -1) - (left.research_priority_score ?? -1)).slice(0, args.limit)
+      return envelope(name, { records, returned_count: records.length, research_priority_contract: whitespace.research_priority, interpretation: 'Ranked research screens only; absence from this limited result is not a demand conclusion.' }, whitespace.source_ids)
     }
     if (name === 'get_source_provenance') {
       requireArray(args.source_ids, 'source_ids', 1, 10)

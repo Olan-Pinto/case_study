@@ -9,6 +9,8 @@ import numpy as np
 import rasterio
 from rasterio.windows import from_bounds
 
+from whitespace_grid import candidate_cells
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_PATH = ROOT / "data/raw/worldpop/are_pop_2025_CN_100m_R2025A_v1.tif"
@@ -46,8 +48,8 @@ def main() -> None:
         raise ValueError("WorldPop raster checksum does not match the versioned source contract")
 
     config = json.loads((ROOT / "config/whitespace_v1.json").read_text())
-    whitespace = json.loads((ROOT / "data/processed/whitespace_candidates_v1.json").read_text())
-    candidate_area = {record["cell_id"]: record["study_area_id"] for record in whitespace["records"]}
+    snapshot = json.loads((ROOT / "data/processed/branches_snapshot_v2.json").read_text())
+    candidate_area = {cell_id: record["study_area_id"] for cell_id, record in candidate_cells(config, snapshot).items()}
     candidate_ids = set(candidate_area)
     population_by_cell = defaultdict(float)
     pixels_by_cell = defaultdict(int)
