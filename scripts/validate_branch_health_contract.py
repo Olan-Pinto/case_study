@@ -18,6 +18,16 @@ def main() -> None:
     assert "format archetype" in " ".join(config["minimum_scoring_requirements"]).lower()
     assert "closure recommendation" in config["labelling"]["prohibited_claims"]
     assert config["confidence"]["separate_from_score"] is True
+    assert set(config["confidence"]["required_dimensions"]) == {
+        "source_reliability",
+        "source_freshness",
+        "review_sample_adequacy",
+        "peer_group_adequacy",
+        "feature_completeness",
+        "competitor_scope",
+    }
+    assert config["reputation_adjustment"]["prior_review_count"] > 0
+    assert 0 <= config["confidence"]["competitor_scope"]["value"] <= 1
     print("VALID: branch-health v1 contract withholds scores until source-backed peer evidence exists")
 
 

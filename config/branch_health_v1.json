@@ -2,6 +2,10 @@
   "model_id": "branch-health-v1",
   "status": "scored_public_proxy",
   "weights": {"peer_adjusted_reputation": 0.6, "inverse_competitor_pressure": 0.25, "inverse_own_network_overlap": 0.15},
+  "reputation_adjustment": {
+    "prior_review_count": 100,
+    "rule": "Shrink a branch rating toward the active-network mean. The prior strength is equivalent to 100 reviews and reduces the influence of sparse samples."
+  },
   "labels": {"protect_review_min": 65, "shrink_review_max_exclusive": 35},
   "purpose": "Define the evidence, peer-comparison, confidence, and labelling contract for a public-proxy branch-health screen before any branch score is calculated.",
   "peer_comparison": {
@@ -12,7 +16,7 @@
   "permitted_factors": {
     "public_reputation": {
       "direction": "positive",
-      "required_fields": ["rating_value", "rating_count", "observed_at", "source_id", "source_url"],
+      "required_fields": ["rating_value", "rating_count", "observed_at", "source_ids", "source_url"],
       "rule": "Use only a permitted, attributable source and shrink sparse rating samples before peer normalization."
     },
     "competitor_pressure": {
@@ -49,7 +53,28 @@
   },
   "confidence": {
     "separate_from_score": true,
-    "required_dimensions": ["source_reliability", "source_freshness", "peer_group_adequacy", "feature_completeness", "competitor_scope"],
+    "required_dimensions": ["source_reliability", "source_freshness", "review_sample_adequacy", "peer_group_adequacy", "feature_completeness", "competitor_scope"],
+    "model_as_of": "2026-09-09",
+    "source_reliability": {
+      "value": 0.85,
+      "basis": "The values were manually transcribed and user-validated from direct Google Maps branch listings, but were not collected through a reproducible paid API feed."
+    },
+    "freshness_bands": [
+      {"max_age_days": 30, "value": 1.0},
+      {"max_age_days": 90, "value": 0.75},
+      {"max_age_days": 180, "value": 0.5},
+      {"max_age_days": 365, "value": 0.25}
+    ],
+    "review_sample_full_credit_count": 500,
+    "network_fallback_peer_adequacy": 0.5,
+    "feature_completeness": {
+      "value": 0.75,
+      "basis": "Three of four permitted model factors are available; coverage uniqueness is omitted."
+    },
+    "competitor_scope": {
+      "value": 0.6,
+      "basis": "Two high-relevance named chains are verified, but the wider independent and chain competitor market is not exhaustive."
+    },
     "rule": "A high proxy score cannot offset weak evidence confidence."
   }
 }

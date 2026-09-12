@@ -12,7 +12,7 @@ def main():
         assert all(0<=weight<=1 for weight in scenario['weights'].values())
         assert scenario['records'] and sum(scenario['label_counts'].values())==len(scenario['records'])
         for record in scenario['records']:
-            assert record['review_label'] in {'PROTECT_REVIEW','HOLD_REVIEW','SHRINK_REVIEW'}
+            assert record['review_label'] in {'PROTECT_REVIEW','HOLD_REVIEW','SHRINK_REVIEW','INSUFFICIENT_EVIDENCE'}
             assert record['label_changed']==(record['review_label'] != record['baseline_review_label'])
     print(f"VALID: {len(d['scenarios'])} bounded branch-health scenarios")
 

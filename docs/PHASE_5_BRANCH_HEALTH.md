@@ -25,6 +25,25 @@ The first component is intentionally a no-score contract in `config/branch_healt
 - `PROTECT_REVIEW`, `HOLD_REVIEW`, and `SHRINK_REVIEW` are future human-review priorities, never automatic actions or claims about revenue, profitability, demand, or closure.
 - Confidence is separate from the score and must disclose reliability, freshness, peer adequacy, feature completeness, and the limited competitor scope.
 
+### Correctness and confidence contract
+
+The displayed two-decimal score is the value used for the review-label boundary. This prevents a hidden floating-point value such as `64.999...` from displaying as `65.00` while remaining labelled `HOLD_REVIEW`. The boundaries are:
+
+- `65.00` or more: `PROTECT_REVIEW`;
+- `35.00` through `64.99`: `HOLD_REVIEW`;
+- below `35.00`: `SHRINK_REVIEW`.
+
+Confidence is the equally weighted mean of six evidence-quality components, each stored on the branch record:
+
+- source reliability: `0.85` for direct Google Maps listings manually transcribed and user-validated, discounted because this is not a reproducible API feed;
+- source freshness: a dated band relative to the model's declared `model_as_of` date;
+- review-sample adequacy: `min(review count / 500, 1)`;
+- peer-group adequacy: `1.0` for a venue-context peer group meeting the three-branch minimum, or `0.5` for the disclosed network-only fallback;
+- feature completeness: `0.75` because three of four permitted factors are available;
+- competitor scope: `0.60` because two relevant chains are verified but the market is not exhaustive.
+
+The constants and their bases are declared in `config/branch_health_v1.json`; they are model assumptions, not learned facts. Missing required reputation, context, pressure, or network evidence now produces `INSUFFICIENT_EVIDENCE` in code instead of a failed build or imputed score.
+
 ### Verify
 
 ```powershell

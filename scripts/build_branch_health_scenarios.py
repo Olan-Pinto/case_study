@@ -19,7 +19,7 @@ def main():
         for record in build_records(model_config):
             base=baseline[record['branch_id']]
             record['baseline_public_proxy_score']=base['public_proxy_score']
-            record['score_delta']=round(record['public_proxy_score']-base['public_proxy_score'],2)
+            record['score_delta']=None if record['public_proxy_score'] is None or base['public_proxy_score'] is None else round(record['public_proxy_score']-base['public_proxy_score'],2)
             record['baseline_review_label']=base['review_label']
             record['label_changed']=record['review_label'] != base['review_label']
             records.append(record)

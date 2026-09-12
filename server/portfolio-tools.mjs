@@ -9,6 +9,8 @@ const metrics = json('data/processed/network_metrics_v1.json')
 const pressure = json('data/processed/competitor_pressure_v1.json')
 const health = json('data/processed/branch_health_v1.json')
 const scenarios = json('data/processed/branch_health_scenarios_v1.json')
+const reputation = json('data/processed/branch_reputation_snapshot_v1.json')
+const venueContext = json('data/processed/branch_venue_context_v1.json')
 const whitespace = json('data/processed/whitespace_candidates_v1.json')
 const config = json('config/analyst_v1.json')
 const portfolioReviewConfig = json('config/portfolio_review_v1.json')
@@ -18,6 +20,8 @@ const branchesById = byId(branchSnapshot.records, 'branch_id')
 const metricsById = byId(metrics.branch_metrics, 'branch_id')
 const pressureById = byId(pressure.branch_pressure, 'branch_id')
 const healthById = byId(health.records, 'branch_id')
+const reputationById = byId(reputation.records, 'branch_id')
+const venueContextById = byId(venueContext.records, 'branch_id')
 const whitespaceById = byId(whitespace.records, 'cell_id')
 const scenarioById = byId(scenarios.scenarios, 'scenario_id')
 const scenarioSourceIds = scenarios.source_ids ?? []
@@ -115,14 +119,16 @@ export function executeTool(name, args) {
       const branch = branchesById.get(resolution.branch.branch_id)
       if (!healthById.has(branch.branch_id)) return fail('INACTIVE_BRANCH_PROFILE_UNAVAILABLE', `The matched branch is not in the active health snapshot: ${branch.branch_id}`)
       const scenario = scenarioRecord(branch.branch_id, args.scenario_id)
-      return envelope(name, { resolved_reference: args.branch_id === branch.branch_id ? null : { input: args.branch_id, branch_id: branch.branch_id, matched_on: resolution.matched_on }, branch, network_metrics: metricsById.get(branch.branch_id) ?? null, competitor_pressure: pressureById.get(branch.branch_id) ?? null, baseline_health: healthById.get(branch.branch_id) ?? null, scenario_health: scenario.record, scenario: scenario.scenario }, [...branch.source_ids, ...scenarioSourceIds])
+      const reputationEvidence = reputationById.get(branch.branch_id) ?? null
+      const contextEvidence = venueContextById.get(branch.branch_id) ?? null
+      return envelope(name, { resolved_reference: args.branch_id === branch.branch_id ? null : { input: args.branch_id, branch_id: branch.branch_id, matched_on: resolution.matched_on }, branch, reputation_evidence: reputationEvidence, venue_context_evidence: contextEvidence, network_metrics: metricsById.get(branch.branch_id) ?? null, competitor_pressure: pressureById.get(branch.branch_id) ?? null, baseline_health: healthById.get(branch.branch_id) ?? null, scenario_health: scenario.record, scenario: scenario.scenario }, [...branch.source_ids, ...(reputationEvidence?.source_ids ?? []), ...(contextEvidence?.source_ids ?? []), ...scenarioSourceIds])
     }
     if (name === 'compare_branches') {
       requireArray(args.branch_ids, 'branch_ids', 2, 3); requireString(args.scenario_id, 'scenario_id')
       const records = args.branch_ids.map((branch_id) => {
         const branch = branchesById.get(branch_id); if (!branch) throw new Error(`Unknown branch_id: ${branch_id}`)
         const scenario = scenarioRecord(branch_id, args.scenario_id)
-        return { branch: { branch_id: branch.branch_id, name: branch.name, emirate: branch.emirate, community: branch.community }, scenario_health: scenario.record, competitor_pressure: pressureById.get(branch_id) ?? null, network_metrics: metricsById.get(branch_id) ?? null, source_ids: branch.source_ids }
+        return { branch: { branch_id: branch.branch_id, name: branch.name, emirate: branch.emirate, community: branch.community }, reputation_evidence: reputationById.get(branch_id) ?? null, venue_context_evidence: venueContextById.get(branch_id) ?? null, scenario_health: scenario.record, competitor_pressure: pressureById.get(branch_id) ?? null, network_metrics: metricsById.get(branch_id) ?? null, source_ids: [...new Set([...branch.source_ids, ...(reputationById.get(branch_id)?.source_ids ?? []), ...(venueContextById.get(branch_id)?.source_ids ?? [])])] }
       })
       return envelope(name, { scenario_id: args.scenario_id, records }, [...records.flatMap((record) => record.source_ids), ...scenarioSourceIds])
     }

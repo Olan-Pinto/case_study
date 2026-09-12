@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
-import { activeCompetitors, branchHealthScenarios, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
+import { activeCompetitors, branchHealthScenarios, branchReputation, branches, competitorPressure, competitorSnapshot, networkMetrics, snapshot, whitespaceCandidates } from './data'
 import { NetworkMap } from './NetworkMap'
 import { AnalystPanel } from './AnalystPanel'
 import { PortfolioReviewPanel } from './PortfolioReviewPanel'
@@ -121,6 +121,7 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)
   const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
   const confirmedClosedCompetitorCount = competitorSnapshot.records.filter((competitor) => competitor.status === 'user_confirmed_permanently_closed').length
+  const reputation = branchReputation.records.find((record: any) => record.branch_id === branch.branch_id)
   return (
     <>
       <p className="eyebrow">Location evidence</p>
@@ -157,8 +158,54 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
           })}
         </ul> : <p className="empty-inline">No contributor within the model threshold. This is not evidence that local competition is absent.</p>}
       </section>}
-      {health && <section className="competitor-evidence"><h3>Branch-health public proxy</h3><p><strong>{health.review_label.replace('_', ' ')}</strong> · score {health.public_proxy_score.toFixed(0)}/100 · confidence {health.confidence.toFixed(0)}%</p><p className="geometry-note">Peer basis: {health.comparison_basis.replaceAll('_', ' ')}. Public-proxy evidence only; not financial health or a closure decision.</p><section className="scenario-evidence"><h3>Scenario sensitivity · {scenario.label}</h3><p>{scenario.description}</p><dl className="scenario-facts"><div><dt>Baseline → scenario</dt><dd>{health.baseline_public_proxy_score.toFixed(0)} → {health.public_proxy_score.toFixed(0)} <strong className={health.score_delta > 0 ? 'positive-delta' : health.score_delta < 0 ? 'negative-delta' : ''}>({health.score_delta > 0 ? '+' : ''}{health.score_delta.toFixed(0)})</strong></dd></div><div><dt>Review label</dt><dd>{health.baseline_review_label.replace('_', ' ')} → {health.review_label.replace('_', ' ')}{health.label_changed && <strong className="label-change"> changed</strong>}</dd></div><div><dt>Weights</dt><dd>Reputation {Math.round(scenario.weights.peer_adjusted_reputation * 100)}% · competitors {Math.round(scenario.weights.inverse_competitor_pressure * 100)}% · spacing {Math.round(scenario.weights.inverse_own_network_overlap * 100)}%</dd></div></dl><p className="geometry-note">Same evidence; only declared scorecard weights changed. This is sensitivity analysis, not a forecast.</p></section></section>}
+      {health && <BranchHealthEvidence health={health} scenario={scenario} reputation={reputation} />}
       {branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>
   )
+}
+
+const confidenceLabels: Record<string, string> = {
+  source_reliability: 'Source reliability',
+  source_freshness: 'Source freshness',
+  review_sample_adequacy: 'Review sample size',
+  peer_group_adequacy: 'Peer-group fit',
+  feature_completeness: 'Available model factors',
+  competitor_scope: 'Competitor coverage',
+}
+
+function BranchHealthEvidence({ health, scenario, reputation }: { health: any, scenario: any, reputation: any }) {
+  if (health.review_label === 'INSUFFICIENT_EVIDENCE') {
+    return <section className="competitor-evidence"><h3>Branch-health public proxy</h3><p><strong>Insufficient evidence</strong></p><p>No score was produced. Missing: {health.missing_requirements.join(', ').replaceAll('_', ' ')}.</p></section>
+  }
+  const contributionRows = [
+    ['Public reputation', 'peer_adjusted_reputation', 'peer_adjusted_reputation_percentile', scenario.weights.peer_adjusted_reputation],
+    ['Limited competitor pressure', 'inverse_competitor_pressure', 'inverse_competitor_pressure_percentile', scenario.weights.inverse_competitor_pressure],
+    ['Own-network spacing', 'inverse_own_network_overlap', 'inverse_own_network_overlap_percentile', scenario.weights.inverse_own_network_overlap],
+  ] as const
+  return <section className="competitor-evidence health-evidence">
+    <h3>Branch-health public proxy</h3>
+    <p className="health-result"><strong>{health.review_label.replaceAll('_', ' ')}</strong><span>Score {health.public_proxy_score.toFixed(2)}/100</span><span>Evidence confidence {health.confidence.toFixed(0)}%</span></p>
+    <p className="geometry-note">This tells a reviewer where to investigate first. It is not financial health, customer demand, or a closure decision.</p>
+    <details className="health-explanation" open>
+      <summary>Why this score?</summary>
+      {reputation && <div className="reputation-evidence"><strong>Observed public reputation</strong><span>{reputation.rating_value.toFixed(1)} rating · {reputation.rating_count.toLocaleString()} reviews · observed {reputation.observed_at}</span><span>Adjusted rating: {health.factor_values.bayesian_adjusted_rating.toFixed(3)} before comparison with {health.factor_values.peer_count} peers.</span>{reputation.source_url && <a href={reputation.source_url} target="_blank" rel="noreferrer">Open rating evidence ↗</a>}</div>}
+      <ol className="score-breakdown">
+        {contributionRows.map(([label, contributionKey, valueKey, weight]) => <li key={contributionKey}>
+          <div><strong>{label}</strong><span>{(health.factor_values[valueKey] * 100).toFixed(0)}th percentile × {Math.round(weight * 100)} points</span></div>
+          <b>+{health.factor_contributions[contributionKey].toFixed(2)}</b>
+        </li>)}
+      </ol>
+      <p className="score-equation">Total: {Object.values(health.factor_contributions).map((value: any) => Number(value).toFixed(2)).join(' + ')} = <strong>{health.public_proxy_score.toFixed(2)}</strong></p>
+      <p className="geometry-note">Higher reputation helps. Lower verified competitor pressure and lower 3 km network overlap help. Coverage uniqueness is omitted because it is not available.</p>
+    </details>
+    <details className="health-explanation">
+      <summary>Why {health.confidence.toFixed(0)}% confidence?</summary>
+      <ul className="confidence-breakdown">
+        {Object.entries(health.confidence_components).map(([key, value]: [string, any]) => <li key={key}><span>{confidenceLabels[key] ?? key.replaceAll('_', ' ')}</span><strong>{Math.round(value * 100)}%</strong></li>)}
+      </ul>
+      <p className="score-equation">Confidence is the simple average of these six evidence-quality checks. It does not increase the branch score.</p>
+    </details>
+    <p className="peer-basis">Compared with: <strong>{health.comparison_basis.replaceAll('_', ' ')}</strong></p>
+    <section className="scenario-evidence"><h3>Scenario sensitivity · {scenario.label}</h3><p>{scenario.description}</p><dl className="scenario-facts"><div><dt>Baseline → scenario</dt><dd>{health.baseline_public_proxy_score.toFixed(2)} → {health.public_proxy_score.toFixed(2)} <strong className={health.score_delta > 0 ? 'positive-delta' : health.score_delta < 0 ? 'negative-delta' : ''}>({health.score_delta > 0 ? '+' : ''}{health.score_delta.toFixed(2)})</strong></dd></div><div><dt>Review label</dt><dd>{health.baseline_review_label.replaceAll('_', ' ')} → {health.review_label.replaceAll('_', ' ')}{health.label_changed && <strong className="label-change"> changed</strong>}</dd></div><div><dt>Weights</dt><dd>Reputation {Math.round(scenario.weights.peer_adjusted_reputation * 100)}% · competitors {Math.round(scenario.weights.inverse_competitor_pressure * 100)}% · spacing {Math.round(scenario.weights.inverse_own_network_overlap * 100)}%</dd></div></dl><p className="geometry-note">Same evidence; only declared priorities changed. This shows sensitivity, not a forecast.</p></section>
+  </section>
 }

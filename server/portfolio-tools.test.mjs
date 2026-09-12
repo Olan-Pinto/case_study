@@ -13,6 +13,8 @@ test('portfolio-scope tool returns only active Abu Dhabi evidence and its permit
 test('branch profile returns scenario evidence and source IDs', () => {
   const result=executeTool('get_branch_profile',{branch_id:'saeed_bin_saif_al_falahi',scenario_id:'baseline'})
   assert.equal(result.status,'ok'); assert.equal(result.data.scenario_health.baseline_public_proxy_score,result.data.scenario_health.public_proxy_score); assert.ok(result.source_ids.includes('user_validated_google_maps_2026_09_09'))
+  assert.equal(result.data.reputation_evidence.rating_count,671); assert.equal(result.data.venue_context_evidence.peer_group_id,'community_or_streetfront')
+  assert.equal(Object.keys(result.data.scenario_health.confidence_components).length,6)
 })
 test('unknown branch cannot be invented', () => {
   const result=executeTool('get_branch_profile',{branch_id:'not-a-branch',scenario_id:'baseline'})

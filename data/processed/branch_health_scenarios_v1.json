@@ -22,8 +22,8 @@
         "inverse_own_network_overlap": 0.15
       },
       "label_counts": {
-        "HOLD_REVIEW": 10,
-        "PROTECT_REVIEW": 5,
+        "HOLD_REVIEW": 9,
+        "PROTECT_REVIEW": 6,
         "SHRINK_REVIEW": 7
       },
       "records": [
@@ -33,7 +33,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 45.23,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.590909,
+            "inverse_competitor_pressure_percentile": 0.090909,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 747,
+            "bayesian_adjusted_rating": 4.600537,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 35.45,
             "inverse_competitor_pressure": 2.27,
@@ -41,6 +58,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.23,
           "score_delta": 0.0,
@@ -53,7 +82,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 22.5,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 853,
+            "bayesian_adjusted_rating": 4.600477,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 15.0,
             "inverse_competitor_pressure": 0.0,
@@ -61,6 +107,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 22.5,
           "score_delta": 0.0,
@@ -73,7 +131,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 54.37,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.625,
+            "inverse_competitor_pressure_percentile": 0.375,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 628,
+            "bayesian_adjusted_rating": 4.600624,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 37.5,
             "inverse_competitor_pressure": 9.38,
@@ -81,6 +156,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 54.37,
           "score_delta": 0.0,
@@ -93,7 +180,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 21.25,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.125,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 817,
+            "bayesian_adjusted_rating": 4.511401,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 7.5,
             "inverse_competitor_pressure": 6.25,
@@ -101,6 +205,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 21.25,
           "score_delta": 0.0,
@@ -113,7 +229,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 55.83,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.666667,
+            "inverse_competitor_pressure_percentile": 0.333333,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 948,
+            "bayesian_adjusted_rating": 4.600434,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 40.0,
             "inverse_competitor_pressure": 8.33,
@@ -121,6 +254,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 55.83,
           "score_delta": 0.0,
@@ -133,7 +278,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 64.38,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.625,
+            "inverse_own_network_overlap_percentile": 0.25,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 602,
+            "bayesian_adjusted_rating": 4.600648,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 45.0,
             "inverse_competitor_pressure": 15.62,
@@ -141,6 +303,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 64.38,
           "score_delta": 0.0,
@@ -153,7 +327,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 30.42,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.333333,
+            "inverse_competitor_pressure_percentile": 0.166667,
+            "inverse_own_network_overlap_percentile": 0.416667,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 613,
+            "bayesian_adjusted_rating": 4.514663,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 20.0,
             "inverse_competitor_pressure": 4.17,
@@ -161,6 +352,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.42,
           "score_delta": 0.0,
@@ -173,7 +376,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 31.25,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.375,
+            "inverse_competitor_pressure_percentile": 0.125,
+            "inverse_own_network_overlap_percentile": 0.375,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 749,
+            "bayesian_adjusted_rating": 4.600535,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 22.5,
             "inverse_competitor_pressure": 3.12,
@@ -181,6 +401,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 31.25,
           "score_delta": 0.0,
@@ -193,7 +425,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 65.0,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 69.35,
+          "confidence": 77.07,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.424,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.875,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 212,
+            "bayesian_adjusted_rating": 4.669406,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 52.5,
             "inverse_competitor_pressure": 12.5,
@@ -201,6 +450,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": 0.0,
@@ -213,7 +474,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 48.75,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.75,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 728,
+            "bayesian_adjusted_rating": 4.600549,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 30.0,
             "inverse_competitor_pressure": 18.75,
@@ -221,6 +499,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 48.75,
           "score_delta": 0.0,
@@ -233,7 +523,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 25.42,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.166667,
+            "inverse_competitor_pressure_percentile": 0.416667,
+            "inverse_own_network_overlap_percentile": 0.333333,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 2451,
+            "bayesian_adjusted_rating": 4.504098,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 10.0,
             "inverse_competitor_pressure": 10.42,
@@ -241,6 +548,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.42,
           "score_delta": 0.0,
@@ -253,7 +572,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 72.73,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.954545,
+            "inverse_competitor_pressure_percentile": 0.454545,
+            "inverse_own_network_overlap_percentile": 0.272727,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 536,
+            "bayesian_adjusted_rating": 4.853545,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 57.27,
             "inverse_competitor_pressure": 11.36,
@@ -261,6 +597,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 72.73,
           "score_delta": 0.0,
@@ -273,7 +621,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 68.75,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 1214,
+            "bayesian_adjusted_rating": 4.877515,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 60.0,
             "inverse_competitor_pressure": 6.25,
@@ -281,6 +646,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 68.75,
           "score_delta": 0.0,
@@ -293,7 +670,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 35.0,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 1279,
+            "bayesian_adjusted_rating": 4.507581,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 15.0,
             "inverse_competitor_pressure": 12.5,
@@ -301,6 +695,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 35.0,
           "score_delta": 0.0,
@@ -313,7 +719,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 25.0,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.083333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.4,
+            "raw_rating_count": 830,
+            "bayesian_adjusted_rating": 4.421994,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 5.0,
             "inverse_competitor_pressure": 12.5,
@@ -321,6 +744,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.0,
           "score_delta": 0.0,
@@ -332,8 +767,25 @@
           "peer_group_id": "community_or_streetfront",
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 65.0,
-          "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "review_label": "PROTECT_REVIEW",
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 768,
+            "bayesian_adjusted_rating": 4.600524,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 45.0,
             "inverse_competitor_pressure": 12.5,
@@ -342,9 +794,21 @@
           "omitted_factors": [
             "coverage_uniqueness_not_available"
           ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
+          ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": 0.0,
-          "baseline_review_label": "HOLD_REVIEW",
+          "baseline_review_label": "PROTECT_REVIEW",
           "label_changed": false
         },
         {
@@ -353,7 +817,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 89.38,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.6,
+          "confidence": 86.57,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.994,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.875,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 497,
+            "bayesian_adjusted_rating": 4.684011,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 60.0,
             "inverse_competitor_pressure": 21.88,
@@ -361,6 +842,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 89.38,
           "score_delta": 0.0,
@@ -373,7 +866,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 50.0,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.583333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1290,
+            "bayesian_adjusted_rating": 4.600327,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 35.0,
             "inverse_competitor_pressure": 12.5,
@@ -381,6 +891,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 50.0,
           "score_delta": 0.0,
@@ -393,7 +915,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 70.0,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.833333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 693,
+            "bayesian_adjusted_rating": 4.600573,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 50.0,
             "inverse_competitor_pressure": 12.5,
@@ -401,6 +940,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 70.0,
           "score_delta": 0.0,
@@ -413,7 +964,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 57.08,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.916667,
+            "inverse_competitor_pressure_percentile": 0.083333,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 671,
+            "bayesian_adjusted_rating": 4.60059,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 55.0,
             "inverse_competitor_pressure": 2.08,
@@ -421,6 +989,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 57.08,
           "score_delta": 0.0,
@@ -433,7 +1013,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 30.0,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1740,
+            "bayesian_adjusted_rating": 4.600247,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 30.0,
             "inverse_competitor_pressure": 0.0,
@@ -441,6 +1038,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.0,
           "score_delta": 0.0,
@@ -453,7 +1062,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 45.0,
           "review_label": "HOLD_REVIEW",
-          "confidence": 76.65,
+          "confidence": 81.93,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.716,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.416667,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 358,
+            "bayesian_adjusted_rating": 4.522827,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 25.0,
             "inverse_competitor_pressure": 12.5,
@@ -461,6 +1087,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.0,
           "score_delta": 0.0,
@@ -490,7 +1128,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 50.68,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.590909,
+            "inverse_competitor_pressure_percentile": 0.090909,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 747,
+            "bayesian_adjusted_rating": 4.600537,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 44.32,
             "inverse_competitor_pressure": 1.36,
@@ -498,6 +1153,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.23,
           "score_delta": 5.45,
@@ -510,7 +1177,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 23.75,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 853,
+            "bayesian_adjusted_rating": 4.600477,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 18.75,
             "inverse_competitor_pressure": 0.0,
@@ -518,6 +1202,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 22.5,
           "score_delta": 1.25,
@@ -530,7 +1226,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 57.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.625,
+            "inverse_competitor_pressure_percentile": 0.375,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 628,
+            "bayesian_adjusted_rating": 4.600624,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 46.88,
             "inverse_competitor_pressure": 5.62,
@@ -538,6 +1251,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 54.37,
           "score_delta": 3.13,
@@ -550,7 +1275,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 18.13,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.125,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 817,
+            "bayesian_adjusted_rating": 4.511401,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 9.38,
             "inverse_competitor_pressure": 3.75,
@@ -558,6 +1300,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 21.25,
           "score_delta": -3.12,
@@ -570,7 +1324,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 60.0,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.666667,
+            "inverse_competitor_pressure_percentile": 0.333333,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 948,
+            "bayesian_adjusted_rating": 4.600434,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 50.0,
             "inverse_competitor_pressure": 5.0,
@@ -578,6 +1349,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 55.83,
           "score_delta": 4.17,
@@ -590,7 +1373,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 68.12,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.625,
+            "inverse_own_network_overlap_percentile": 0.25,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 602,
+            "bayesian_adjusted_rating": 4.600648,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 56.25,
             "inverse_competitor_pressure": 9.38,
@@ -598,6 +1398,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 64.38,
           "score_delta": 3.74,
@@ -610,7 +1422,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 31.67,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.333333,
+            "inverse_competitor_pressure_percentile": 0.166667,
+            "inverse_own_network_overlap_percentile": 0.416667,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 613,
+            "bayesian_adjusted_rating": 4.514663,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 25.0,
             "inverse_competitor_pressure": 2.5,
@@ -618,6 +1447,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.42,
           "score_delta": 1.25,
@@ -630,7 +1471,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 33.75,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.375,
+            "inverse_competitor_pressure_percentile": 0.125,
+            "inverse_own_network_overlap_percentile": 0.375,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 749,
+            "bayesian_adjusted_rating": 4.600535,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 28.12,
             "inverse_competitor_pressure": 1.88,
@@ -638,6 +1496,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 31.25,
           "score_delta": 2.5,
@@ -650,7 +1520,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 73.12,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 69.35,
+          "confidence": 77.07,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.424,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.875,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 212,
+            "bayesian_adjusted_rating": 4.669406,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 65.62,
             "inverse_competitor_pressure": 7.5,
@@ -658,6 +1545,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": 8.12,
@@ -670,7 +1569,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 48.75,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.75,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 728,
+            "bayesian_adjusted_rating": 4.600549,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 37.5,
             "inverse_competitor_pressure": 11.25,
@@ -678,6 +1594,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 48.75,
           "score_delta": 0.0,
@@ -690,7 +1618,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 22.08,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.166667,
+            "inverse_competitor_pressure_percentile": 0.416667,
+            "inverse_own_network_overlap_percentile": 0.333333,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 2451,
+            "bayesian_adjusted_rating": 4.504098,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 12.5,
             "inverse_competitor_pressure": 6.25,
@@ -698,6 +1643,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.42,
           "score_delta": -3.34,
@@ -710,7 +1667,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 81.14,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.954545,
+            "inverse_competitor_pressure_percentile": 0.454545,
+            "inverse_own_network_overlap_percentile": 0.272727,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 536,
+            "bayesian_adjusted_rating": 4.853545,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 71.59,
             "inverse_competitor_pressure": 6.82,
@@ -718,6 +1692,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 72.73,
           "score_delta": 8.41,
@@ -730,7 +1716,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 80.42,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 1214,
+            "bayesian_adjusted_rating": 4.877515,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 75.0,
             "inverse_competitor_pressure": 3.75,
@@ -738,6 +1741,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 68.75,
           "score_delta": 11.67,
@@ -750,7 +1765,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 31.25,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 1279,
+            "bayesian_adjusted_rating": 4.507581,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 18.75,
             "inverse_competitor_pressure": 7.5,
@@ -758,6 +1790,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 35.0,
           "score_delta": -3.75,
@@ -770,7 +1814,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 18.75,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.083333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.4,
+            "raw_rating_count": 830,
+            "bayesian_adjusted_rating": 4.421994,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 6.25,
             "inverse_competitor_pressure": 7.5,
@@ -778,6 +1839,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.0,
           "score_delta": -6.25,
@@ -790,7 +1863,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 68.75,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 768,
+            "bayesian_adjusted_rating": 4.600524,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 56.25,
             "inverse_competitor_pressure": 7.5,
@@ -799,10 +1889,22 @@
           "omitted_factors": [
             "coverage_uniqueness_not_available"
           ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
+          ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": 3.75,
-          "baseline_review_label": "HOLD_REVIEW",
-          "label_changed": true
+          "baseline_review_label": "PROTECT_REVIEW",
+          "label_changed": false
         },
         {
           "branch_id": "al_taif_mall",
@@ -810,7 +1912,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 93.12,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.6,
+          "confidence": 86.57,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.994,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.875,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 497,
+            "bayesian_adjusted_rating": 4.684011,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 75.0,
             "inverse_competitor_pressure": 13.12,
@@ -818,6 +1937,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 89.38,
           "score_delta": 3.74,
@@ -830,7 +1961,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 52.92,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.583333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1290,
+            "bayesian_adjusted_rating": 4.600327,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 43.75,
             "inverse_competitor_pressure": 7.5,
@@ -838,6 +1986,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 50.0,
           "score_delta": 2.92,
@@ -850,7 +2010,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 75.0,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.833333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 693,
+            "bayesian_adjusted_rating": 4.600573,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 62.5,
             "inverse_competitor_pressure": 7.5,
@@ -858,6 +2035,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 70.0,
           "score_delta": 5.0,
@@ -870,7 +2059,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 70.0,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.916667,
+            "inverse_competitor_pressure_percentile": 0.083333,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 671,
+            "bayesian_adjusted_rating": 4.60059,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 68.75,
             "inverse_competitor_pressure": 1.25,
@@ -878,6 +2084,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 57.08,
           "score_delta": 12.92,
@@ -890,7 +2108,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 37.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1740,
+            "bayesian_adjusted_rating": 4.600247,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 37.5,
             "inverse_competitor_pressure": 0.0,
@@ -898,6 +2133,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.0,
           "score_delta": 7.5,
@@ -910,7 +2157,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 43.75,
           "review_label": "HOLD_REVIEW",
-          "confidence": 76.65,
+          "confidence": 81.93,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.716,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.416667,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 358,
+            "bayesian_adjusted_rating": 4.522827,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 31.25,
             "inverse_competitor_pressure": 7.5,
@@ -918,6 +2182,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.0,
           "score_delta": -1.25,
@@ -936,8 +2212,8 @@
         "inverse_own_network_overlap": 0.15
       },
       "label_counts": {
-        "HOLD_REVIEW": 13,
-        "PROTECT_REVIEW": 2,
+        "HOLD_REVIEW": 12,
+        "PROTECT_REVIEW": 3,
         "SHRINK_REVIEW": 7
       },
       "records": [
@@ -947,7 +2223,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 37.73,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.590909,
+            "inverse_competitor_pressure_percentile": 0.090909,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 747,
+            "bayesian_adjusted_rating": 4.600537,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 26.59,
             "inverse_competitor_pressure": 3.64,
@@ -955,6 +2248,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.23,
           "score_delta": -7.5,
@@ -967,7 +2272,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 18.75,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 853,
+            "bayesian_adjusted_rating": 4.600477,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 11.25,
             "inverse_competitor_pressure": 0.0,
@@ -975,6 +2297,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 22.5,
           "score_delta": -3.75,
@@ -987,7 +2321,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 50.62,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.625,
+            "inverse_competitor_pressure_percentile": 0.375,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 628,
+            "bayesian_adjusted_rating": 4.600624,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 28.12,
             "inverse_competitor_pressure": 15.0,
@@ -995,6 +2346,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 54.37,
           "score_delta": -3.75,
@@ -1007,7 +2370,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 23.12,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.125,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 817,
+            "bayesian_adjusted_rating": 4.511401,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 5.62,
             "inverse_competitor_pressure": 10.0,
@@ -1015,6 +2395,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 21.25,
           "score_delta": 1.87,
@@ -1027,7 +2419,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 50.83,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.666667,
+            "inverse_competitor_pressure_percentile": 0.333333,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 948,
+            "bayesian_adjusted_rating": 4.600434,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 30.0,
             "inverse_competitor_pressure": 13.33,
@@ -1035,6 +2444,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 55.83,
           "score_delta": -5.0,
@@ -1047,7 +2468,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 62.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.625,
+            "inverse_own_network_overlap_percentile": 0.25,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 602,
+            "bayesian_adjusted_rating": 4.600648,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 33.75,
             "inverse_competitor_pressure": 25.0,
@@ -1055,6 +2493,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 64.38,
           "score_delta": -1.88,
@@ -1067,7 +2517,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 27.92,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.333333,
+            "inverse_competitor_pressure_percentile": 0.166667,
+            "inverse_own_network_overlap_percentile": 0.416667,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 613,
+            "bayesian_adjusted_rating": 4.514663,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 15.0,
             "inverse_competitor_pressure": 6.67,
@@ -1075,6 +2542,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.42,
           "score_delta": -2.5,
@@ -1087,7 +2566,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 27.5,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.375,
+            "inverse_competitor_pressure_percentile": 0.125,
+            "inverse_own_network_overlap_percentile": 0.375,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 749,
+            "bayesian_adjusted_rating": 4.600535,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 16.88,
             "inverse_competitor_pressure": 5.0,
@@ -1095,6 +2591,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 31.25,
           "score_delta": -3.75,
@@ -1107,7 +2615,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 59.38,
           "review_label": "HOLD_REVIEW",
-          "confidence": 69.35,
+          "confidence": 77.07,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.424,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.875,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 212,
+            "bayesian_adjusted_rating": 4.669406,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 39.38,
             "inverse_competitor_pressure": 20.0,
@@ -1115,6 +2640,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": -5.62,
@@ -1127,7 +2664,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 52.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.75,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 728,
+            "bayesian_adjusted_rating": 4.600549,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 22.5,
             "inverse_competitor_pressure": 30.0,
@@ -1135,6 +2689,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 48.75,
           "score_delta": 3.75,
@@ -1147,7 +2713,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 29.17,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.166667,
+            "inverse_competitor_pressure_percentile": 0.416667,
+            "inverse_own_network_overlap_percentile": 0.333333,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 2451,
+            "bayesian_adjusted_rating": 4.504098,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 7.5,
             "inverse_competitor_pressure": 16.67,
@@ -1155,6 +2738,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.42,
           "score_delta": 3.75,
@@ -1167,7 +2762,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 65.23,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.954545,
+            "inverse_competitor_pressure_percentile": 0.454545,
+            "inverse_own_network_overlap_percentile": 0.272727,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 536,
+            "bayesian_adjusted_rating": 4.853545,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 42.95,
             "inverse_competitor_pressure": 18.18,
@@ -1175,6 +2787,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 72.73,
           "score_delta": -7.5,
@@ -1187,7 +2811,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 57.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 1214,
+            "bayesian_adjusted_rating": 4.877515,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 45.0,
             "inverse_competitor_pressure": 10.0,
@@ -1195,6 +2836,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 68.75,
           "score_delta": -11.25,
@@ -1207,7 +2860,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 38.75,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 1279,
+            "bayesian_adjusted_rating": 4.507581,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 11.25,
             "inverse_competitor_pressure": 20.0,
@@ -1215,6 +2885,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 35.0,
           "score_delta": 3.75,
@@ -1227,7 +2909,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 31.25,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.083333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.4,
+            "raw_rating_count": 830,
+            "bayesian_adjusted_rating": 4.421994,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 3.75,
             "inverse_competitor_pressure": 20.0,
@@ -1235,6 +2934,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.0,
           "score_delta": 6.25,
@@ -1247,7 +2958,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 61.25,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 768,
+            "bayesian_adjusted_rating": 4.600524,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 33.75,
             "inverse_competitor_pressure": 20.0,
@@ -1256,10 +2984,22 @@
           "omitted_factors": [
             "coverage_uniqueness_not_available"
           ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
+          ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": -3.75,
-          "baseline_review_label": "HOLD_REVIEW",
-          "label_changed": false
+          "baseline_review_label": "PROTECT_REVIEW",
+          "label_changed": true
         },
         {
           "branch_id": "al_taif_mall",
@@ -1267,7 +3007,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 87.5,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.6,
+          "confidence": 86.57,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.994,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.875,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 497,
+            "bayesian_adjusted_rating": 4.684011,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 45.0,
             "inverse_competitor_pressure": 35.0,
@@ -1275,6 +3032,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 89.38,
           "score_delta": -1.88,
@@ -1287,7 +3056,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 48.75,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.583333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1290,
+            "bayesian_adjusted_rating": 4.600327,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 26.25,
             "inverse_competitor_pressure": 20.0,
@@ -1295,6 +3081,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 50.0,
           "score_delta": -1.25,
@@ -1306,8 +3104,25 @@
           "peer_group_id": "community_or_streetfront",
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 65.0,
-          "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "review_label": "PROTECT_REVIEW",
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.833333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 693,
+            "bayesian_adjusted_rating": 4.600573,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 37.5,
             "inverse_competitor_pressure": 20.0,
@@ -1316,10 +3131,22 @@
           "omitted_factors": [
             "coverage_uniqueness_not_available"
           ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
+          ],
           "baseline_public_proxy_score": 70.0,
           "score_delta": -5.0,
           "baseline_review_label": "PROTECT_REVIEW",
-          "label_changed": true
+          "label_changed": false
         },
         {
           "branch_id": "saeed_bin_saif_al_falahi",
@@ -1327,7 +3154,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 44.58,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.916667,
+            "inverse_competitor_pressure_percentile": 0.083333,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 671,
+            "bayesian_adjusted_rating": 4.60059,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 41.25,
             "inverse_competitor_pressure": 3.33,
@@ -1335,6 +3179,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 57.08,
           "score_delta": -12.5,
@@ -1347,7 +3203,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 22.5,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1740,
+            "bayesian_adjusted_rating": 4.600247,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 22.5,
             "inverse_competitor_pressure": 0.0,
@@ -1355,6 +3228,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.0,
           "score_delta": -7.5,
@@ -1367,7 +3252,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 46.25,
           "review_label": "HOLD_REVIEW",
-          "confidence": 76.65,
+          "confidence": 81.93,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.716,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.416667,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 358,
+            "bayesian_adjusted_rating": 4.522827,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 18.75,
             "inverse_competitor_pressure": 20.0,
@@ -1375,6 +3277,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.0,
           "score_delta": 1.25,
@@ -1404,7 +3318,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 47.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.590909,
+            "inverse_competitor_pressure_percentile": 0.090909,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 747,
+            "bayesian_adjusted_rating": 4.600537,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 23.64,
             "inverse_competitor_pressure": 1.36,
@@ -1412,6 +3343,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.23,
           "score_delta": 2.27,
@@ -1424,7 +3367,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 32.5,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 853,
+            "bayesian_adjusted_rating": 4.600477,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 10.0,
             "inverse_competitor_pressure": 0.0,
@@ -1432,6 +3392,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 22.5,
           "score_delta": 10.0,
@@ -1444,7 +3416,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 53.12,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.625,
+            "inverse_competitor_pressure_percentile": 0.375,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 628,
+            "bayesian_adjusted_rating": 4.600624,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 25.0,
             "inverse_competitor_pressure": 5.62,
@@ -1452,6 +3441,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 54.37,
           "score_delta": -1.25,
@@ -1464,7 +3465,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 31.25,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.125,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 817,
+            "bayesian_adjusted_rating": 4.511401,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 5.0,
             "inverse_competitor_pressure": 3.75,
@@ -1472,6 +3490,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 21.25,
           "score_delta": 10.0,
@@ -1484,7 +3514,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 54.17,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.666667,
+            "inverse_competitor_pressure_percentile": 0.333333,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 948,
+            "bayesian_adjusted_rating": 4.600434,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 26.67,
             "inverse_competitor_pressure": 5.0,
@@ -1492,6 +3539,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 55.83,
           "score_delta": -1.66,
@@ -1504,7 +3563,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 50.63,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.625,
+            "inverse_own_network_overlap_percentile": 0.25,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 602,
+            "bayesian_adjusted_rating": 4.600648,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 30.0,
             "inverse_competitor_pressure": 9.38,
@@ -1512,6 +3588,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 64.38,
           "score_delta": -13.75,
@@ -1524,7 +3612,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 34.58,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.333333,
+            "inverse_competitor_pressure_percentile": 0.166667,
+            "inverse_own_network_overlap_percentile": 0.416667,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 613,
+            "bayesian_adjusted_rating": 4.514663,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 13.33,
             "inverse_competitor_pressure": 2.5,
@@ -1532,6 +3637,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.42,
           "score_delta": 4.16,
@@ -1544,7 +3661,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 33.75,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.375,
+            "inverse_competitor_pressure_percentile": 0.125,
+            "inverse_own_network_overlap_percentile": 0.375,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 749,
+            "bayesian_adjusted_rating": 4.600535,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 15.0,
             "inverse_competitor_pressure": 1.88,
@@ -1552,6 +3686,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 31.25,
           "score_delta": 2.5,
@@ -1564,7 +3710,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 42.5,
           "review_label": "HOLD_REVIEW",
-          "confidence": 69.35,
+          "confidence": 77.07,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.424,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.875,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 212,
+            "bayesian_adjusted_rating": 4.669406,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 35.0,
             "inverse_competitor_pressure": 7.5,
@@ -1572,6 +3735,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": -22.5,
@@ -1584,7 +3759,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 31.25,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.75,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 728,
+            "bayesian_adjusted_rating": 4.600549,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 20.0,
             "inverse_competitor_pressure": 11.25,
@@ -1592,6 +3784,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 48.75,
           "score_delta": -17.5,
@@ -1604,7 +3808,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 27.92,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.166667,
+            "inverse_competitor_pressure_percentile": 0.416667,
+            "inverse_own_network_overlap_percentile": 0.333333,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 2451,
+            "bayesian_adjusted_rating": 4.504098,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 6.67,
             "inverse_competitor_pressure": 6.25,
@@ -1612,6 +3833,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.42,
           "score_delta": 2.5,
@@ -1624,7 +3857,24 @@
           "comparison_basis": "NETWORK_COMPARISON_ONLY",
           "public_proxy_score": 57.27,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 78.33,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 0.5,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.954545,
+            "inverse_competitor_pressure_percentile": 0.454545,
+            "inverse_own_network_overlap_percentile": 0.272727,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 536,
+            "bayesian_adjusted_rating": 4.853545,
+            "peer_count": 22
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 38.18,
             "inverse_competitor_pressure": 6.82,
@@ -1632,6 +3882,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 72.73,
           "score_delta": -15.46,
@@ -1644,7 +3906,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 51.25,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.25,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.9,
+            "raw_rating_count": 1214,
+            "bayesian_adjusted_rating": 4.877515,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 40.0,
             "inverse_competitor_pressure": 3.75,
@@ -1652,6 +3931,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 68.75,
           "score_delta": -17.5,
@@ -1664,7 +3955,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 40.0,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.25,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 1279,
+            "bayesian_adjusted_rating": 4.507581,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 10.0,
             "inverse_competitor_pressure": 7.5,
@@ -1672,6 +3980,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 35.0,
           "score_delta": 5.0,
@@ -1684,7 +4004,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 33.33,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.083333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.4,
+            "raw_rating_count": 830,
+            "bayesian_adjusted_rating": 4.421994,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 3.33,
             "inverse_competitor_pressure": 7.5,
@@ -1692,6 +4029,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 25.0,
           "score_delta": 8.33,
@@ -1704,7 +4053,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 60.0,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.75,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 768,
+            "bayesian_adjusted_rating": 4.600524,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 30.0,
             "inverse_competitor_pressure": 7.5,
@@ -1713,10 +4079,22 @@
           "omitted_factors": [
             "coverage_uniqueness_not_available"
           ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
+          ],
           "baseline_public_proxy_score": 65.0,
           "score_delta": -5.0,
-          "baseline_review_label": "HOLD_REVIEW",
-          "label_changed": false
+          "baseline_review_label": "PROTECT_REVIEW",
+          "label_changed": true
         },
         {
           "branch_id": "al_taif_mall",
@@ -1724,7 +4102,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 75.62,
           "review_label": "PROTECT_REVIEW",
-          "confidence": 83.6,
+          "confidence": 86.57,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.994,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 1.0,
+            "inverse_competitor_pressure_percentile": 0.875,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.7,
+            "raw_rating_count": 497,
+            "bayesian_adjusted_rating": 4.684011,
+            "peer_count": 8
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 40.0,
             "inverse_competitor_pressure": 13.12,
@@ -1732,6 +4127,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 89.38,
           "score_delta": -13.76,
@@ -1744,7 +4151,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 38.33,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.583333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.166667,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1290,
+            "bayesian_adjusted_rating": 4.600327,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 23.33,
             "inverse_competitor_pressure": 7.5,
@@ -1752,6 +4176,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 50.0,
           "score_delta": -11.67,
@@ -1764,7 +4200,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 63.33,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.833333,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 693,
+            "bayesian_adjusted_rating": 4.600573,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 33.33,
             "inverse_competitor_pressure": 7.5,
@@ -1772,6 +4225,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 70.0,
           "score_delta": -6.67,
@@ -1784,7 +4249,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 37.92,
           "review_label": "HOLD_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.916667,
+            "inverse_competitor_pressure_percentile": 0.083333,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 671,
+            "bayesian_adjusted_rating": 4.60059,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 36.67,
             "inverse_competitor_pressure": 1.25,
@@ -1792,6 +4274,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 57.08,
           "score_delta": -19.16,
@@ -1804,7 +4298,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 20.0,
           "review_label": "SHRINK_REVIEW",
-          "confidence": 83.75,
+          "confidence": 86.67,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 1,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.5,
+            "inverse_competitor_pressure_percentile": 0.0,
+            "inverse_own_network_overlap_percentile": 0.0,
+            "raw_rating_value": 4.6,
+            "raw_rating_count": 1740,
+            "bayesian_adjusted_rating": 4.600247,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 20.0,
             "inverse_competitor_pressure": 0.0,
@@ -1812,6 +4323,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 30.0,
           "score_delta": -10.0,
@@ -1824,7 +4347,24 @@
           "comparison_basis": "VENUE_CONTEXT_PEERS",
           "public_proxy_score": 46.67,
           "review_label": "HOLD_REVIEW",
-          "confidence": 76.65,
+          "confidence": 81.93,
+          "confidence_components": {
+            "source_reliability": 0.85,
+            "source_freshness": 1.0,
+            "review_sample_adequacy": 0.716,
+            "peer_group_adequacy": 1.0,
+            "feature_completeness": 0.75,
+            "competitor_scope": 0.6
+          },
+          "factor_values": {
+            "peer_adjusted_reputation_percentile": 0.416667,
+            "inverse_competitor_pressure_percentile": 0.5,
+            "inverse_own_network_overlap_percentile": 0.5,
+            "raw_rating_value": 4.5,
+            "raw_rating_count": 358,
+            "bayesian_adjusted_rating": 4.522827,
+            "peer_count": 12
+          },
           "factor_contributions": {
             "peer_adjusted_reputation": 16.67,
             "inverse_competitor_pressure": 7.5,
@@ -1832,6 +4372,18 @@
           },
           "omitted_factors": [
             "coverage_uniqueness_not_available"
+          ],
+          "missing_requirements": [],
+          "source_ids": [
+            "2gis_branch_roster",
+            "city_walk_outlet",
+            "nstyle_locations",
+            "sisters_locations",
+            "user_branch_location_validation_2026_09_09",
+            "user_geospatial_validation_2026_09_09",
+            "user_validated_google_maps_2026_09_09",
+            "waze_khalifa_city",
+            "waze_mirdif_35"
           ],
           "baseline_public_proxy_score": 45.0,
           "score_delta": 1.67,
