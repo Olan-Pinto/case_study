@@ -110,6 +110,10 @@ The output is deterministic, versioned in `network_metrics_v1.json`, validated, 
 
 This is **not** “19% shared customers,” “24% revenue cannibalization,” or a decision recommendation. It is a proximity/density screen. Any later cannibalization reasoning must combine geometry with branch archetype, demand, competitor context, customer-origin data if available, performance, and confidence.
 
+### How do I demonstrate the radius layer?
+
+Select Noya Plaza Mall and enable “Show geometric radius.” At 1 km there are no overlapping branch radii; at 3 km three active branch radii intersect; at 5 km four intersect. Orange is the selected branch's circle and teal shows the intersecting active branch circles. The evidence panel changes to the same band, so the visual and number tell one consistent story. The control explicitly says distance only—not drive time or customers.
+
 ## Why not call it a catchment or drive time?
 
 The prototype does not have validated travel-time routing or customer-origin data. Calling a 3 km circle a “10-minute catchment” would be misleading. The UI and documentation consistently call it a service radius / geometric distance band.

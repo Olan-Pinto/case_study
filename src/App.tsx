@@ -19,6 +19,8 @@ export function App() {
   const [selectedBranchId, setSelectedBranchId] = useState<string | null>(branches[0]?.branch_id ?? null)
   const [showCompetitors, setShowCompetitors] = useState(true)
   const [showWhitespace, setShowWhitespace] = useState(false)
+  const [showServiceRadii, setShowServiceRadii] = useState(false)
+  const [radiusKm, setRadiusKm] = useState(networkMetrics.primary_radius_km)
   const [selectedCandidate, setSelectedCandidate] = useState<any>(null)
   const [scenarioId, setScenarioId] = useState('baseline')
 
@@ -97,7 +99,7 @@ export function App() {
         </aside>
 
         <section className="map-panel">
-          <NetworkMap branches={filteredBranches} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} showCandidates={showWhitespace} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
+          <NetworkMap branches={filteredBranches} allBranches={branches} networkMetrics={networkMetrics} selectedBranchId={selectedBranchId} competitors={activeCompetitors} showCompetitors={showCompetitors} candidates={whitespaceCandidates.records} showCandidates={showWhitespace} showServiceRadii={showServiceRadii} radiusKm={radiusKm} onSelect={selectBranch} onSelectCandidate={selectCandidate} />
           <label className="competitor-toggle"><input type="checkbox" checked={showCompetitors} onChange={(event) => setShowCompetitors(event.target.checked)} /> Show {activeCompetitors.length} verified competitors</label>
           <label className="competitor-toggle"><input type="checkbox" checked={showWhitespace} onChange={(event) => setShowWhitespace(event.target.checked)} /> Show bounded whitespace research cells</label>
           <div className="whitespace-legend" aria-label="Whitespace research-cell legend">
@@ -106,11 +108,20 @@ export function App() {
             <span><i className="legend-skip" />Skip research</span>
             <span><i className="legend-required" />Research required</span>
           </div>
+          <div className="radius-control">
+            <label><input type="checkbox" checked={showServiceRadii} onChange={(event) => setShowServiceRadii(event.target.checked)} disabled={!selectedBranchIsActive} /> Show geometric radius</label>
+            <label>Distance band
+              <select value={radiusKm} onChange={(event) => setRadiusKm(Number(event.target.value))} disabled={!showServiceRadii || !selectedBranchIsActive}>
+                {networkMetrics.radius_bands_km.map((radius) => <option key={radius} value={radius}>{radius} km</option>)}
+              </select>
+            </label>
+            {showServiceRadii && selectedBranchIsActive && <div className="radius-key"><span><i className="radius-selected" />Selected branch</span><span><i className="radius-overlap" />Overlapping branch</span><small>Distance only—not drive time or customers</small></div>}
+          </div>
           <div className="map-caption">Point locations are secondary-map coordinates. Service-radius metrics in the evidence panel are geometric distance bands—not drive-time catchments or performance.</div>
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} radiusKm={radiusKm} /> : <p className="empty">Select a location to inspect its evidence.</p>}
           {!selectedCandidate && selectedBranchIsActive && <AnalystPanel branch={selectedBranch} scenarioId={scenarioId} />}
           {!selectedCandidate && selectedBranchIsActive && <PortfolioReviewPanel />}
         </aside>
@@ -121,9 +132,9 @@ export function App() {
 
 function WhitespaceDetail({ candidate }: { candidate: any }) { return <><p className="eyebrow">Whitespace evidence</p><h2>{candidate.label.replaceAll('_', ' ')}</h2><p className="place">{candidate.study_area_id.replaceAll('_', ' ')}</p><dl className="facts"><div><dt>Nearest active branch</dt><dd>{candidate.nearest_active_branch_distance_km.toFixed(2)} km</dd></div><div><dt>Nearest high-priority anchor</dt><dd>{candidate.nearest_high_priority_anchor_km.toFixed(2)} km</dd></div><div><dt>Limited competitor pressure</dt><dd>{candidate.competitor_pressure_lower_bound.toFixed(2)}</dd></div><div><dt>Confidence</dt><dd>{candidate.confidence}%</dd></div></dl><section className="caution"><h3>Important limitation</h3><p>{candidate.limitations[0]}</p></section></> }
 
-function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any, scenario: any }) {
+function BranchDetail({ branch, metric, pressure, health, scenario, radiusKm }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any, scenario: any, radiusKm: number }) {
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)
-  const primaryRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === networkMetrics.primary_radius_km)
+  const selectedRadiusMetric = metric?.service_radius_metrics.find((item) => item.radius_km === radiusKm)
   const confirmedClosedCompetitorCount = competitorSnapshot.records.filter((competitor) => competitor.status === 'user_confirmed_permanently_closed').length
   const reputation = branchReputation.records.find((record: any) => record.branch_id === branch.branch_id)
   const permanentlyClosed = branch.status === 'user_confirmed_permanently_closed'
@@ -151,10 +162,10 @@ function BranchDetail({ branch, metric, pressure, health, scenario }: { branch: 
             {branch.source_urls.map((url) => <li key={url}><a href={url} target="_blank" rel="noreferrer">Open evidence source <span aria-hidden="true">↗</span></a></li>)}
           </ul>
         </section>}
-      {metric && primaryRadiusMetric && <section className="geometry">
-        <h3>Network geometry · {networkMetrics.primary_radius_km} km</h3>
+      {metric && selectedRadiusMetric && <section className="geometry">
+        <h3>Network geometry · {radiusKm} km</h3>
         <p>Nearest own location: <strong>{nearestBranch?.name.replace('Bedashing Beauty Lounge — ', '')}</strong> · {metric.nearest_own_branch_distance_km.toFixed(2)} km</p>
-        <p>Overlapping service radii: <strong>{primaryRadiusMetric.overlapping_branch_count}</strong> · largest pairwise overlap: <strong>{(primaryRadiusMetric.maximum_pairwise_overlap_coefficient * 100).toFixed(0)}%</strong></p>
+        <p>Overlapping service radii: <strong>{selectedRadiusMetric.overlapping_branch_count}</strong> · largest pairwise overlap: <strong>{(selectedRadiusMetric.maximum_pairwise_overlap_coefficient * 100).toFixed(0)}%</strong></p>
         <p className="geometry-note">Geometry is a screening input only. It does not measure customer behavior, performance, or drive time.</p>
       </section>}
       {pressure && <section className="competitor-evidence">

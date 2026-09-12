@@ -37,6 +37,15 @@ export interface BranchNetworkMetric {
   service_radius_metrics: ServiceRadiusMetric[]
 }
 
+export interface PairwiseOverlap {
+  branch_a_id: string
+  branch_b_id: string
+  radius_km: number
+  distance_km: number
+  intersection_area_km2: number
+  overlap_coefficient: number
+}
+
 export interface NetworkMetrics {
   model_id: string
   input_snapshot_id: string
@@ -45,6 +54,7 @@ export interface NetworkMetrics {
   interpretation: string
   assumptions: string[]
   branch_metrics: BranchNetworkMetric[]
+  pairwise_overlaps: PairwiseOverlap[]
 }
 
 export interface Competitor {
