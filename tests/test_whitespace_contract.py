@@ -14,7 +14,9 @@ class WhitespaceContractTests(unittest.TestCase):
 class WhitespaceCandidateTests(unittest.TestCase):
  def setUp(self):
   self.config=json.loads((ROOT/'config/whitespace_v1.json').read_text())
-  self.records=json.loads((ROOT/'data/processed/whitespace_candidates_v1.json').read_text())['records']
+  self.snapshot=json.loads((ROOT/'data/processed/whitespace_candidates_v1.json').read_text())
+  self.records=self.snapshot['records']
+  self.population=json.loads((ROOT/'data/processed/whitespace_population_context_v1.json').read_text())
  def test_labels_respect_screening_boundaries(self):
   skip=self.config['saturation']['skip_pressure_at_or_above']
   for record in self.records:
@@ -29,3 +31,13 @@ class WhitespaceCandidateTests(unittest.TestCase):
    expected.append(expected[0])
    self.assertEqual(record['boundary'],expected)
    self.assertEqual(record['boundary'][0],record['boundary'][-1])
+ def test_population_context_is_joined_without_imputing_missing_as_zero(self):
+  population_by_cell={record['cell_id']:record for record in self.population['records']}
+  self.assertEqual(self.snapshot['input_residential_context_snapshot_id'],self.population['snapshot_id'])
+  self.assertEqual(set(population_by_cell),{record['cell_id'] for record in self.records})
+  for record in self.records:
+   source=population_by_cell[record['cell_id']]
+   self.assertEqual(record['estimated_residents_2025'],source['estimated_residents_2025'])
+   if source['coverage_status']=='no_valid_raster_pixels':
+    self.assertIsNone(record['estimated_residents_2025'])
+    self.assertIsNone(record['residential_intensity_percentile_within_study_area'])

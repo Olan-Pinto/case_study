@@ -41,6 +41,8 @@ data/cache/
 *.duckdb.wal
 *.gpkg
 *.geojsonl
+*.tif
+*.tiff
 *.mbtiles
 *.pmtiles
 

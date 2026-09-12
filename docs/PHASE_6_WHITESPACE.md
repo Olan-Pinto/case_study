@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Phase 6 produces 1,939 bounded H3 research-screening cells across the Dubai and Abu Dhabi city clusters. It does not recommend an opening, estimate demand, or rank locations as commercial opportunities.
+Phase 6 produces 1,939 bounded H3 research-screening cells across the Dubai and Abu Dhabi city clusters. A later remediation adds WorldPop 2025 modelled residential context to those cells without treating residents as customers or demand. It does not recommend an opening or rank locations as commercial opportunities.
 
 ## 6A: Candidate-cell contract
 
@@ -28,8 +28,14 @@ The process is deterministic:
 
 `WATCH_RESEARCH` means only “worth manually investigating next”; it does not mean “open here.” `SKIP_RESEARCH` means the limited model sees high pressure, not that the area has no opportunity. Confidence is deliberately capped at 20% because built-environment and demand evidence are absent.
 
+## Residential-context remediation
+
+The project now downloads the versioned 6.52 MB WorldPop Global2 UAE 2025 raster into ignored `data/raw/`, verifies SHA-256 `8cf781de6e1031425dc645c743f932cf778af10a93a890a51255f76c34f2e5b9`, and aggregates non-negative approximately 100 m pixel values by pixel centre into each H3 cell. Raw data stays out of Git; the small per-cell context snapshot is committed. Percentiles are calculated within each configured study area rather than presented as an absolute UAE opportunity rank.
+
+WorldPop describes the R2025A v1 product as an alpha, random-forest dasymetric population estimate. It is useful as a consistent residential-presence proxy across both cities, but it is not an observation of Bedashing customers, women, income, spending power, footfall, or beauty-service demand. Cells with no valid raster pixels remain explicitly missing instead of being converted to zero. This first component exposes the evidence in the UI but does not yet use it in WATCH/SKIP/RESEARCH_REQUIRED labels.
+
 ## Product surface and verification
 
 The map has an opt-in “Show whitespace research areas” layer and an always-visible WATCH/SKIP/RESEARCH color key. It renders the actual H3 hexagon boundaries—not centroid dots—so each mark means a screening area rather than a precise proposed site. Selecting anywhere inside a hexagon outlines it and exposes the calculated network distance, high-priority-anchor distance, limited competitor-pressure lower bound, confidence, and limitation. A branch selection returns the detail panel to branch evidence. Permanently closed Bedashing locations are bold red in the roster and red on the map, so they remain historically auditable but are visually distinct from the active network.
 
-`scripts/build_whitespace_candidates.py` regenerates the snapshot. `scripts/validate_whitespace_contract.py`, `scripts/validate_whitespace_candidates.py`, and the whitespace tests protect the contract and label boundaries. Overture Places was assessed for a richer POI route but did not yield a usable bounded UAE extract, so it is recorded as an attempted—not substituted—source.
+`scripts/acquire_worldpop_population.py` downloads and verifies the ignored source raster. `scripts/build_whitespace_population_context.py` creates its derived context snapshot. `scripts/build_whitespace_candidates.py` joins that evidence into the map snapshot. The population-context validator, whitespace validators, and whitespace tests protect missingness, source version, geometry, and label boundaries. Overture Places was assessed for a richer POI route but did not yield a usable bounded UAE extract, so it is recorded as an attempted—not substituted—source.

@@ -121,7 +121,7 @@ export function App() {
         </section>
 
         <aside className="detail-panel" aria-live="polite">
-          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} radiusKm={radiusKm} /> : <p className="empty">Select a location to inspect its evidence.</p>}
+          {selectedCandidate ? <WhitespaceDetail candidate={selectedCandidate} residentialContext={whitespaceCandidates.residential_context} /> : selectedBranch ? <BranchDetail branch={selectedBranch} metric={selectedMetric} pressure={selectedPressure} health={selectedHealth} scenario={selectedScenario} radiusKm={radiusKm} /> : <p className="empty">Select a location to inspect its evidence.</p>}
           {!selectedCandidate && selectedBranchIsActive && <AnalystPanel branch={selectedBranch} scenarioId={scenarioId} />}
           {!selectedCandidate && selectedBranchIsActive && <PortfolioReviewPanel />}
         </aside>
@@ -130,7 +130,10 @@ export function App() {
   )
 }
 
-function WhitespaceDetail({ candidate }: { candidate: any }) { return <><p className="eyebrow">Whitespace evidence</p><h2>{candidate.label.replaceAll('_', ' ')}</h2><p className="place">{candidate.study_area_id.replaceAll('_', ' ')}</p><dl className="facts"><div><dt>Nearest active branch</dt><dd>{candidate.nearest_active_branch_distance_km.toFixed(2)} km</dd></div><div><dt>Nearest high-priority anchor</dt><dd>{candidate.nearest_high_priority_anchor_km.toFixed(2)} km</dd></div><div><dt>Limited competitor pressure</dt><dd>{candidate.competitor_pressure_lower_bound.toFixed(2)}</dd></div><div><dt>Confidence</dt><dd>{candidate.confidence}%</dd></div></dl><section className="caution"><h3>Important limitation</h3><p>{candidate.limitations[0]}</p></section></> }
+function WhitespaceDetail({ candidate, residentialContext }: { candidate: any, residentialContext: any }) {
+  const residentialAvailable = candidate.residential_context_coverage_status === 'available'
+  return <><p className="eyebrow">Whitespace evidence</p><h2>{candidate.label.replaceAll('_', ' ')}</h2><p className="place">{candidate.study_area_id.replaceAll('_', ' ')}</p><dl className="facts"><div><dt>Nearest active branch</dt><dd>{candidate.nearest_active_branch_distance_km.toFixed(2)} km</dd></div><div><dt>Nearest high-priority anchor</dt><dd>{candidate.nearest_high_priority_anchor_km.toFixed(2)} km</dd></div><div><dt>Limited competitor pressure</dt><dd>{candidate.competitor_pressure_lower_bound.toFixed(2)}</dd></div><div><dt>Confidence</dt><dd>{candidate.confidence}%</dd></div></dl><section className="residential-context"><h3>Residential context · 2025 estimate</h3>{residentialAvailable ? <><p><strong>{Math.round(candidate.estimated_residents_2025).toLocaleString()}</strong> modelled residents in this hexagon</p><p>Relative residential intensity: <strong>{candidate.residential_intensity_percentile_within_study_area.toFixed(0)} / 100</strong> within this study area</p></> : <p><strong>Unavailable.</strong> No valid raster pixels were present, so the value remains missing—not zero.</p>}<p>{residentialContext.interpretation}</p><p>{residentialContext.label_role}</p><a href={residentialContext.source_url} target="_blank" rel="noreferrer">Open WorldPop source ↗</a></section><section className="caution"><h3>Important limitation</h3><p>{candidate.limitations[0]}</p></section></>
+}
 
 function BranchDetail({ branch, metric, pressure, health, scenario, radiusKm }: { branch: Branch, metric: BranchNetworkMetric | null, pressure: BranchCompetitorPressure | null, health: any, scenario: any, radiusKm: number }) {
   const nearestBranch = branches.find((item) => item.branch_id === metric?.nearest_own_branch_id)

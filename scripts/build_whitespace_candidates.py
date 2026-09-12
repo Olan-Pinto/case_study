@@ -9,6 +9,7 @@ def cell_boundary_geojson(cell):
 
 def main():
  c=json.loads((ROOT/'config/whitespace_v1.json').read_text()); snapshot=json.loads((ROOT/'data/processed/branches_snapshot_v2.json').read_text()); branches=snapshot['records']; active=[b for b in branches if 'permanently_closed' not in b['status']]
+ population_context=json.loads((ROOT/'data/processed/whitespace_population_context_v1.json').read_text()); population_by_cell={r['cell_id']:r for r in population_context['records']}
  competitors=json.loads((ROOT/'data/processed/competitors_snapshot_v1.json').read_text())['records']; weights={'direct_premium_full_service':1.0,'near_direct_premium_beauty':.7}
  rows=[]
  for area in c['study_scope']['areas']:
@@ -25,10 +26,16 @@ def main():
   row['competitor_pressure_lower_bound']=round(pressure,6)
   row['label']='SKIP_RESEARCH' if pressure>=c['saturation']['skip_pressure_at_or_above'] else 'WATCH_RESEARCH' if nearest<=2 else 'RESEARCH_REQUIRED'
   row['confidence']=20 if row['label']=='WATCH_RESEARCH' else 10 if row['label']=='SKIP_RESEARCH' else 0
-  row['limitations']=['Validated urban-context anchor proximity only; not demand evidence or an opening recommendation.']
+  residential=population_by_cell.get(row['cell_id'])
+  if residential is None: raise ValueError(f"Missing residential context record for {row['cell_id']}")
+  row['estimated_residents_2025']=residential['estimated_residents_2025']
+  row['residential_intensity_percentile_within_study_area']=residential['residential_intensity_percentile_within_study_area']
+  row['residential_context_coverage_status']=residential['coverage_status']
+  row['limitations']=['Residential population is a modelled context signal and is not yet used in the research label; it is not observed customers, spending power, footfall, or salon demand.']
  source_ids={'2gis_branch_roster','sisters_locations','nstyle_locations'}
  for anchor in c['urban_context_anchors']:
   source_ids.update(anchor['source_ids'])
- out={'model_id':c['model_id'],'status':'anchor_and_saturation_screened_candidate_cells','input_branch_snapshot_id':snapshot['snapshot_id'],'source_ids':sorted(source_ids),'records':sorted(rows,key=lambda x:(x['study_area_id'],x['cell_id']))}
+ source_ids.update(population_context['source_ids'])
+ out={'model_id':c['model_id'],'status':'anchor_saturation_and_residential_context_candidate_cells','input_branch_snapshot_id':snapshot['snapshot_id'],'input_residential_context_snapshot_id':population_context['snapshot_id'],'source_ids':sorted(source_ids),'residential_context':{'source_ids':population_context['source_ids'],'source_url':'https://hub.worldpop.org/geodata/listing?id=135','year':population_context['source_year'],'release':population_context['source_release'],'interpretation':population_context['interpretation'],'label_role':'Evidence only; not yet used in WATCH/SKIP/RESEARCH_REQUIRED labels.','missingness_rule':population_context['coverage']['missingness_rule']},'records':sorted(rows,key=lambda x:(x['study_area_id'],x['cell_id']))}
  (ROOT/'data/processed/whitespace_candidates_v1.json').write_text(json.dumps(out,indent=2)+'\n'); print(f'Wrote {len(rows)} bounded research-screening cells')
 if __name__=='__main__': main()
