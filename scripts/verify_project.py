@@ -43,6 +43,7 @@ def main():
 
     run("production build", [npm, "run", "build"])
     run("read-only AI tools", [node, "--test", "server/portfolio-tools.test.mjs"])
+    run("financial what-if", [node, "--test", "server/financial-what-if.test.mjs"])
     for validator in validators:
         run(validator.removesuffix(".py"), [python, f"scripts/{validator}"])
     run("Python test suite", [python, "-m", "unittest", "discover", "-s", "tests", "-v"])

@@ -10,6 +10,7 @@ The product is designed for a Head of Retail or Portfolio and Expansion Lead. It
 - Inspect branch addresses, source links, nearby verified competitors, and geometric overlap.
 - Review a public-proxy branch score with exact contributions, peer basis, confidence, and missingness.
 - Compare four declared scoring scenarios without changing the evidence.
+- Test an optional, non-persistent cash-flow percentile assumption without changing the baseline model.
 - Explore 1,939 H3 research areas across bounded Dubai and Abu Dhabi study areas.
 - Inspect a four-factor whitespace score, or see it withheld when required evidence is missing.
 - Ask an optional AI analyst about branches, comparisons, scenarios, and opportunity cells.
@@ -61,7 +62,8 @@ Current expected coverage:
 - 22 active branch-health records
 - 1,939 bounded whitespace cells
 - 33 Python tests
-- 8 Node tool tests
+- 8 read-only AI tool tests
+- 6 financial what-if tests
 - 6 versioned AI evaluation fixtures
 
 ## Decision logic
@@ -69,6 +71,8 @@ Current expected coverage:
 ### Existing branches
 
 The branch-health model is a public-proxy review screen—not financial health.
+
+An optional [financial what-if](docs/FINANCIAL_WHAT_IF.md) lets a reviewer supply a clearly labelled cash-flow percentile assumption relative only to comparable active Bedashing branches and see a 50/50 sensitivity blend with the selected public-proxy score. The same panel identifies capacity utilization, repeat-customer rate, and anonymized home-area/cross-branch behavior as the next internal signals, but leaves them visibly unavailable and unscored. No financial value is inferred or persisted, and the baseline score remains unchanged.
 
 | Factor | Weight | Meaning |
 |---|---:|---|

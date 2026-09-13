@@ -3,6 +3,8 @@ import { activeCompetitors, branchHealthScenarios, branchReputation, branches, c
 import { NetworkMap } from './NetworkMap'
 import { AnalystPanel } from './AnalystPanel'
 import { PortfolioReviewPanel } from './PortfolioReviewPanel'
+import financialWhatIfConfig from '../config/financial_what_if_v1.json'
+import { calculateFinancialWhatIf } from './financialWhatIf.js'
 import type { Branch, BranchCompetitorPressure, BranchNetworkMetric } from './types'
 
 const emirates = ['All', ...Array.from(new Set(branches.map((branch) => branch.emirate))).sort()]
@@ -203,7 +205,7 @@ function BranchDetail({ branch, metric, pressure, health, scenario, radiusKm }: 
           })}
         </ul> : <p className="empty-inline">No contributor within the model threshold. This is not evidence that local competition is absent.</p>}
       </section>}
-      {health && <BranchHealthEvidence health={health} scenario={scenario} reputation={reputation} />}
+      {health && <BranchHealthEvidence key={branch.branch_id} health={health} scenario={scenario} reputation={reputation} />}
       {!permanentlyClosed && branch.validation_needed.length > 0 && <section className="caution"><h3>Still to verify</h3><p>{branch.validation_needed.join(' · ')}</p></section>}
     </>
   )
@@ -219,6 +221,8 @@ const confidenceLabels: Record<string, string> = {
 }
 
 function BranchHealthEvidence({ health, scenario, reputation }: { health: any, scenario: any, reputation: any }) {
+  const [showFinancialWhatIf, setShowFinancialWhatIf] = useState(false)
+  const [cashFlowPercentile, setCashFlowPercentile] = useState(financialWhatIfConfig.input.default)
   if (health.review_label === 'INSUFFICIENT_EVIDENCE') {
     return <section className="competitor-evidence"><h3>Branch-health public proxy</h3><p><strong>Insufficient evidence</strong></p><p>No score was produced. Missing: {health.missing_requirements.join(', ').replaceAll('_', ' ')}.</p></section>
   }
@@ -227,6 +231,7 @@ function BranchHealthEvidence({ health, scenario, reputation }: { health: any, s
     ['Limited competitor pressure', 'inverse_competitor_pressure', 'inverse_competitor_pressure_percentile', scenario.weights.inverse_competitor_pressure],
     ['Own-network spacing', 'inverse_own_network_overlap', 'inverse_own_network_overlap_percentile', scenario.weights.inverse_own_network_overlap],
   ] as const
+  const financialResult = calculateFinancialWhatIf(health.public_proxy_score, health.review_label, cashFlowPercentile, financialWhatIfConfig)
   return <section className="competitor-evidence health-evidence">
     <h3>Branch-health public proxy</h3>
     <p className="health-result"><strong>{health.review_label.replaceAll('_', ' ')}</strong><span>Score {health.public_proxy_score.toFixed(2)}/100</span><span>Evidence confidence {health.confidence.toFixed(0)}%</span></p>
@@ -252,5 +257,22 @@ function BranchHealthEvidence({ health, scenario, reputation }: { health: any, s
     </details>
     <p className="peer-basis">Compared with: <strong>{health.comparison_basis.replaceAll('_', ' ')}</strong></p>
     <section className="scenario-evidence"><h3>Scenario sensitivity · {scenario.label}</h3><p>{scenario.description}</p><dl className="scenario-facts"><div><dt>Baseline → scenario</dt><dd>{health.baseline_public_proxy_score.toFixed(2)} → {health.public_proxy_score.toFixed(2)} <strong className={health.score_delta > 0 ? 'positive-delta' : health.score_delta < 0 ? 'negative-delta' : ''}>({health.score_delta > 0 ? '+' : ''}{health.score_delta.toFixed(2)})</strong></dd></div><div><dt>Review label</dt><dd>{health.baseline_review_label.replaceAll('_', ' ')} → {health.review_label.replaceAll('_', ' ')}{health.label_changed && <strong className="label-change"> changed</strong>}</dd></div><div><dt>Weights</dt><dd>Reputation {Math.round(scenario.weights.peer_adjusted_reputation * 100)}% · competitors {Math.round(scenario.weights.inverse_competitor_pressure * 100)}% · spacing {Math.round(scenario.weights.inverse_own_network_overlap * 100)}%</dd></div></dl><p className="geometry-note">Same evidence; only declared priorities changed. This shows sensitivity, not a forecast.</p></section>
+    <section className="financial-what-if">
+      <div className="financial-what-if-heading"><div><p className="eyebrow">Optional sensitivity</p><h3>Financial what-if</h3></div><label className="switch-control"><input type="checkbox" checked={showFinancialWhatIf} onChange={(event) => setShowFinancialWhatIf(event.target.checked)} /><span>Use hypothetical cash flow</span></label></div>
+      <p>Test how an assumed cash-flow position within Bedashing's own active portfolio could change this branch's review priority. No financial data is available or inferred.</p>
+      {showFinancialWhatIf && <div className="financial-what-if-body">
+        <label className="cash-flow-slider" htmlFor="cash-flow-percentile"><span>Assumed cash-flow percentile among comparable active Bedashing branches</span><output htmlFor="cash-flow-percentile">{cashFlowPercentile} / 100</output></label>
+        <input id="cash-flow-percentile" type="range" min={financialWhatIfConfig.input.minimum} max={financialWhatIfConfig.input.maximum} step="1" value={cashFlowPercentile} onChange={(event) => setCashFlowPercentile(Number(event.target.value))} />
+        <p className="financial-scale-note">For example, 80 means this branch is assumed to generate more cash than about 80% of comparable active Bedashing branches—not 80% of competitors or all beauty salons.</p>
+        <dl className="financial-results"><div><dt>{scenario.label} public proxy</dt><dd>{health.public_proxy_score.toFixed(2)}</dd></div><div><dt>Financial what-if score</dt><dd>{financialResult.what_if_score.toFixed(2)} <strong className={financialResult.score_delta > 0 ? 'positive-delta' : financialResult.score_delta < 0 ? 'negative-delta' : ''}>({financialResult.score_delta > 0 ? '+' : ''}{financialResult.score_delta.toFixed(2)})</strong></dd></div><div><dt>Review label</dt><dd>{health.review_label.replaceAll('_', ' ')} → {financialResult.review_label.replaceAll('_', ' ')}{financialResult.label_changed && <strong className="label-change"> changed</strong>}</dd></div></dl>
+        <p className="financial-equation">50% assumed cash flow ({financialResult.contributions.assumed_cash_flow.toFixed(2)}) + 50% public proxy ({financialResult.contributions.selected_public_proxy.toFixed(2)}) = <strong>{financialResult.what_if_score.toFixed(2)}</strong></p>
+        <p className="financial-warning"><strong>Hypothetical only.</strong> This browser-session input is not saved, is not evidence, and has no confidence score. It is sensitivity analysis—not a forecast or an instruction to protect, hold, shrink, or close.</p>
+        <details className="internal-data-roadmap">
+          <summary>Internal data that would sharpen this decision</summary>
+          <p>These signals are not available and do not affect the score. They show how real Bedashing data would improve the diagnosis.</p>
+          <ul>{financialWhatIfConfig.future_internal_signals.map((signal) => <li key={signal.signal_id}><div><strong>{signal.label}</strong><span>{signal.decision_role}</span></div><p>{signal.question_answered}</p><small>{signal.model_change}</small><b>Not available</b></li>)}</ul>
+        </details>
+      </div>}
+    </section>
   </section>
 }

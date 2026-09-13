@@ -1,0 +1,54 @@
+{
+  "model_id": "financial-what-if-v1",
+  "status": "hypothetical_sensitivity_only",
+  "purpose": "Show how an explicitly assumed branch cash-flow signal could change an existing-branch review priority without presenting the assumption as observed evidence.",
+  "input": {
+    "field": "assumed_cash_flow_percentile",
+    "minimum": 0,
+    "maximum": 100,
+    "default": 50,
+    "unit": "percentile among comparable active Bedashing branches",
+    "comparison_scope": "Bedashing portfolio only; preferably the same source-backed venue peer group",
+    "observed": false
+  },
+  "weights": {
+    "assumed_cash_flow_percentile": 0.5,
+    "selected_public_proxy_score": 0.5
+  },
+  "future_internal_signals": [
+    {
+      "signal_id": "bookings_capacity_utilization",
+      "label": "Bookings and capacity utilization",
+      "status": "NOT_AVAILABLE",
+      "decision_role": "Diagnosis only until calibrated",
+      "question_answered": "Is weak cash generation caused by low demand, or is a busy branch constrained by capacity, pricing, or service mix?",
+      "model_change": "Add a diagnosis beside the review label; do not treat utilization as automatically good or bad."
+    },
+    {
+      "signal_id": "repeat_customer_rate",
+      "label": "Repeat-customer rate",
+      "status": "NOT_AVAILABLE",
+      "decision_role": "Observed retention signal",
+      "question_answered": "Are customers returning, rather than only leaving a public rating?",
+      "model_change": "Add an observed loyalty feature after its period, cohort, and peer-normalization rules are agreed."
+    },
+    {
+      "signal_id": "customer_home_area_cross_branch_behavior",
+      "label": "Coarse home areas and cross-branch visits",
+      "status": "NOT_AVAILABLE",
+      "decision_role": "Observed network-value signal",
+      "question_answered": "Do the same customers use nearby Bedashing branches, and do they switch after another branch opens or closes?",
+      "model_change": "Replace geometric overlap as the primary network-value signal when anonymized, longitudinal customer evidence is available."
+    }
+  ],
+  "labels": {
+    "protect_review_min": 65,
+    "shrink_review_max_exclusive": 35
+  },
+  "guardrails": {
+    "baseline_unchanged": true,
+    "browser_session_only": true,
+    "confidence_not_calculated": true,
+    "rule": "The assumed value is never persisted, added to evidence confidence, or described as actual branch performance. Future internal signals remain unscored until real data and calibration exist. The result is sensitivity analysis, not a financial forecast or operating decision."
+  }
+}

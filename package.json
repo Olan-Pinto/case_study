@@ -11,7 +11,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "analyst": "node --env-file=.env server/analyst-server.mjs",
-    "test:analyst": "node --test server/portfolio-tools.test.mjs"
+    "test:analyst": "node --test server/portfolio-tools.test.mjs",
+    "test:financial": "node --test server/financial-what-if.test.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
