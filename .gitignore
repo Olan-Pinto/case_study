@@ -71,3 +71,7 @@ Desktop.ini
 *.swo
 *.tmp
 *.log
+
+
+presentation/
+*prompt*
